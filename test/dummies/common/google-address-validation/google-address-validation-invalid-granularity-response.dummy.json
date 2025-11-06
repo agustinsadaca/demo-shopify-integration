@@ -1,0 +1,95 @@
+{
+  "result": {
+    "verdict": {
+      "inputGranularity": "PREMISE",
+      "validationGranularity": "OTHER",
+      "geocodeGranularity": "OTHER",
+      "hasUnconfirmedComponents": true,
+      "hasInferredComponents": true
+    },
+    "address": {
+      "formattedAddress": "S\u00fcdstre1Teutschenthal, 06179 Teutschenthal, Deutschland",
+      "postalAddress": {
+        "regionCode": "DE",
+        "languageCode": "de",
+        "postalCode": "06179",
+        "locality": "Teutschenthal",
+        "addressLines": [
+          "S\u00fcdstre1Teutschenthal"
+        ]
+      },
+      "addressComponents": [
+        {
+          "componentName": {
+            "text": "S\u00fcdstre1Teutschenthal"
+          },
+          "componentType": "street_number",
+          "confirmationLevel": "UNCONFIRMED_BUT_PLAUSIBLE"
+        },
+        {
+          "componentName": {
+            "text": "Holleben",
+            "languageCode": "de"
+          },
+          "componentType": "sublocality_level_1",
+          "confirmationLevel": "CONFIRMED",
+          "spellCorrected": true
+        },
+        {
+          "componentName": {
+            "text": "06179"
+          },
+          "componentType": "postal_code",
+          "confirmationLevel": "CONFIRMED"
+        },
+        {
+          "componentName": {
+            "text": "Deutschland",
+            "languageCode": "de"
+          },
+          "componentType": "country",
+          "confirmationLevel": "CONFIRMED"
+        },
+        {
+          "componentName": {
+            "text": "Teutschenthal",
+            "languageCode": "de"
+          },
+          "componentType": "locality",
+          "confirmationLevel": "CONFIRMED",
+          "inferred": true
+        }
+      ],
+      "unconfirmedComponentTypes": [
+        "street_number"
+      ]
+    },
+    "geocode": {
+      "location": {
+        "latitude": 51.4364106,
+        "longitude": 11.9041688
+      },
+      "plusCode": {
+        "globalCode": "9F3HCWP3+HM"
+      },
+      "bounds": {
+        "low": {
+          "latitude": 51.4239985,
+          "longitude": 11.8909574
+        },
+        "high": {
+          "latitude": 51.451686,
+          "longitude": 11.9224466
+        }
+      },
+      "featureSizeMeters": 2118.899,
+      "placeId": "ChIJU678ghJ9pkcRoB0liFxmIwo",
+      "placeTypes": [
+        "political",
+        "sublocality",
+        "sublocality_level_1"
+      ]
+    }
+  },
+  "responseId": "6e44b5b7-0b4f-47b5-ba87-041c90adc055"
+}

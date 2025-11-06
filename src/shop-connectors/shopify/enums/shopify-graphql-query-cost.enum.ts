@@ -1,0 +1,26 @@
+// requestedQueryCost of shopify graphql req
+export enum EShopifyGraphQLQueryCost {
+  getProductVariants = 37,
+  getInventoryFilter = 7,
+  updateInventoryLevel = 10,
+  getInventoryLevels = 3,
+  getProductMetaInfo = 24,
+  getSubscribedWebhooks = 11,
+  subscribeWebhook = 10,
+  unSubscribeWebhook = 10,
+  getFulfillmentServices = 3,
+  createFulfillmentService = 11,
+  getShopDetails = 2,
+  getShippingMethods = 530,
+  calculateRefund = 8,
+  createRefund = 20,
+  getFulfillmentOrdersMetaInfo = 236,
+  getFulfillmentOrderDetails = 2,
+  sendCancellationRequestToFulfillmentService = 11,
+  cancelFulfillmentOrder = 11,
+  cancelOrder = 10,
+  getAssignedFulfillmentOrdersList = 930,
+  getFulfillmentOrder = 2,
+  acceptFulfillment = 10,
+  createFulfillment = 10
+}

@@ -1,0 +1,47 @@
+{
+  "items": [
+    {
+      "id": 1,
+      "createdAt": "2022-09-07T07:04:22.409Z",
+      "updatedAt": "2022-09-07T07:04:22.409Z",
+      "implementationId": 1,
+      "companyName": "flipkar",
+      "addressLine1": "Sterntalerweg",
+      "addressLine2": "121",
+      "zipCode": "46000",
+      "city": "berlin",
+      "region": "",
+      "countryCodeIso": "DE",
+      "implementation": {
+        "id": 1,
+        "createdAt": "2021-08-30T11:21:43.275Z",
+        "updatedAt": "2023-07-26T08:57:20.948Z",
+        "customerId": 1,
+        "partnerId": 1,
+        "shopName": "TEST",
+        "wmsName": "TEST",
+        "implementationIdCustomer": "TEST",
+        "implementationIdPartner": "TEST",
+        "partnerLocationId": 1,
+        "customerLocationId": "string",
+        "isActive": true,
+        "metaInfo": {
+          "generalReturnPeriod": 90
+        }
+      }
+    }
+  ],
+  "meta": {
+    "totalItems": 1,
+    "itemCount": 1,
+    "itemsPerPage": 10,
+    "totalPages": 1,
+    "currentPage": 1
+  },
+  "links": {
+    "first": "/return-shipment-destinations/filter/?limit=10",
+    "previous": "",
+    "next": "",
+    "last": "/return-shipment-destinations/filter/?page=1&limit=10"
+  }
+}

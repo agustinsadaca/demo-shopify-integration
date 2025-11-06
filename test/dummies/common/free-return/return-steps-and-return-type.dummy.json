@@ -1,0 +1,130 @@
+{
+  "isFreeReturn": true,
+  "returnSteps": [
+    {
+      "id": 1,
+      "createdAt": "2024-04-25T08:28:57.652Z",
+      "updatedAt": "2024-04-25T08:28:57.652Z",
+      "implementationId": 105,
+      "contentDe": "jhjah",
+      "contentEn": "jahjh",
+      "stepNumber": 1,
+      "isFreeStep": true,
+      "implementation": {
+        "id": 105,
+        "createdAt": "2022-12-01T16:10:16.773Z",
+        "updatedAt": "2022-12-01T16:10:16.773Z",
+        "customerId": 103,
+        "partnerId": 3,
+        "shopName": "shopware",
+        "wmsName": "wmstest",
+        "implementationIdCustomer": null,
+        "implementationIdPartner": null,
+        "partnerLocationId": 7,
+        "customerLocationId": "75600953653",
+        "isActive": true,
+        "metaInfo": null
+      }
+    },
+    {
+      "id": 2,
+      "createdAt": "2024-04-25T08:28:57.652Z",
+      "updatedAt": "2024-04-25T08:28:57.652Z",
+      "implementationId": 105,
+      "contentDe": "jhjah",
+      "contentEn": "jahjh",
+      "stepNumber": 1,
+      "isFreeStep": true,
+      "implementation": {
+        "id": 105,
+        "createdAt": "2022-12-01T16:10:16.773Z",
+        "updatedAt": "2022-12-01T16:10:16.773Z",
+        "customerId": 103,
+        "partnerId": 3,
+        "shopName": "shopware",
+        "wmsName": "wmstest",
+        "implementationIdCustomer": null,
+        "implementationIdPartner": null,
+        "partnerLocationId": 7,
+        "customerLocationId": "75600953653",
+        "isActive": true,
+        "metaInfo": null
+      }
+    },
+    {
+      "id": 3,
+      "createdAt": "2024-04-25T08:28:57.652Z",
+      "updatedAt": "2024-04-25T08:28:57.652Z",
+      "implementationId": 105,
+      "contentDe": "jhjah",
+      "contentEn": "jahjh",
+      "stepNumber": 1,
+      "isFreeStep": true,
+      "implementation": {
+        "id": 105,
+        "createdAt": "2022-12-01T16:10:16.773Z",
+        "updatedAt": "2022-12-01T16:10:16.773Z",
+        "customerId": 103,
+        "partnerId": 3,
+        "shopName": "shopware",
+        "wmsName": "wmstest",
+        "implementationIdCustomer": null,
+        "implementationIdPartner": null,
+        "partnerLocationId": 7,
+        "customerLocationId": "75600953653",
+        "isActive": true,
+        "metaInfo": null
+      }
+    },
+    {
+      "id": 4,
+      "createdAt": "2024-04-25T08:28:57.652Z",
+      "updatedAt": "2024-04-25T08:28:57.652Z",
+      "implementationId": 105,
+      "contentDe": "jhjah",
+      "contentEn": "jahjh",
+      "stepNumber": 1,
+      "isFreeStep": true,
+      "implementation": {
+        "id": 105,
+        "createdAt": "2022-12-01T16:10:16.773Z",
+        "updatedAt": "2022-12-01T16:10:16.773Z",
+        "customerId": 103,
+        "partnerId": 3,
+        "shopName": "shopware",
+        "wmsName": "wmstest",
+        "implementationIdCustomer": null,
+        "implementationIdPartner": null,
+        "partnerLocationId": 7,
+        "customerLocationId": "75600953653",
+        "isActive": true,
+        "metaInfo": null
+      }
+    },
+    {
+      "id": 5,
+      "createdAt": "2024-04-25T08:28:57.652Z",
+      "updatedAt": "2024-04-25T08:28:57.652Z",
+      "implementationId": 105,
+      "contentDe": "jhjah",
+      "contentEn": "jahjh",
+      "stepNumber": 1,
+      "isFreeStep": true,
+      "implementation": {
+        "id": 105,
+        "createdAt": "2022-12-01T16:10:16.773Z",
+        "updatedAt": "2022-12-01T16:10:16.773Z",
+        "customerId": 103,
+        "partnerId": 3,
+        "shopName": "shopware",
+        "wmsName": "wmstest",
+        "implementationIdCustomer": null,
+        "implementationIdPartner": null,
+        "partnerLocationId": 7,
+        "customerLocationId": "75600953653",
+        "isActive": true,
+        "metaInfo": null
+      }
+    }
+  ]
+}

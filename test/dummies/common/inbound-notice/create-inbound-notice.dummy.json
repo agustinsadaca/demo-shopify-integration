@@ -1,0 +1,17 @@
+{
+  "implementationId": 105,
+  "partnerLocationId": 1,
+  "customerInboundNoticeId": "inbound-19",
+  "partnerInboundNoticeId": "666",
+  "carrier": "dhl",
+  "trackingCode": "999",
+  "shippingType": "standard",
+  "expectedDeliveryDate": "2023-01-24T15:05:24.583Z",
+  "inboundNoticeItems": [
+    {
+      "inventoryItemSku": "ART2292992223ssdffs9",
+      "quantity": 1,
+      "barcode": "ert55"
+    }
+  ]
+}

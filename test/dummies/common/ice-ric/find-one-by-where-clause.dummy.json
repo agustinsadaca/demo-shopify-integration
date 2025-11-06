@@ -1,0 +1,18 @@
+{
+  "id": 1,
+  "createdAt": "2022-09-29T12:10:16.405Z",
+  "updatedAt": "2022-09-29T12:10:16.405Z",
+  "iceEventCode": "ADVIS",
+  "iceRicCode": "DLVDT",
+  "ttproEventCode": "DD",
+  "iceEventName": "Advise",
+  "iceRicName": "DeLiVery DaTe",
+  "iceEventNameDe": "Sendungsavise/-auftrag",
+  "iceRicNameDe": "Wunschtag",
+  "ttproStandardereignisBedeutung": "Datendienst",
+  "ttproEventCodeMeaning": "Data Service",
+  "dhlPaket": 1,
+  "dhlPaketInternational": 1,
+  "dhlEuropaket": 0,
+  "wh1Status": "data-service"
+}

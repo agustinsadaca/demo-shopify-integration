@@ -1,0 +1,62 @@
+{
+  "items": [
+    {
+      "id": 1,
+      "createdAt": "2023-03-13T08:52:16.249Z",
+      "updatedAt": "2023-03-13T08:52:16.249Z",
+      "implementationId": 106,
+      "domain": "string.com",
+      "logoImgUrl": "string",
+      "bannerImgUrl": "string",
+      "backgroundImgUrl": "string",
+      "faviconImgUrl": "string",
+      "primaryColor": "string",
+      "secondaryColor": "string",
+      "tagLine": "string",
+      "labelType": "grey"
+    },
+    {
+      "id": 2,
+      "createdAt": "2023-03-13T08:52:16.249Z",
+      "updatedAt": "2023-03-13T08:52:16.249Z",
+      "implementationId": 106,
+      "domain": "string2.com",
+      "logoImgUrl": "string",
+      "bannerImgUrl": "string",
+      "backgroundImgUrl": "string",
+      "faviconImgUrl": "string",
+      "primaryColor": "string",
+      "secondaryColor": "string",
+      "tagLine": "string",
+      "labelType": "grey"
+    },
+    {
+      "id": 3,
+      "createdAt": "2023-03-13T08:52:16.249Z",
+      "updatedAt": "2023-03-13T08:52:16.249Z",
+      "implementationId": 106,
+      "domain": "string3.com",
+      "logoImgUrl": "string",
+      "bannerImgUrl": "string",
+      "backgroundImgUrl": "string",
+      "faviconImgUrl": "string",
+      "primaryColor": "string",
+      "secondaryColor": "string",
+      "tagLine": "string",
+      "labelType": "grey"
+    }
+  ],
+  "meta": {
+    "totalItems": 3,
+    "itemCount": 3,
+    "itemsPerPage": 10,
+    "totalPages": 1,
+    "currentPage": 1
+  },
+  "links": {
+    "first": "/brand-labels/filter/?limit=10",
+    "previous": "",
+    "next": "",
+    "last": ""
+  }
+}

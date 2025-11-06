@@ -1,0 +1,349 @@
+[
+  {
+    "id": 121,
+    "createdAt": "2023-03-20T10:52:59.029Z",
+    "updatedAt": "2022-06-21T13:38:06.313Z",
+    "orderId": 1,
+    "partnerShipmentId": "SKU-1",
+    "carrier": "DHL",
+    "trackingCode": "00340434161094015902",
+    "trackingCodeReturn": null,
+    "shippingFirstName": "Vibhor",
+    "shippingLastName": "Verma",
+    "shippingAddressLine1": "Plot 24, Central Place",
+    "shippingAddressLine2": "Berlin, Germany",
+    "shippingCompanyName": "Samsung",
+    "shippingEmail": "vibhor@g.com",
+    "shippingZip": "110018",
+    "shippingCity": "Madrid",
+    "shippingRegion": "Central Germany",
+    "shippingCountryCodeIso": "DE",
+    "shippingPhone": "+497503823243",
+    "shippingMethod": "Courier",
+    "shippedAt": null,
+    "customerShipmentId": null,
+    "outboundShipmentHistories": [
+      {
+        "id": 240,
+        "createdAt": "2023-03-20T10:52:59.029Z",
+        "updatedAt": "2022-06-21T13:38:06.331Z",
+        "outboundShipmentId": 121,
+        "status": "shipped",
+        "wmsCreatedAt": "2022-06-21T13:38:06.331Z",
+        "wmsUpdatedAt": null,
+        "shopCreatedAt": null,
+        "shopUpdatedAt": null,
+        "source": "wms",
+        "tags": [
+          {
+            "code": "MISSING_SKUS",
+            "value": "SKU-2"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 122,
+    "createdAt": "2023-03-20T10:52:59.029Z",
+    "updatedAt": "2022-06-21T13:38:06.417Z",
+    "orderId": 1,
+    "partnerShipmentId": "SKU-1",
+    "carrier": "DHL",
+    "trackingCode": "00340434161094015903",
+    "trackingCodeReturn": null,
+    "shippingFirstName": "Vibhor",
+    "shippingLastName": "Verma",
+    "shippingAddressLine1": "Plot 24, Central Place",
+    "shippingAddressLine2": "Berlin, Germany",
+    "shippingCompanyName": "Samsung",
+    "shippingEmail": "vibhor@g.com",
+    "shippingZip": "110018",
+    "shippingCity": "Hamburg",
+    "shippingRegion": "Central Germany",
+    "shippingCountryCodeIso": "DE",
+    "shippingPhone": "+497503823243",
+    "shippingMethod": "Courier",
+    "shippedAt": null,
+    "customerShipmentId": null,
+    "outboundShipmentHistories": [
+      {
+        "id": 242,
+        "createdAt": "2023-03-20T10:52:59.029Z",
+        "updatedAt": "2022-06-21T13:38:06.435Z",
+        "outboundShipmentId": 122,
+        "status": "shipped",
+        "wmsCreatedAt": "2022-06-21T13:38:06.434Z",
+        "wmsUpdatedAt": null,
+        "shopCreatedAt": null,
+        "shopUpdatedAt": null,
+        "source": "wms",
+        "tags": [
+          {
+            "code": "MISSING_SKUS",
+            "value": "SKU-3"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 123,
+    "createdAt": "2023-03-20T10:52:59.029Z",
+    "updatedAt": "2022-06-21T13:40:11.613Z",
+    "orderId": 1,
+    "partnerShipmentId": "SKU-1",
+    "carrier": "DHL",
+    "trackingCode": "7777777770",
+    "trackingCodeReturn": null,
+    "shippingFirstName": "Vibhor",
+    "shippingLastName": "Verma",
+    "shippingAddressLine1": "Plot 24, Central Place",
+    "shippingAddressLine2": "Berlin, Germany",
+    "shippingCompanyName": "Samsung",
+    "shippingEmail": "vibhor@g.com",
+    "shippingZip": "110018",
+    "shippingCity": "Berlin",
+    "shippingRegion": "Central Germany",
+    "shippingCountryCodeIso": "DE",
+    "shippingPhone": "+497503823243",
+    "shippingMethod": "Courier",
+    "shippedAt": null,
+    "customerShipmentId": null,
+    "outboundShipmentHistories": [
+      {
+        "id": 246,
+        "createdAt": "2023-03-20T10:52:59.029Z",
+        "updatedAt": "2022-06-21T13:40:11.654Z",
+        "outboundShipmentId": 123,
+        "status": "shipped",
+        "wmsCreatedAt": "2022-06-21T13:40:11.653Z",
+        "wmsUpdatedAt": null,
+        "shopCreatedAt": null,
+        "shopUpdatedAt": null,
+        "source": "wms",
+        "tags": [
+          {
+            "code": "MISSING_SKUS",
+            "value": "SKU-1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 124,
+    "createdAt": "2023-03-20T10:52:59.029Z",
+    "updatedAt": "2022-06-21T13:40:11.799Z",
+    "orderId": 1,
+    "partnerShipmentId": "SKU-1",
+    "carrier": "DHL",
+    "trackingCode": "00340434161094015905",
+    "trackingCodeReturn": null,
+    "shippingFirstName": "Vibhor",
+    "shippingLastName": "Verma",
+    "shippingAddressLine1": "Plot 24, Central Place",
+    "shippingAddressLine2": "Berlin, Germany",
+    "shippingCompanyName": "Samsung",
+    "shippingEmail": "vibhor@g.com",
+    "shippingZip": "110018",
+    "shippingCity": "Madrid",
+    "shippingRegion": "Central Germany",
+    "shippingCountryCodeIso": "DE",
+    "shippingPhone": "+497503823243",
+    "shippingMethod": "Courier",
+    "shippedAt": null,
+    "customerShipmentId": null,
+    "outboundShipmentHistories": [
+      {
+        "id": 247,
+        "createdAt": "2023-03-20T10:52:59.029Z",
+        "updatedAt": "2022-06-21T13:40:11.817Z",
+        "outboundShipmentId": 124,
+        "status": "shipped",
+        "wmsCreatedAt": "2022-06-21T13:40:11.816Z",
+        "wmsUpdatedAt": null,
+        "shopCreatedAt": null,
+        "shopUpdatedAt": null,
+        "source": "wms",
+        "tags": [
+          {
+            "code": "MISSING_SKUS",
+            "value": "SKU-2"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 125,
+    "createdAt": "2023-03-20T10:52:59.029Z",
+    "updatedAt": "2022-06-21T13:40:11.916Z",
+    "orderId": 1,
+    "partnerShipmentId": "SKU-1",
+    "carrier": "DHL",
+    "trackingCode": "00340434161094015906",
+    "trackingCodeReturn": null,
+    "shippingFirstName": "Vibhor",
+    "shippingLastName": "Verma",
+    "shippingAddressLine1": "Plot 24, Central Place",
+    "shippingAddressLine2": "Berlin, Germany",
+    "shippingCompanyName": "Samsung",
+    "shippingEmail": "vibhor@g.com",
+    "shippingZip": "110018",
+    "shippingCity": "Hamburg",
+    "shippingRegion": "Central Germany",
+    "shippingCountryCodeIso": "DE",
+    "shippingPhone": "+497503823243",
+    "shippingMethod": "Courier",
+    "shippedAt": null,
+    "customerShipmentId": null,
+    "outboundShipmentHistories": [
+      {
+        "id": 249,
+        "createdAt": "2023-03-20T10:52:59.029Z",
+        "updatedAt": "2022-06-21T13:40:11.934Z",
+        "outboundShipmentId": 125,
+        "status": "shipped",
+        "wmsCreatedAt": "2022-06-21T13:40:11.933Z",
+        "wmsUpdatedAt": null,
+        "shopCreatedAt": null,
+        "shopUpdatedAt": null,
+        "source": "wms",
+        "tags": [
+          {
+            "code": "MISSING_SKUS",
+            "value": "SKU-3"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 126,
+    "createdAt": "2023-03-20T10:52:59.029Z",
+    "updatedAt": "2022-07-22T14:44:54.756Z",
+    "orderId": 1,
+    "partnerShipmentId": "SKU-1",
+    "carrier": "DHL",
+    "trackingCode": "",
+    "trackingCodeReturn": null,
+    "shippingFirstName": "Vibhor",
+    "shippingLastName": "Verma",
+    "shippingAddressLine1": "Plot 24, Central Place",
+    "shippingAddressLine2": "Berlin, Germany",
+    "shippingCompanyName": "Samsung",
+    "shippingEmail": "vibhor@g.com",
+    "shippingZip": "110018",
+    "shippingCity": "Berlin",
+    "shippingRegion": "Central Germany",
+    "shippingCountryCodeIso": "DE",
+    "shippingPhone": "+497503823243",
+    "shippingMethod": "Courier",
+    "shippedAt": null,
+    "customerShipmentId": null,
+    "outboundShipmentHistories": [
+      {
+        "id": 253,
+        "createdAt": "2023-03-20T10:52:59.029Z",
+        "updatedAt": "2022-07-22T14:44:54.790Z",
+        "outboundShipmentId": 126,
+        "status": "shipped",
+        "wmsCreatedAt": "2022-07-22T14:44:54.790Z",
+        "wmsUpdatedAt": null,
+        "shopCreatedAt": null,
+        "shopUpdatedAt": null,
+        "source": "wms",
+        "tags": [
+          {
+            "code": "MISSING_SKUS",
+            "value": "SKU-1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 127,
+    "createdAt": "2023-03-20T10:52:59.029Z",
+    "updatedAt": "2022-07-22T14:44:54.921Z",
+    "orderId": 1,
+    "partnerShipmentId": "SKU-1",
+    "carrier": "DHL",
+    "trackingCode": "",
+    "trackingCodeReturn": null,
+    "shippingFirstName": "Vibhor",
+    "shippingLastName": "Verma",
+    "shippingAddressLine1": "Plot 24, Central Place",
+    "shippingAddressLine2": "Berlin, Germany",
+    "shippingCompanyName": "Samsung",
+    "shippingEmail": "vibhor@g.com",
+    "shippingZip": "110018",
+    "shippingCity": "Madrid",
+    "shippingRegion": "Central Germany",
+    "shippingCountryCodeIso": "DE",
+    "shippingPhone": "+497503823243",
+    "shippingMethod": "Courier",
+    "shippedAt": null,
+    "customerShipmentId": null,
+    "outboundShipmentHistories": [
+      {
+        "id": 254,
+        "createdAt": "2023-03-20T10:52:59.029Z",
+        "updatedAt": "2022-07-22T14:44:54.944Z",
+        "outboundShipmentId": 127,
+        "status": "shipped",
+        "wmsCreatedAt": "2022-07-22T14:44:54.944Z",
+        "wmsUpdatedAt": null,
+        "shopCreatedAt": null,
+        "shopUpdatedAt": null,
+        "source": "wms",
+        "tags": [
+          {
+            "code": "MISSING_SKUS",
+            "value": "SKU-2"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 128,
+    "createdAt": "2023-03-20T10:52:59.029Z",
+    "updatedAt": "2022-07-22T14:44:55.017Z",
+    "orderId": 1,
+    "partnerShipmentId": "SKU-1",
+    "carrier": "DHL",
+    "trackingCode": "00340434161094015908",
+    "trackingCodeReturn": null,
+    "shippingFirstName": "Vibhor",
+    "shippingLastName": "Verma",
+    "shippingAddressLine1": "Plot 24, Central Place",
+    "shippingAddressLine2": "Berlin, Germany",
+    "shippingCompanyName": "Samsung",
+    "shippingEmail": "vibhor@g.com",
+    "shippingZip": "110018",
+    "shippingCity": "Hamburg",
+    "shippingRegion": "Central Germany",
+    "shippingCountryCodeIso": "DE",
+    "shippingPhone": "+497503823243",
+    "shippingMethod": "Courier",
+    "shippedAt": null,
+    "customerShipmentId": null,
+    "outboundShipmentHistories": [
+      {
+        "id": 256,
+        "createdAt": "2023-03-20T10:52:59.029Z",
+        "updatedAt": "2022-07-22T14:44:55.036Z",
+        "outboundShipmentId": 128,
+        "status": "shipped",
+        "wmsCreatedAt": "2022-07-22T14:44:55.035Z",
+        "wmsUpdatedAt": null,
+        "shopCreatedAt": null,
+        "shopUpdatedAt": null,
+        "source": "wms",
+        "tags": null
+      }
+    ]
+  }
+]

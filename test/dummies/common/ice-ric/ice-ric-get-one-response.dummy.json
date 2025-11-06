@@ -1,0 +1,18 @@
+{
+  "id": 11,
+  "created_at": "2022-09-29 12:10:16.797615+00",
+  "updated_at": "2022-09-29 12:10:16.797615+00",
+  "ice_event_code": "CNFSC",
+  "ice_ric_code": "LEGAT",
+  "ttpro_event_code": "BV",
+  "ice_event_name": "Confiscation",
+  "ice_ric_name": "LEGal AuThority",
+  "ice_event_name_de": "Beschlagnahme/Postsperre",
+  "ice_ric_name_de": "Übergabe der Sendung an Bevollmächtigten",
+  "ttpro_standardereignis_bedeutung": "Besondere Vorkommnisse",
+  "ttpro_event_code_meaning": "Exception",
+  "dhl_paket": 1,
+  "dhl_paket_international": 0,
+  "dhl_europaket": 0,
+  "wh1_status": "exception"
+}

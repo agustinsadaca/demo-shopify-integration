@@ -1,0 +1,15 @@
+{
+  "moduleFileExtensions": [
+    "js",
+    "json",
+    "ts"
+  ],
+  "bail": true,
+  "rootDir": "../src/pact-tests",
+  "testEnvironment": "node",
+  "testRegex": ".*\\.spec\\.pact\\.ts$",
+  "transform": {
+    "^.+\\.(t|j)s$": "ts-jest"
+  },
+  "maxWorkers": "1"
+}

@@ -1,0 +1,25 @@
+{
+  "items": [
+    {
+      "id": 21,
+      "createdAt": "2022-11-17T06:51:11.962Z",
+      "updatedAt": "2022-11-17T06:51:11.962Z",
+      "implementationId": 1,
+      "countryCodeIso": "DE",
+      "isActive": true
+    }
+  ],
+  "meta": {
+    "totalItems": 1,
+    "itemCount": 1,
+    "itemsPerPage": 10,
+    "totalPages": 1,
+    "currentPage": 1
+  },
+  "links": {
+    "first": "/free-returns/filter/?limit=10",
+    "previous": "",
+    "next": "",
+    "last": "/free-returns/filter/?page=1&limit=10"
+  }
+}

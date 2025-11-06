@@ -1,0 +1,31 @@
+{
+  "id": 53,
+  "createdAt": "2023-11-21T08:58:36.727Z",
+  "updatedAt": "2023-12-31T00:00:01.223Z",
+  "connectionUrl": "https://test.myshopify.com",
+  "targetType": "shop",
+  "targetSystem": "shopify",
+  "authObject": {
+    "accessKey": "qwewqeqweqweqweqweqweqweqweqw",
+    "secretKey": "shpat_wqeqweqweqweqweqweqweqw"
+  },
+  "authStrategy": "Basic Auth",
+  "implementationId": 1,
+  "sharedImplementations": null,
+  "isActive": true,
+  "targetTypeId": 35,
+  "targetSystemConnectionId": null,
+  "metaInfo": {
+    "shopifyPlan": {
+      "planName": "basic",
+      "rateLimit": {
+        "ttlInSeconds": 1,
+        "allowedRequest": 2
+      },
+      "planDisplayName": "Basic Shopify"
+    }
+  },
+  "defaultTimezone": null,
+  "fulfillmentTrain": null,
+  "delayOrderReleaseInMinutes": 10
+}

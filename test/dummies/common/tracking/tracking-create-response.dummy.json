@@ -1,0 +1,27 @@
+{
+  "id": 106,
+  "createdAt": "2022-11-21T09:24:07.399Z",
+  "updatedAt": "2022-11-21T09:24:07.399Z",
+  "entityType": "return-request",
+  "entityId": 3,
+  "trackingCode": "00340434161094032954",
+  "status": "Delivered",
+  "metaInfo": {
+    "ice": "DLVRD",
+    "ric": "OTHER",
+    "ice_ric_name": "Other / Delivery to an other person",
+    "delivery-date": null,
+    "event-country": "Germany",
+    "event-location": "Bonn",
+    "ice_event_name": "Delivered",
+    "event-timestamp": "18.03.2016 10:02",
+    "event-short-status": "Delivery successful",
+    "delivery-event-flag": "1",
+    "standard-event-code": "ZU",
+    "delivery-timeframe-to": null,
+    "preferred-delivery-day": null,
+    "delivery-timeframe-from": null,
+    "event-text/event-status": "The shipment has been successfully delivered",
+    "ttpro_event_code_meaning": "Delivery successful"
+  }
+}

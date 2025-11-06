@@ -1,0 +1,343 @@
+{
+  "items": [
+    {
+      "id": 10,
+      "createdAt": "2023-01-27T08:37:10.802Z",
+      "updatedAt": "2023-01-27T08:37:10.802Z",
+      "implementationId": 18,
+      "partnerLocationId": 11,
+      "customerInboundNoticeId": "9HA442444FE926GJ",
+      "partnerInboundNoticeId": "BRCL035V3MF7WUH1",
+      "carrier": "dhl",
+      "trackingCode": "20D069G6DBF569IF",
+      "shippingType": "string",
+      "expectedDeliveryDate": "2023-01-27T08:32:04.428Z",
+      "inboundNoticeItems": [
+        {
+          "id": 34,
+          "createdAt": "2023-02-02 15:15:44.509825+05:45",
+          "updatedAt": "2023-02-02 15:15:46.007732+05:45",
+          "inboundNoticeId": 22,
+          "inventoryItemSkuImplementation": "JTL-product-7_18",
+          "inventoryItemSku": "JTL-product-7",
+          "quantity": 23420,
+          "barcode": "string",
+          "metaInfo": {
+            "quantityOpen": 23420
+          },
+          "inventoryItem": {
+            "id": 166,
+            "createdAt": "2023-01-19T08:15:54.154Z",
+            "updatedAt": "2023-01-19T08:15:54.154Z",
+            "sku": "JTL-product-9",
+            "skuImplementation": "JTL-product-7_18",
+            "implementationId": 18,
+            "customerItemId": "0001",
+            "partnerItemId": "BRCL01LSFF3",
+            "dimensions": {
+              "width": 23,
+              "height": 2,
+              "length": 3,
+              "weight": 1,
+              "widthUnit": "cm",
+              "heightUnit": "gm",
+              "lengthUnit": "gm",
+              "weightUnit": "gm"
+            },
+            "name": "JTL Test Product 7",
+            "wmsSyncedAt": "2023-01-19T07:34:29.948Z",
+            "shopSyncedAt": "2023-01-19T07:34:29.948Z",
+            "source": "shopify",
+            "barcode": "hellwowld",
+            "price": "32243.200000",
+            "harmonizedSystemCode": "HARMO123",
+            "countryCodeOfOrigin": "NP",
+            "customerItemType": "cloth",
+            "isBundle": false,
+            "metaInfo": {},
+            "packagingRatio": "0.000000",
+            "packagingGroupSku": "string",
+            "notFulfillable": false,
+            "noInventoryLevelUpdate": false,
+            "isReady": true,
+            "lowStockAt": null,
+            "lowStockThreshold": null,
+            "returnPeriod": 5,
+            "imagesUrl": null
+          }
+        },
+        {
+          "id": 33,
+          "createdAt": "2023-02-02 15:15:44.509825+05:45",
+          "updatedAt": "2023-02-02 15:15:45.982667+05:45",
+          "inboundNoticeId": 22,
+          "inventoryItemSkuImplementation": "JTL-product-8_18",
+          "inventoryItemSku": "JTL-product-8",
+          "quantity": 30,
+          "barcode": "string",
+          "metaInfo": {
+            "quantityOpen": 30
+          },
+          "inventoryItem": {
+            "id": 166,
+            "createdAt": "2023-01-19T08:15:54.154Z",
+            "updatedAt": "2023-01-19T08:15:54.154Z",
+            "sku": "JTL-product1",
+            "skuImplementation": "JTL-product1_18",
+            "implementationId": 18,
+            "customerItemId": "0001",
+            "partnerItemId": "BRCL01CFA9B",
+            "dimensions": {
+              "width": 23,
+              "height": 2,
+              "length": 3,
+              "weight": 1,
+              "widthUnit": "cm",
+              "heightUnit": "gm",
+              "lengthUnit": "gm",
+              "weightUnit": "gm"
+            },
+            "name": "JTL Test Product 1",
+            "wmsSyncedAt": "2023-01-19T07:34:29.948Z",
+            "shopSyncedAt": "2023-01-19T07:34:29.948Z",
+            "source": "shopify",
+            "barcode": "hellwowld",
+            "price": "32243.200000",
+            "harmonizedSystemCode": "HARMO123",
+            "countryCodeOfOrigin": "NP",
+            "customerItemType": "cloth",
+            "isBundle": false,
+            "metaInfo": {},
+            "packagingRatio": "0.000000",
+            "packagingGroupSku": "string",
+            "notFulfillable": false,
+            "noInventoryLevelUpdate": false,
+            "isReady": true,
+            "lowStockAt": null,
+            "lowStockThreshold": null,
+            "returnPeriod": 5,
+            "imagesUrl": null
+          }
+        }
+      ],
+      "inboundNoticeHistories": [
+        {
+          "id": 16,
+          "createdAt": "2023-01-27T08:37:10.819Z",
+          "updatedAt": "2023-01-27T08:37:10.819Z",
+          "inboundNoticeId": 10,
+          "status": "new",
+          "wmsCreatedAt": "2023-01-27T08:37:10.802Z",
+          "wmsUpdatedAt": null,
+          "shopCreatedAt": null,
+          "shopUpdatedAt": null,
+          "source": "wms",
+          "isInternalHistory": true
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "createdAt": "2023-01-27T08:35:47.713Z",
+      "updatedAt": "2023-01-27T08:35:47.713Z",
+      "implementationId": 18,
+      "partnerLocationId": 11,
+      "customerInboundNoticeId": "CACF362D4A8GCFE0",
+      "partnerInboundNoticeId": "BRCL03BCXAX3AV7T",
+      "carrier": "dhl",
+      "trackingCode": "A5G1A210HCICHD64",
+      "shippingType": "string",
+      "expectedDeliveryDate": "2023-01-27T08:32:04.428Z",
+      "inboundNoticeItems": [
+        {
+          "id": 32,
+          "createdAt": "2023-02-02 15:14:32.212723+05:45",
+          "updatedAt": "2023-02-02 15:14:32.212723+05:45",
+          "inboundNoticeId": 21,
+          "inventoryItemSkuImplementation": "JTL-product-5_18",
+          "inventoryItemSku": "JTL-product-5",
+          "quantity": 23420,
+          "barcode": "string",
+          "metaInfo": {
+            "quantityOpen": 130
+          },
+          "inventoryItem": {
+            "id": 166,
+            "createdAt": "2023-01-19T08:15:54.154Z",
+            "updatedAt": "2023-01-19T08:15:54.154Z",
+            "sku": "JTL-product-5",
+            "skuImplementation": "JTL-product-5_18",
+            "implementationId": 18,
+            "customerItemId": "0001",
+            "partnerItemId": "BRCL01U3UH4",
+            "dimensions": {
+              "width": 23,
+              "height": 2,
+              "length": 3,
+              "weight": 1,
+              "widthUnit": "cm",
+              "heightUnit": "gm",
+              "lengthUnit": "gm",
+              "weightUnit": "gm"
+            },
+            "name": "JTL Test Product 1",
+            "wmsSyncedAt": "2023-01-19T07:34:29.948Z",
+            "shopSyncedAt": "2023-01-19T07:34:29.948Z",
+            "source": "shopify",
+            "barcode": "hellwowld",
+            "price": "32243.200000",
+            "harmonizedSystemCode": "HARMO123",
+            "countryCodeOfOrigin": "NP",
+            "customerItemType": "cloth",
+            "isBundle": false,
+            "metaInfo": {},
+            "packagingRatio": "0.000000",
+            "packagingGroupSku": "string",
+            "notFulfillable": false,
+            "noInventoryLevelUpdate": false,
+            "isReady": true,
+            "lowStockAt": null,
+            "lowStockThreshold": null,
+            "returnPeriod": 5,
+            "imagesUrl": null
+          }
+        },
+        {
+          "id": 7,
+          "createdAt": "2023-01-27T08:35:47.713Z",
+          "updatedAt": "2023-01-27T08:35:47.713Z",
+          "inboundNoticeId": 7,
+          "inventoryItemSku": "JTL-product-2",
+          "quantity": 30,
+          "barcode": "string",
+          "metaInfo": {
+            "quantityOpen": 32.2342242
+          }
+        }
+      ],
+      "inboundNoticeHistories": [
+        {
+          "id": 13,
+          "createdAt": "2023-01-27T08:35:47.771Z",
+          "updatedAt": "2023-01-27T08:35:47.771Z",
+          "inboundNoticeId": 7,
+          "status": "new",
+          "wmsCreatedAt": "2023-01-27T08:35:47.713Z",
+          "wmsUpdatedAt": null,
+          "shopCreatedAt": null,
+          "shopUpdatedAt": null,
+          "source": "wms",
+          "isInternalHistory": true
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "createdAt": "2023-01-27T08:35:47.713Z",
+      "updatedAt": "2023-01-27T08:35:47.713Z",
+      "implementationId": 18,
+      "partnerLocationId": 11,
+      "customerInboundNoticeId": null,
+      "partnerInboundNoticeId": null,
+      "carrier": "dhl",
+      "trackingCode": null,
+      "shippingType": "string",
+      "expectedDeliveryDate": "2023-01-27T08:32:04.428Z",
+      "inboundNoticeItems": [
+        {
+          "id": 32,
+          "createdAt": "2023-02-02 15:14:32.212723+05:45",
+          "updatedAt": "2023-02-02 15:14:32.212723+05:45",
+          "inboundNoticeId": 21,
+          "inventoryItemSkuImplementation": "JTL-product-67_18",
+          "inventoryItemSku": "JTL-product-67",
+          "quantity": 23420,
+          "barcode": "string",
+          "metaInfo": {
+            "quantityOpen": 130
+          },
+          "inventoryItem": {
+            "id": 166,
+            "createdAt": "2023-01-19T08:15:54.154Z",
+            "updatedAt": "2023-01-19T08:15:54.154Z",
+            "sku": "JTL-product-67",
+            "skuImplementation": "JTL-product-67_18",
+            "implementationId": 18,
+            "customerItemId": "0001",
+            "partnerItemId": "BRCL01U3UH4",
+            "dimensions": {
+              "width": 23,
+              "height": 2,
+              "length": 3,
+              "weight": 1,
+              "widthUnit": "cm",
+              "heightUnit": "gm",
+              "lengthUnit": "gm",
+              "weightUnit": "gm"
+            },
+            "name": "JTL Test Product 1",
+            "wmsSyncedAt": "2023-01-19T07:34:29.948Z",
+            "shopSyncedAt": "2023-01-19T07:34:29.948Z",
+            "source": "shopify",
+            "barcode": "hellwowld",
+            "price": "32243.200000",
+            "harmonizedSystemCode": "HARMO123",
+            "countryCodeOfOrigin": "NP",
+            "customerItemType": "cloth",
+            "isBundle": false,
+            "metaInfo": {},
+            "packagingRatio": "0.000000",
+            "packagingGroupSku": "string",
+            "notFulfillable": false,
+            "noInventoryLevelUpdate": false,
+            "isReady": true,
+            "lowStockAt": null,
+            "lowStockThreshold": null,
+            "returnPeriod": 5,
+            "imagesUrl": null
+          }
+        },
+        {
+          "id": 37,
+          "createdAt": "2023-01-27T08:35:47.713Z",
+          "updatedAt": "2023-01-27T08:35:47.713Z",
+          "inboundNoticeId": 7,
+          "inventoryItemSku": "JTL-product-33",
+          "quantity": 30,
+          "barcode": "string",
+          "metaInfo": {
+            "quantityOpen": 32.2342242
+          }
+        }
+      ],
+      "inboundNoticeHistories": [
+        {
+          "id": 13,
+          "createdAt": "2023-01-27T08:35:47.771Z",
+          "updatedAt": "2023-01-27T08:35:47.771Z",
+          "inboundNoticeId": 7,
+          "status": "new",
+          "wmsCreatedAt": "2023-01-27T08:35:47.713Z",
+          "wmsUpdatedAt": null,
+          "shopCreatedAt": null,
+          "shopUpdatedAt": null,
+          "source": "wms",
+          "isInternalHistory": true
+        }
+      ]
+    }
+  ],
+  "meta": {
+    "totalItems": 9,
+    "itemCount": 9,
+    "itemsPerPage": 10,
+    "totalPages": 1,
+    "currentPage": 1
+  },
+  "links": {
+    "first": "/inbound-notices/find-by-status-not-arrived/?limit=10",
+    "previous": "",
+    "next": "",
+    "last": "/inbound-notices/find-by-status-not-arrived/?page=1&limit=10"
+  }
+}

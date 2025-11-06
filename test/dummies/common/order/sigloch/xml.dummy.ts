@@ -1,0 +1,62 @@
+export const fileParserDummyXml = `<?xml version="1.0" encoding="UTF-8"?>
+<DocumentImport xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <CreationDate>2023-03-07T09:23:31.162Z</CreationDate>
+    <Documents>
+        <Document>
+            <SubClient>23232</SubClient>
+            <DocumentNumber>1936</DocumentNumber>
+            <DocumentDate>2023-02-27T12:44:42.060Z</DocumentDate>
+            <DocumentType>D</DocumentType>
+            <CustomerNumber>1936</CustomerNumber>
+            <ShippingType>DHL</ShippingType>
+            <PaymentInfo>
+                <PaymentType>2</PaymentType>
+                <DueDate>2023-02-27T12:44:42.060Z</DueDate>
+                <CalculationType>B</CalculationType>
+                <TotalPrice>
+                    <Net>0</Net>
+                    <Gross>1000</Gross>
+                </TotalPrice>
+            </PaymentInfo>
+            <Positions>
+                <Position>
+                    <PositionNumber>1</PositionNumber>
+                    <PositionType>LP</PositionType>
+                    <Article>
+                        <ItemNumber>SKU1111</ItemNumber>
+                    </Article>
+                    <Quantity>1</Quantity>
+                </Position>
+                <Position>
+                    <PositionNumber>2</PositionNumber>
+                    <PositionType>VP</PositionType>
+                </Position>
+            </Positions>
+            <Addresses>
+                <Address>
+                    <AddressType>InvoiceAddress</AddressType>
+                    <Name1>string string</Name1>
+                    <Name2>string</Name2>
+                    <Street>string</Street>
+                    <ZipCode>string</ZipCode>
+                    <City>string</City>
+                    <CountryCode>NP</CountryCode>
+                    <Email>santosh@gmail.com</Email>
+                    <Phone>string</Phone>
+                </Address>
+                <Address>
+                    <AddressType>DeliveryAddress</AddressType>
+                    <Name1>string string</Name1>
+                    <Name2>string</Name2>
+                    <Street>string</Street>
+                    <ZipCode>string</ZipCode>
+                    <City>string</City>
+                    <CountryCode>NP</CountryCode>
+                    <Email>santosh@gmail.com</Email>
+                    <Phone>string</Phone>
+                </Address>
+            </Addresses>
+        </Document>
+    </Documents>
+</DocumentImport>
+`

@@ -1,0 +1,20 @@
+{
+  "orderId": 616,
+  "implementationId": 106,
+  "senderFullName": "Rabin",
+  "senderAdditionalDetails": "No Detail",
+  "senderStreet": "kathmandu",
+  "senderHouseNumber": "kj",
+  "senderZipCode": "44600",
+  "senderCity": "kathmandu",
+  "senderCountryCodeIso": "DE",
+  "orderItems": [
+    {
+      "orderItemId": 695,
+      "sku": "bundle-test",
+      "quantity": 1,
+      "returnReason": "too large",
+      "returnType": "exchange"
+    }
+  ]
+}

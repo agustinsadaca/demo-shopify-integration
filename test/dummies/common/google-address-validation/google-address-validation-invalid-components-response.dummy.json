@@ -1,0 +1,92 @@
+{
+  "result": {
+    "verdict": {
+      "inputGranularity": "PREMISE",
+      "validationGranularity": "PREMISE",
+      "geocodeGranularity": "PREMISE",
+      "addressComplete": true
+    },
+    "address": {
+      "formattedAddress": "Zeughofstraße 20, 10997 Berlin, Deutschland",
+      "postalAddress": {
+        "regionCode": "DE",
+        "languageCode": "de",
+        "postalCode": "10997",
+        "locality": "Berlin",
+        "addressLines": [
+          "Zeughofstraße 20"
+        ]
+      },
+      "addressComponents": [
+        {
+          "componentName": {
+            "text": "Zeughofstraße",
+            "languageCode": "de"
+          },
+          "componentType": "route",
+          "confirmationLevel": "CONFIRMED",
+          "spellCorrected": true
+        },
+        {
+          "componentName": {
+            "text": "20"
+          },
+          "componentType": "street_number",
+          "confirmationLevel": "CONFIRMED"
+        },
+        {
+          "componentName": {
+            "text": "10997"
+          },
+          "componentType": "postal_code",
+          "confirmationLevel": "CONFIRMED"
+        },
+        {
+          "componentName": {
+            "text": "Berlin",
+            "languageCode": "de"
+          },
+          "componentType": "locality",
+          "confirmationLevel": "CONFIRMED"
+        },
+        {
+          "componentName": {
+            "text": "Deutschland",
+            "languageCode": "de"
+          },
+          "componentType": "country",
+          "confirmationLevel": "CONFIRMED"
+        }
+      ]
+    },
+    "geocode": {
+      "location": {
+        "latitude": 52.50032,
+        "longitude": 13.433047
+      },
+      "plusCode": {
+        "globalCode": "9F4MGC2M+46"
+      },
+      "bounds": {
+        "low": {
+          "latitude": 52.5000932,
+          "longitude": 13.4327602
+        },
+        "high": {
+          "latitude": 52.5004363,
+          "longitude": 13.4335408
+        }
+      },
+      "featureSizeMeters": 41.872242,
+      "placeId": "ChIJEcesv0tOqEcRoHNciRi8jtU",
+      "placeTypes": [
+        "premise"
+      ]
+    },
+    "metadata": {
+      "business": true,
+      "residential": false
+    }
+  },
+  "responseId": "8376eed9-15c5-48aa-9bec-c0172f5b70fe"
+}

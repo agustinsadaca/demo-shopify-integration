@@ -1,0 +1,115 @@
+import { Module } from '@nestjs/common'
+import { TypeOrmModule } from '@nestjs/typeorm'
+import { AddressValidationTrackerModule } from '../address-validation-tracker/address-validation-tracker.module'
+import { AddressValidationModule } from '../address-validation/address-validation.module'
+import { AnnouncementTargetModule } from '../announcement-target/announcement-target.module'
+import { AnnouncementsModule } from '../announcements/announcements.module'
+import { AutomationModule } from '../automation/automation.module'
+import { BrandLabelModule } from '../brand-label/brand-label.module'
+import { ConnectionAuthsModule } from '../connection-auths/connection-auths.module'
+import { ConnectionPoolModule } from '../connection-pool/connection-auth-pool.module'
+import { CoreModule } from '../core/core.module'
+import { EmailSummaryModule } from '../email-summary/email-summary.module'
+import { EventHandlersModule } from '../event-handlers/event-handlers.module'
+import { EventTriggerModule } from '../event-trigger/event-trigger.module'
+import { FieldMapper } from '../field-mapper/entities/field-mapper.entity'
+import { FieldMapperService } from '../field-mapper/field-mapper.service'
+import { FileHandlersService } from '../file-handlers/file-handlers.service'
+import { FreeReturnModule } from '../free-returns/free-returns.module'
+import { FreeReturnService } from '../free-returns/free-returns.service'
+import { ImplementationsModule } from '../implementations/implementations.module'
+import { InboundNoticesModule } from '../inbound-notices/inbound-notices.module'
+import { InboundReceiptsModule } from '../inbound-receipts/inbound-receipts.module'
+import { InventoryBundlesModule } from '../inventory-bundles/inventory-bundles.module'
+import { InventoryItemsModule } from '../inventory-items/inventory-items.module'
+import { InventoryLevelSourceModule } from '../inventory-level-source/inventory-level-source.module'
+import { NotificationsModule } from '../notifications/notifications.module'
+import { OrdersModule } from '../orders/orders.module'
+import { OutboundShipmentsModule } from '../outbound-shipments/outbound-shipments.module'
+import { PartnerLocationInventoryItemsModule } from '../partner-location-inventory-items/partner-location-inventory-items.module'
+import { PartnerLocationStorageItemsModule } from '../partner-location-storage-item/partner-location-storage-items.module'
+import { PartnerLocationsModule } from '../partner-locations/partner-locations.module'
+import { QuestionnaireTargetModule } from '../questionnaire-targets/questionnaire-target.module'
+import { QuestionnaireModule } from '../questionnaire/questionnaire.module'
+import { RefundOrdersModule } from '../refund-orders/refund-orders.module'
+import { ReportGeneratorModule } from '../report-generator/report-generator.module'
+import { ReportsModule } from '../reports/reports.module'
+import { ReturnReasonModule } from '../return-reasons/return-reasons.module'
+import { ReturnReasonService } from '../return-reasons/return-reasons.service'
+import { ReturnShipmentsModule } from '../return-shipments/return-shipments.module'
+import { ReturnStepsModule } from '../return-steps/return-steps.module'
+import { ShippingMethodUtilModule } from '../shipping-method-util/shipping-method-util.module'
+import { ShipsWithModule } from '../ships-with/ships-with.module'
+import { BillbeeModule } from '../shop-connectors/billbee/billbee.module'
+import { ShopConnectorsModule } from '../shop-connectors/shop-connectors.module'
+import { ShopifyModule } from '../shop-connectors/shopify/shopify.module'
+import { ShopwareModule } from '../shop-connectors/shopware/shopware.module'
+import { WoocommerceModule } from '../shop-connectors/woocommerce/woocommerce.module'
+import { XentralModule } from '../shop-connectors/xentral/xentral.module'
+import { ShopIntegrationModule } from '../shop-integration/shop-integration.module'
+import { SyncPreference } from '../sync-preferences/entities/sync-preference.entity'
+import { SyncPreferencesService } from '../sync-preferences/sync-preferences.service'
+import { TicketsModule } from '../tickets/tickets.module'
+import { TrackingsModule } from '../trackings/trackings.module'
+import { ShopController } from './shop.controller'
+import { ShopService } from './shop.service'
+
+@Module({
+  imports: [
+    AutomationModule,
+    CoreModule,
+    ImplementationsModule,
+    OrdersModule,
+    OutboundShipmentsModule,
+    ReturnShipmentsModule,
+    PartnerLocationsModule,
+    InventoryItemsModule,
+    PartnerLocationInventoryItemsModule,
+    PartnerLocationStorageItemsModule,
+    EventHandlersModule,
+    EventTriggerModule,
+    NotificationsModule,
+    InboundNoticesModule,
+    InboundReceiptsModule,
+    InventoryLevelSourceModule,
+    ConnectionAuthsModule,
+    TypeOrmModule.forFeature([FieldMapper, SyncPreference]),
+    InventoryBundlesModule,
+    ShipsWithModule,
+    TrackingsModule,
+    RefundOrdersModule,
+    ReturnReasonModule,
+    ReportGeneratorModule,
+    ShopConnectorsModule,
+    ReturnStepsModule,
+    FreeReturnModule,
+    BrandLabelModule,
+    EmailSummaryModule,
+    AddressValidationModule,
+    AddressValidationTrackerModule,
+    ShippingMethodUtilModule,
+    ReportsModule,
+    AnnouncementsModule,
+    AnnouncementTargetModule,
+    QuestionnaireModule,
+    QuestionnaireTargetModule,
+    ShopIntegrationModule,
+    ShopifyModule,
+    BillbeeModule,
+    WoocommerceModule,
+    XentralModule,
+    ShopwareModule,
+    ConnectionPoolModule,
+    TicketsModule
+  ],
+  controllers: [ShopController],
+  providers: [
+    ShopService,
+    FieldMapperService,
+    FileHandlersService,
+    SyncPreferencesService,
+    ReturnReasonService,
+    FreeReturnService
+  ]
+})
+export class ShopModule {}

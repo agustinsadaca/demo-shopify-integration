@@ -1,0 +1,22 @@
+{
+  "id": 119,
+  "createdAt": "2022-11-21T09:24:07.425Z",
+  "updatedAt": "2022-11-21T09:24:07.425Z",
+  "returnRequestId": 3,
+  "status": "received",
+  "carrierCreatedAt": null,
+  "carrierUpdatedAt": null,
+  "tags": null,
+  "returnRequest": {
+    "id": 3,
+    "createdAt": "2022-11-15T10:24:03.284Z",
+    "updatedAt": "2022-11-15T10:24:05.002Z",
+    "orderId": 520,
+    "implementationId": 3,
+    "carrierReturnRequestId": null,
+    "trackingCode": "00340434161094032954",
+    "returnShipmentDestinationId": 2,
+    "currentStatus": "received",
+    "qrCode": null
+  }
+}

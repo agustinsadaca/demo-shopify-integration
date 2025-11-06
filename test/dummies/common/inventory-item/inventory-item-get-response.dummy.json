@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "partnerItemId": "DHL-product-1",
+    "implementationId": 18,
+    "implementation": {
+      "id": 18,
+      "partnerLocationId": 1
+    }
+  },
+  {
+    "id": 1,
+    "partnerItemId": "DHL-product-2",
+    "implementationId": 18,
+    "implementation": {
+      "id": 18,
+      "partnerLocationId": 1
+    }
+  }
+]

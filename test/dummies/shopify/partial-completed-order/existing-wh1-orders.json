@@ -1,0 +1,178 @@
+{
+  "items": [
+    {
+      "id": 45767,
+      "createdAt": "2025-02-25T12:40:29.602Z",
+      "updatedAt": "2025-02-25T12:40:30.027Z",
+      "implementationId": 160,
+      "customerOrderId": "6529171718305",
+      "partnerOrderId": null,
+      "channel": "shopify",
+      "total": "310.000000",
+      "currency": "INR",
+      "shippingFirstName": "Jeel",
+      "shippingLastName": "Parikh",
+      "shippingAddressLine1": "test",
+      "shippingAddressLine2": "test",
+      "shippingCompanyName": null,
+      "shippingEmail": "jeel@testttt.com",
+      "shippingZip": "382424",
+      "shippingCity": "ahmedabad",
+      "shippingRegion": "Gujarat",
+      "shippingCountryCodeIso": "IN",
+      "shippingPhone": null,
+      "shippingMethod": "1",
+      "paymentMethod": "bogus",
+      "tags": null,
+      "placedAt": "2025-02-24T12:25:06.000Z",
+      "customerOrderNumber": "1109",
+      "totalNet": "310.000000",
+      "totalTaxAmount": "0.000000",
+      "totalTaxRate": "0.000000",
+      "shippingCost": "110.000000",
+      "shippingCostNet": "110.000000",
+      "shippingTaxAmount": null,
+      "shippingTaxRate": null,
+      "discount": "0.000000",
+      "discountNet": "0.000000",
+      "discountTaxAmount": "0.000000",
+      "discountTaxRate": "0.000000",
+      "billingFirstName": "Jeel",
+      "billingLastName": "Parikh",
+      "billingAddressLine1": "test",
+      "billingAddressLine2": "test",
+      "billingCompanyName": "",
+      "billingEmail": "",
+      "billingZip": "382424",
+      "billingCity": "ahmedabad",
+      "billingRegion": "Gujarat",
+      "billingCountryCodeIso": "IN",
+      "billingPhone": "",
+      "metaInfo": {
+        "shopify_order_gid": "gid://shopify/Order/6529171718305",
+        "partial_fulfillment": true,
+        "fulfillment_order_id": "7683869835425",
+        "isShippingMethodUnknown": false,
+        "noAddressValidationReason": "notActivated",
+        "shopify_fulfillment_order_gid": "gid://shopify/FulfillmentOrder/7683869835425"
+      },
+      "currentStatus": "to-be-fixed",
+      "refundStatus": null,
+      "relatedOrderId": null,
+      "addressValidationNecessary": false,
+      "outboundShipments": [],
+      "orderItems": [
+        {
+          "id": 79996,
+          "createdAt": "2025-02-25T12:40:29.602Z",
+          "updatedAt": "2025-02-25T12:40:29.602Z",
+          "orderId": 45767,
+          "inventoryItemSku": "wh12102020",
+          "pricePaid": "200.000000",
+          "quantity": 2,
+          "currency": "INR",
+          "customerLineItemId": "15835608645793",
+          "unitPrice": "100.000000",
+          "unitPriceNet": "100.000000",
+          "pricePaidNet": "200.000000",
+          "taxAmount": "0.000000",
+          "taxRate": "0.000000",
+          "isBundle": false,
+          "belongsToBundle": false,
+          "metaInfo": {
+            "shopify_order_line_item_gid": "gid://shopify/LineItem/15835608645793",
+            "fulfillment_order_line_item_id": "16080666165409",
+            "shopify_fulfillment_order_line_item_gid": "gid://shopify/FulfillmentOrderLineItem/16080666165409"
+          },
+          "discount": null,
+          "discountNet": null,
+          "discountTaxAmount": null,
+          "discountTaxRate": "0.000000",
+          "isShipsWithItem": false,
+          "discountRate": null,
+          "inventoryItem": {
+            "id": 2574,
+            "createdAt": "2024-08-15T17:36:14.166Z",
+            "updatedAt": "2025-01-08T09:47:44.757Z",
+            "sku": "wh12102020",
+            "implementationId": 160,
+            "customerItemId": "40193016758433",
+            "partnerItemId": null,
+            "dimensions": {
+              "weight": 110,
+              "weightUnit": "kg"
+            },
+            "name": "shirt wh129283",
+            "wmsSyncedAt": null,
+            "shopSyncedAt": "2024-12-04T09:43:43.163Z",
+            "source": "shopify",
+            "barcode": "",
+            "price": "100.000000",
+            "harmonizedSystemCode": 220299,
+            "countryCodeOfOrigin": "FR",
+            "customerItemType": null,
+            "isBundle": false,
+            "metaInfo": {
+              "shopify_inventory_item_id": "42287620096161",
+              "shopify_inventory_item_gid": "gid://shopify/InventoryItem/42287620096161",
+              "shopify_product_variant_gid": "gid://shopify/ProductVariant/40193016758433"
+            },
+            "packagingRatio": null,
+            "packagingGroupSku": null,
+            "notFulfillable": false,
+            "noInventoryLevelUpdate": false,
+            "isReady": false,
+            "status": "not-ready",
+            "lowStockAt": null,
+            "lowStockThreshold": null,
+            "returnPeriod": 90994,
+            "imagesUrl": [
+              {}
+            ],
+            "description": null,
+            "isBatchRequired": null,
+            "isBestBeforeRequired": null,
+            "isBillOfMaterialsRequired": null,
+            "isDivisibleRequired": null,
+            "isSerialNumberRequired": null
+          }
+        }
+      ],
+      "returnShipment": [],
+      "orderHistories": [
+        {
+          "id": 311640,
+          "createdAt": "2025-02-25T12:40:30.027Z",
+          "updatedAt": "2025-02-25T12:40:30.027Z",
+          "orderId": 45767,
+          "status": "to-be-fixed",
+          "tags": [
+            {
+              "code": "FIX_REQUIRED",
+              "value": "{\"syncedToWmsInfo\":[\"wh12102020\"],\"stockInfo\":{\"wh12102020\":-2}}"
+            }
+          ],
+          "wmsCreatedAt": null,
+          "wmsUpdatedAt": null,
+          "shopCreatedAt": null,
+          "shopUpdatedAt": null,
+          "source": null,
+          "isInternalHistory": true
+        }
+      ]
+    }
+  ],
+  "meta": {
+    "totalItems": 1,
+    "itemCount": 1,
+    "itemsPerPage": 100,
+    "totalPages": 1,
+    "currentPage": 1
+  },
+  "links": {
+    "first": "/orders/filter/?limit=100",
+    "previous": "",
+    "next": "",
+    "last": "/orders/filter/?page=1&limit=100"
+  }
+}

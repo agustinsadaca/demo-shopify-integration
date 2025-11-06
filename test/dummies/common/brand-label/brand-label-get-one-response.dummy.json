@@ -1,0 +1,15 @@
+{
+  "id": 1,
+  "createdAt": "2023-03-13T08:52:16.249Z",
+  "updatedAt": "2023-03-13T08:52:16.249Z",
+  "implementationId": 106,
+  "domain": "string.com",
+  "logoImgUrl": "string",
+  "bannerImgUrl": "string",
+  "backgroundImgUrl": "string",
+  "faviconImgUrl": "string",
+  "primaryColor": "string",
+  "secondaryColor": "string",
+  "tagLine": "string",
+  "labelType": "grey"
+}

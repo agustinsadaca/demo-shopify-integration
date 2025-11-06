@@ -1,0 +1,245 @@
+{
+  "items": [
+    {
+      "id": 66,
+      "createdAt": "2024-06-27T19:26:48.084Z",
+      "updatedAt": "2024-06-27T19:26:48.084Z",
+      "implementationId": 1,
+      "skuImplementation": "PACT-ORDER-SKU-3_1",
+      "upTo": 2,
+      "shipsWithSku": "ship-with-item-1",
+      "shipsWithSkuType": "quantityOrdered",
+      "isActive": true,
+      "automationRuleId": 128,
+      "inventoryItem": {
+        "id": 1867,
+        "createdAt": "2023-02-13T08:12:58.074Z",
+        "updatedAt": "2024-06-25T10:40:26.717Z",
+        "sku": "PACT-ORDER-SKU-3",
+        "skuImplementation": "PACT-ORDER-SKU-3_1",
+        "implementationId": 105,
+        "customerItemId": "44436396081461",
+        "partnerItemId": null,
+        "dimensions": {
+          "weight": 1,
+          "weightUnit": "kg"
+        },
+        "name": "iBag",
+        "wmsSyncedAt": null,
+        "shopSyncedAt": "2023-12-01T10:54:01.165Z",
+        "source": "shopify",
+        "barcode": "IBAG124",
+        "price": "3000.000000",
+        "harmonizedSystemCode": 20130,
+        "countryCodeOfOrigin": "DE",
+        "customerItemType": null,
+        "isBundle": false,
+        "metaInfo": {
+          "shopify_inventory_item_id": "46484503757109"
+        },
+        "packagingRatio": null,
+        "packagingGroupSku": null,
+        "notFulfillable": false,
+        "noInventoryLevelUpdate": false,
+        "isReady": false,
+        "status": "synced-to-wms",
+        "lowStockAt": null,
+        "lowStockThreshold": 45,
+        "returnPeriod": 20,
+        "imagesUrl": [
+          {
+            "url": "https://cdn.shopify.com/s/files/1/0698/1615/6469/files/1570x883.webp?v=1697799311"
+          }
+        ],
+        "description": "This is a test for jtl.",
+        "isBatchRequired": null,
+        "isBestBeforeRequired": null,
+        "isBillOfMaterialsRequired": null,
+        "isDivisibleRequired": null,
+        "isSerialNumberRequired": null
+      },
+      "implementation": {
+        "id": 105,
+        "createdAt": "2022-11-04T09:17:33.949Z",
+        "updatedAt": "2023-09-22T06:02:28.255Z",
+        "customerId": 102,
+        "partnerId": 7,
+        "shopName": "105 Imp Test",
+        "wmsName": "105 Imp Test",
+        "implementationIdCustomer": null,
+        "implementationIdPartner": null,
+        "partnerLocationId": 10,
+        "customerLocationId": "75600953653",
+        "isActive": true,
+        "metaInfo": {
+          "generalReturnPeriod": 11
+        }
+      }
+    },
+    {
+      "id": 67,
+      "createdAt": "2024-06-27T19:26:48.084Z",
+      "updatedAt": "2024-06-27T19:26:48.084Z",
+      "implementationId": 1,
+      "skuImplementation": "PACT-ORDER-SKU-2_1",
+      "upTo": 2,
+      "shipsWithSku": "ship-with-item-1",
+      "shipsWithSkuType": "quantityOrdered",
+      "isActive": true,
+      "automationRuleId": 128,
+      "inventoryItem": {
+        "id": 1867,
+        "createdAt": "2023-02-13T08:12:58.074Z",
+        "updatedAt": "2024-06-25T10:40:26.717Z",
+        "sku": "PACT-ORDER-SKU-2",
+        "skuImplementation": "PACT-ORDER-SKU-2_1",
+        "implementationId": 1,
+        "customerItemId": "44436396081461",
+        "partnerItemId": null,
+        "dimensions": {
+          "weight": 1,
+          "weightUnit": "kg"
+        },
+        "name": "iBag",
+        "wmsSyncedAt": null,
+        "shopSyncedAt": "2023-12-01T10:54:01.165Z",
+        "source": "shopify",
+        "barcode": "IBAG124",
+        "price": "3000.000000",
+        "harmonizedSystemCode": 20130,
+        "countryCodeOfOrigin": "DE",
+        "customerItemType": null,
+        "isBundle": false,
+        "metaInfo": {
+          "shopify_inventory_item_id": "46484503757109"
+        },
+        "packagingRatio": null,
+        "packagingGroupSku": null,
+        "notFulfillable": false,
+        "noInventoryLevelUpdate": false,
+        "isReady": false,
+        "status": "synced-to-wms",
+        "lowStockAt": null,
+        "lowStockThreshold": 45,
+        "returnPeriod": 20,
+        "imagesUrl": [
+          {
+            "url": "https://cdn.shopify.com/s/files/1/0698/1615/6469/files/1570x883.webp?v=1697799311"
+          }
+        ],
+        "description": "This is a test for jtl.",
+        "isBatchRequired": null,
+        "isBestBeforeRequired": null,
+        "isBillOfMaterialsRequired": null,
+        "isDivisibleRequired": null,
+        "isSerialNumberRequired": null
+      },
+      "implementation": {
+        "id": 105,
+        "createdAt": "2022-11-04T09:17:33.949Z",
+        "updatedAt": "2023-09-22T06:02:28.255Z",
+        "customerId": 102,
+        "partnerId": 7,
+        "shopName": "105 Imp Test",
+        "wmsName": "105 Imp Test",
+        "implementationIdCustomer": null,
+        "implementationIdPartner": null,
+        "partnerLocationId": 10,
+        "customerLocationId": "75600953653",
+        "isActive": true,
+        "metaInfo": {
+          "generalReturnPeriod": 11
+        }
+      }
+    },
+    {
+      "id": 68,
+      "createdAt": "2024-06-27T19:26:48.084Z",
+      "updatedAt": "2024-06-27T19:26:48.084Z",
+      "implementationId": 1,
+      "skuImplementation": "ship-with-item-1_1",
+      "upTo": 1,
+      "shipsWithSku": "ship-with-item-1",
+      "shipsWithSkuType": "wrapper",
+      "isActive": true,
+      "automationRuleId": 128,
+      "inventoryItem": {
+        "id": 1867,
+        "createdAt": "2023-02-13T08:12:58.074Z",
+        "updatedAt": "2024-06-25T10:40:26.717Z",
+        "sku": "ship-with-item-1",
+        "skuImplementation": "ship-with-item-1_1",
+        "implementationId": 1,
+        "customerItemId": "44436396081461",
+        "partnerItemId": null,
+        "dimensions": {
+          "weight": 1,
+          "weightUnit": "kg"
+        },
+        "name": "iBag",
+        "wmsSyncedAt": null,
+        "shopSyncedAt": "2023-12-01T10:54:01.165Z",
+        "source": "shopify",
+        "barcode": "ship-with-item-1",
+        "price": "3000.000000",
+        "harmonizedSystemCode": 20130,
+        "countryCodeOfOrigin": "DE",
+        "customerItemType": null,
+        "isBundle": false,
+        "metaInfo": {
+          "shopify_inventory_item_id": "46484503757109"
+        },
+        "packagingRatio": null,
+        "packagingGroupSku": null,
+        "notFulfillable": false,
+        "noInventoryLevelUpdate": false,
+        "isReady": false,
+        "status": "synced-to-wms",
+        "lowStockAt": null,
+        "lowStockThreshold": 45,
+        "returnPeriod": 20,
+        "imagesUrl": [
+          {
+            "url": "https://cdn.shopify.com/s/files/1/0698/1615/6469/files/1570x883.webp?v=1697799311"
+          }
+        ],
+        "description": "This is a test for jtl.",
+        "isBatchRequired": null,
+        "isBestBeforeRequired": null,
+        "isBillOfMaterialsRequired": null,
+        "isDivisibleRequired": null,
+        "isSerialNumberRequired": null
+      },
+      "implementation": {
+        "id": 105,
+        "createdAt": "2022-11-04T09:17:33.949Z",
+        "updatedAt": "2023-09-22T06:02:28.255Z",
+        "customerId": 102,
+        "partnerId": 7,
+        "shopName": "105 Imp Test",
+        "wmsName": "105 Imp Test",
+        "implementationIdCustomer": null,
+        "implementationIdPartner": null,
+        "partnerLocationId": 10,
+        "customerLocationId": "75600953653",
+        "isActive": true,
+        "metaInfo": {
+          "generalReturnPeriod": 11
+        }
+      }
+    }
+  ],
+  "meta": {
+    "totalItems": 3,
+    "itemCount": 3,
+    "itemsPerPage": 11,
+    "totalPages": 1,
+    "currentPage": 1
+  },
+  "links": {
+    "first": "/ShipsWith/filter/?limit=10",
+    "previous": "",
+    "next": "",
+    "last": ""
+  }
+}

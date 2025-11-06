@@ -1,0 +1,2227 @@
+import {
+  AddressValidationTracker,
+  AggregateByStatusInventoryItemDto,
+  CalculateRefundOrderDto,
+  CalculateRefundOrderResponseDto,
+  ChangeOrderDto,
+  CreateAddressValidationTrackerDto,
+  CreateFreeReturnDto,
+  CreateFreeReturnsFromOptionsDto,
+  CreateInboundNoticeDto,
+  CreateInboundNoticeItemDto,
+  CreateInventoryBundleDto,
+  CreateInventoryItemDto,
+  CreateOrderDto,
+  CreateOrderTagDto,
+  CreateOrdersHistoryDto,
+  CreatePartnerLocationInventoryItemDto,
+  CreateReturnReasonDto,
+  CreateReturnStepsDto,
+  CreateShipsWithDto,
+  CreateTicketDto,
+  CreateTicketMessageDto,
+  CreateTrackingDto,
+  ExtendedOrderDto,
+  FreeReturn,
+  FulfillmentCheckRequestDto,
+  FulfillmentCheckResponseDto,
+  Implementation,
+  InboundNotice,
+  InboundNoticeHistory,
+  InboundNoticeItem,
+  InboundReceipt,
+  InboundReceiptItem,
+  InventoryBundle,
+  InventoryItem,
+  InventoryItemsAggregatedByStatusResponse,
+  InventoryLevelSource,
+  MonthlyValidatedAddressReportDto,
+  Notification,
+  Order,
+  OrderHistory,
+  OrderItem,
+  OrderStatus,
+  OrderTagEntity,
+  OrdersAggregatedByStatusResponse,
+  OrgType,
+  OutboundShipment,
+  OutboundShipmentItem,
+  PaginatorDto,
+  PartnerLocation,
+  PartnerLocationInventoryItem,
+  PartnerLocationStorageItem,
+  QueryAddressValidationTrackerDto,
+  QueryFreeReturnDto,
+  QueryImplementationDto,
+  QueryInboundNoticeDto,
+  QueryInboundNoticeHistoryDto,
+  QueryInboundNoticeItemDto,
+  QueryInboundReceiptDto,
+  QueryInboundReceiptItemDto,
+  QueryInventoryBundleDto,
+  QueryInventoryItemDto,
+  QueryInventoryLevelSourceDto,
+  QueryNotificationDto,
+  QueryOrderByCurrentStatusDto,
+  QueryOrderDto,
+  QueryOrderItemDto,
+  QueryOrderTagDto,
+  QueryOrdersHistoryDto,
+  QueryOutboundShipmentDto,
+  QueryPartnerLocationDto,
+  QueryPartnerLocationInventoryItemDto,
+  QueryPartnerLocationStorageItemDto,
+  QueryRefundOrderDto,
+  QueryRefundOrderItemDto,
+  QueryReturnReasonDto,
+  QueryReturnShipmentDto,
+  QueryReturnStepsDto,
+  QueryShipsWithDto,
+  QueryTicketDto,
+  QueryTicketMessageDto,
+  QueryTrackingDto,
+  RefundOrder,
+  RefundOrderItem,
+  ReleaseOrderDto,
+  ReturnPeriodsResponse,
+  ReturnReason,
+  ReturnShipment,
+  ReturnSteps,
+  ShipsWith,
+  Tracking,
+  UpdateAddressValidationTrackerDto,
+  UpdateFreeReturnDto,
+  UpdateInboundNoticeDto,
+  UpdateInboundNoticeHistoryDto,
+  UpdateInboundNoticeItemDto,
+  UpdateInventoryBundleDto,
+  UpdateInventoryItemActiveStatusDto,
+  UpdateInventoryItemDto,
+  UpdateNotificationDto,
+  UpdateOrderDto,
+  UpdateOrderItemDto,
+  UpdateOrdersHistoryDto,
+  UpdateReturnPeriodDto,
+  UpdateReturnReasonDto,
+  UpdateReturnStepsDto,
+  UpdateShipsWithDto,
+  UpdateTicketStatusDto,
+  UpdateTrackingDto
+} from '@digital-logistics-gmbh/wh1plus-common'
+import { Pagination } from '@digital-logistics-gmbh/wh1plus-paginate'
+import {
+  Body,
+  Controller,
+  DefaultValuePipe,
+  Delete,
+  ForbiddenException,
+  Get,
+  HttpCode,
+  Param,
+  ParseArrayPipe,
+  ParseBoolPipe,
+  ParseIntPipe,
+  Patch,
+  Post,
+  Query,
+  Req,
+  Res,
+  SetMetadata,
+  UploadedFile,
+  UseInterceptors,
+  UsePipes,
+  ValidationPipe
+} from '@nestjs/common'
+import { FileInterceptor } from '@nestjs/platform-express'
+import {
+  ApiAcceptedResponse,
+  ApiBadRequestResponse,
+  ApiBearerAuth,
+  ApiBody,
+  ApiConflictResponse,
+  ApiConsumes,
+  ApiCreatedResponse,
+  ApiNoContentResponse,
+  ApiNotFoundResponse,
+  ApiOkResponse,
+  ApiOperation,
+  ApiQuery,
+  ApiTags,
+  ApiUnauthorizedResponse
+} from '@nestjs/swagger'
+import { Observable } from 'rxjs'
+import { AddressValidationTrackerService } from '../address-validation-tracker/address-validation-tracker.service'
+import { CreateAddressValidationDto } from '../address-validation/dtos/create-address-validation.dto'
+import { QueryAddressValidationDto } from '../address-validation/dtos/query-address-validation.dto'
+import { UpdateAddressValidationDto } from '../address-validation/dtos/update-address-validation.dto'
+import { AddressValidation } from '../address-validation/entities/address-validation.entity'
+import { InventoryItemReEmitEventDto } from '../admin/dto/inventory-item-re-emit-event.dto'
+import { AnnouncementTargetService } from '../announcement-target/announcement-target.service'
+import { QueryAnnouncementTargetDto } from '../announcement-target/dtos/query-announcement-target.dto'
+import { UpdateAnnouncementTargetDto } from '../announcement-target/dtos/update-announcement-target.dto'
+import { AnnouncementTarget } from '../announcement-target/entities/announcement-target.entity'
+import { AnnouncementsService } from '../announcements/announcements.service'
+import { QueryAnnouncementDto } from '../announcements/dto/query-announcement.dto'
+import { Announcement } from '../announcements/entities/announcement.entity'
+import { AutomationService } from '../automation/automation.service'
+import { AddressValidationToggleDto } from '../automation/dto/address-validation-toggle.dto'
+import { CreateAutomationDto } from '../automation/dto/create-automation.dto'
+import { QueryAutomationDto } from '../automation/dto/query-automation.dto'
+import { UpdateAutomationDto } from '../automation/dto/update-automation.dto'
+import { AutomationRule } from '../automation/entities/automation-rule.entity'
+import { BrandLabelService } from '../brand-label/brand-label.service'
+import { BrandLabelUploadFileDto } from '../brand-label/dtos/brand-label-upload.dto'
+import { CreateBrandLabelDto } from '../brand-label/dtos/create-brand-label.dto'
+import { QueryBrandLabelDto } from '../brand-label/dtos/query-brand-label.dto'
+import { UpdateBrandLabelDto } from '../brand-label/dtos/update-brand-label.dto'
+import { BrandLabel } from '../brand-label/entities/brand-label.entity'
+import BrandLabelUploadOption from '../brand-label/options/multer-upload.option'
+import { validateBrandLabelFileSizeAndResolution } from '../brand-label/utils/file-size.validator'
+import { mainConfigs } from '../config/config'
+import {
+  CreateConnectionAuthDto,
+  CreateShopConnectionAuthDto,
+  CreateShopifyIntregrationDto
+} from '../connection-auths/dtos/create-connection-auth.dto'
+import { QueryConnectionAuthsDto } from '../connection-auths/dtos/query-connection-auths.dto'
+import { UpdateConnectionAuthDto } from '../connection-auths/dtos/update-connection-auth.dto'
+import { ConnectionAuth } from '../connection-auths/entities/connection-auth.entity'
+import { TestConnectionResponseInterface } from '../connection-auths/interface/test-connection-response.interface'
+import { PaginatedResult } from '../core/interfaces/pagination-result.interface'
+import { removePaginatorFields } from '../core/utils/paginator.util'
+import { CreateEmailSummaryDto } from '../email-summary/dto/create-email-summary.dto'
+import { QueryEmailSummaryDto } from '../email-summary/dto/query.email-summary.dto'
+import { UpdateEmailSummaryDto } from '../email-summary/dto/update-email-summary.dto'
+import { EmailSummaryService } from '../email-summary/email-summary.service'
+import { EmailSummary } from '../email-summary/entities/email-summary.entity'
+import { EmailSummaryCreateValidationPipe } from '../email-summary/pipes/email-summary-create-validation.pipe'
+import { CreateEventTriggerDto } from '../event-trigger/dtos/create-event-trigger.dto'
+import { EventTriggerService } from '../event-trigger/event-trigger-service'
+import { CreateFieldMapperDto } from '../field-mapper/dto/create-field-mapper.dto'
+import { QueryFieldMapperDto } from '../field-mapper/dto/query-field-mapper.dto'
+import { UpdateFieldMapperDto } from '../field-mapper/dto/update-field-mapper.dto'
+import { FieldMapper } from '../field-mapper/entities/field-mapper.entity'
+import { FieldMapperService } from '../field-mapper/field-mapper.service'
+import { QueryFieldMapper } from '../field-mapper/interfaces/query-field-mapper.interface'
+import { FileHandlerDto } from '../file-handlers/dto/file-handler.dto'
+import { FileHandlersService } from '../file-handlers/file-handlers.service'
+import { QueryQuestionnaireTargetDto } from '../questionnaire-targets/dtos/query-questionnaire-target.dto'
+import { UpdateQuestionnaireTargetDto } from '../questionnaire-targets/dtos/update-questionnaire-target.dto'
+import { QuestionnaireTarget } from '../questionnaire-targets/entities/questionnaire-target.entity'
+import { QuestionnaireTargetService } from '../questionnaire-targets/questionnaire-target.service'
+import { QueryQuestionnaireDto } from '../questionnaire/dtos/query-questionnair.dto'
+import { Questionnaire } from '../questionnaire/entities/questionnaire.entity'
+import { QuestionnaireService } from '../questionnaire/questionnaire.service'
+import { ReportGeneratorService } from '../report-generator/report-generator.service'
+import { ReportsService } from '../reports/reports.service'
+import { ShopifyWebhookDto } from '../shop-connectors/shopify/dtos/shopify-webhook.dto'
+import { CreateSyncPreferenceDto } from '../sync-preferences/dto/create-sync-preference.dto'
+import { QuerySyncPreferenceDto } from '../sync-preferences/dto/query-sync-preference.dto'
+import { UpdateSyncPreferenceDto } from '../sync-preferences/dto/update-sync-preference.dto'
+import { SyncPreference } from '../sync-preferences/entities/sync-preference.entity'
+import { SyncPreferencesService } from '../sync-preferences/sync-preferences.service'
+import { CreateTicketAttachmentUploadPreSignedUrlDto } from '../tickets/dto/createTicketAttachmentUploadPreSignedUrl'
+import { TicketsService } from '../tickets/tickets.service'
+import GetInventoryItemShopStockLevelsResponseDto from './dtos/get-inventory-item-shop-stock-levels-response.dto'
+import { ShopService } from './shop.service'
+
+@ApiBearerAuth('Authorization')
+@Controller('shop')
+export class ShopController {
+  constructor(
+    private readonly shopService: ShopService,
+    private reportGeneratorService: ReportGeneratorService,
+    private triggerService: EventTriggerService,
+    private FieldMapperService: FieldMapperService,
+    private fileHandlersService: FileHandlersService,
+    private syncPreferencesService: SyncPreferencesService,
+    private automationService: AutomationService,
+    private brandLabelService: BrandLabelService,
+    private emailSummaryService: EmailSummaryService,
+    private addressValidationTrackerService: AddressValidationTrackerService,
+    private reportsService: ReportsService,
+    private announcementsService: AnnouncementsService,
+    private announcementTargetService: AnnouncementTargetService,
+    private questionnaireService: QuestionnaireService,
+    private questionnaireTargetService: QuestionnaireTargetService,
+    private ticketsService: TicketsService
+  ) { }
+
+  @ApiTags('Questionnaire')
+  @ApiOkResponse({ type: Questionnaire, isArray: true })
+  @Get('/questionnaires/filter')
+  @UsePipes(new ValidationPipe({ transform: true, whitelist: true, forbidNonWhitelisted: true }))
+  filterQuestionnaires(
+    @Query() queryDto: QueryQuestionnaireDto,
+    @Req() req
+  ): Promise<Pagination<Questionnaire>> {
+    const { page, limit } = queryDto
+    removePaginatorFields(queryDto)
+    return this.questionnaireService.findByFilter(
+      queryDto,
+      {
+        page,
+        limit,
+        route: mainConfigs.URL + '/questionnaires/filter/'
+      },
+      req.user
+    )
+  }
+
+  @ApiTags('Questionnaire')
+  @ApiOkResponse({ type: Questionnaire })
+  @ApiNotFoundResponse()
+  @Get('/questionnaires/:id')
+  getQuestionnaire(@Param('id', ParseIntPipe) id: number, @Req() req): Promise<Questionnaire> {
+    return this.questionnaireService.findOne(id, req.user)
+  }
+
+  @ApiTags('Questionnaire Targets')
+  @Patch('/questionnaire-targets/:id')
+  @HttpCode(204)
+  @ApiNoContentResponse()
+  @ApiNotFoundResponse()
+  @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
+  async updateQuestionnaireTarget(
+    @Param('id', ParseIntPipe) id: number,
+    @Body() updateQuestionnaireTargetDto: UpdateQuestionnaireTargetDto,
+    @Req() req
+  ) {
+    await this.questionnaireTargetService.update(id, updateQuestionnaireTargetDto, req.user)
+    return
+  }
+
+  @ApiTags('Questionnaire Targets')
+  @ApiOkResponse({ type: QuestionnaireTarget, isArray: true })
+  @Get('/questionnaire-targets/filter')
+  @UsePipes(new ValidationPipe({ transform: true, whitelist: true, forbidNonWhitelisted: true }))
+  filterQuestionnaireTargets(
+    @Query() queryDto: QueryQuestionnaireTargetDto,
+    @Req() req
+  ): Promise<Pagination<QuestionnaireTarget>> {
+    const { page, limit } = queryDto
+    removePaginatorFields(queryDto)
+
+    return this.questionnaireTargetService.findByFilter(
+      queryDto,
+      {
+        page,
+        limit,
+        route: mainConfigs.URL + '/questionnaire-targets/filter/'
+      },
+      req.user
+    )
+  }
+
+  @ApiTags('Announcement-Targets')
+  @ApiOkResponse({ type: AnnouncementTarget, isArray: true })
+  @Get('/announcement-targets/filter')
+  @UsePipes(new ValidationPipe({ transform: true, whitelist: true, forbidNonWhitelisted: true }))
+  filterAnnouncementTargets(
+    @Query() queryDto: QueryAnnouncementTargetDto,
+    @Req() req
+  ): Promise<Pagination<AnnouncementTarget>> {
+    const { page, limit } = queryDto
+    removePaginatorFields(queryDto)
+    return this.announcementTargetService.findByFilter(
+      queryDto,
+      {
+        page,
+        limit,
+        route: mainConfigs.URL + '/announcement-targets/filter/'
+      },
+      req.user
+    )
+  }
+
+  @ApiTags('Announcement-Targets')
+  @ApiOkResponse({ type: AnnouncementTarget })
+  @ApiNotFoundResponse()
+  @Get('/announcement-targets/:id')
+  getAnnouncementTarget(
+    @Param('id', ParseIntPipe) id: number,
+    @Req() req
+  ): Promise<AnnouncementTarget> {
+    return this.announcementTargetService.findOne(id, req.user)
+  }
+
+  @ApiTags('Announcement-Targets')
+  @Patch('/announcement-targets/:id')
+  @HttpCode(204)
+  @ApiNoContentResponse()
+  @ApiNotFoundResponse()
+  @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
+  async updateAnnouncementTarget(
+    @Param('id', ParseIntPipe) id: number,
+    @Body() updateAnnouncementTargetDto: UpdateAnnouncementTargetDto,
+    @Req() req
+  ) {
+    await this.announcementTargetService.update(id, updateAnnouncementTargetDto, req.user)
+    return
+  }
+
+  @ApiTags('Announcements')
+  @ApiOkResponse({ type: Announcement, isArray: true })
+  @Get('/announcements/filter')
+  @UsePipes(new ValidationPipe({ transform: true, whitelist: true, forbidNonWhitelisted: true }))
+  filterAnnouncements(
+    @Query() queryDto: QueryAnnouncementDto,
+    @Req() req
+  ): Promise<Pagination<Announcement>> {
+    const { page, limit } = queryDto
+    removePaginatorFields(queryDto)
+    return this.announcementsService.findByFilter(
+      queryDto,
+      {
+        page,
+        limit,
+        route: mainConfigs.URL + '/announcements/filter/'
+      },
+      req.user
+    )
+  }
+
+  @ApiTags('Announcements')
+  @ApiOkResponse({ type: Announcement })
+  @ApiNotFoundResponse()
+  @Get('/announcements/:id')
+  getAnnouncement(@Param('id', ParseIntPipe) id: number, @Req() req): Promise<Announcement> {
+    return this.announcementsService.findOne(id, req.user)
+  }
+
+  @ApiTags('Reports')
+  @Get('/count-validated-addresses')
+  @UsePipes(new ValidationPipe({ transform: true, whitelist: true }))
+  monthlyValidatedAddressCount(@Query() query: MonthlyValidatedAddressReportDto, @Req() req) {
+    return this.reportsService.monthlyValidatedAddressCount(query, req.user)
+  }
+
+  @ApiTags('Brand Labels')
+  @ApiCreatedResponse({ type: BrandLabel })
+  @Post('/brand-labels')
+  @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
+  createBrandLabel(
+    @Body() createBrandLabelDto: CreateBrandLabelDto,
+    @Req() req
+  ): Promise<BrandLabel> {
+    return this.brandLabelService.create(createBrandLabelDto, req.user)
+  }
+
+  @ApiTags('Brand Labels')
+  @ApiOkResponse({ type: BrandLabel, isArray: true })
+  @Get('/brand-labels/filter')
+  @UsePipes(new ValidationPipe({ transform: true, whitelist: true, forbidNonWhitelisted: true }))
+  filterBrandLabels(
+    @Query() queryDto: QueryBrandLabelDto,
+    @Req() req
+  ): Promise<Pagination<BrandLabel> | Array<BrandLabel>> {
+    const { page, limit } = queryDto
+    removePaginatorFields(queryDto)
+    return this.brandLabelService.findByFilter(
+      queryDto,
+      {
+        page,
+        limit,
+        route: mainConfigs.URL + '/brand-label/filter/'
+      },
+      req.user
+    )
+  }
+
+  @ApiTags('Brand Labels')
+  @ApiOkResponse({ type: BrandLabel })
+  @ApiNotFoundResponse()
+  @Get('/brand-labels/:id')
+  getBrandLabel(@Param('id', ParseIntPipe) id: number, @Req() req): Promise<BrandLabel> {
+    return this.brandLabelService.findOne(id, req.user)
+  }
+
+  @ApiTags('Brand Labels')
+  @Patch('/brand-labels/:id')
+  @HttpCode(204)
+  @ApiNoContentResponse()
+  @ApiNotFoundResponse()
+  @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
+  async updateBrandLabel(
+    @Param('id', ParseIntPipe) id: number,
+    @Body() updateBrandLabelDto: UpdateBrandLabelDto,
+    @Req() req
+  ) {
+    await this.brandLabelService.update(id, updateBrandLabelDto, req.user)
+    return
+  }
+
+  @ApiTags('Brand Labels')
+  @ApiConsumes('multipart/form-data')
+  @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
+  @UseInterceptors(FileInterceptor('file', BrandLabelUploadOption))
+  @Post('brand-labels/upload')
+  async uploadBrandImage(
+    @Body() fileHandlerDto: BrandLabelUploadFileDto,
+    @UploadedFile() file: Express.Multer.File,
+    @Req() req
+  ) {
+    validateBrandLabelFileSizeAndResolution(req, file)
+
+    return await this.brandLabelService.uploadBrandImage(fileHandlerDto, file, req.user)
+  }
+
+  @ApiTags('Brand Labels')
+  @Delete('/brand-labels/:id')
+  @HttpCode(204)
+  @ApiNoContentResponse()
+  @ApiNotFoundResponse()
+  async removeBrandLabel(@Param('id', ParseIntPipe) id: number, @Req() req) {
+    await this.brandLabelService.remove(id, req.user)
+    return
+  }
+
+  @ApiTags('Address Validation')
+  @ApiCreatedResponse({ type: AddressValidation })
+  @Post('/address-validation')
+  @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
+  createAddressValidation(
+    @Body() createAddressValidationDto: CreateAddressValidationDto,
+    @Req() req
+  ): Promise<AddressValidation> {
+    return this.shopService.createAddressValidation(createAddressValidationDto, req.user)
+  }
+
+  @ApiTags('Address Validation')
+  @ApiOkResponse({ type: AddressValidation, isArray: true })
+  @Get('/address-validation/filter')
+  @UsePipes(new ValidationPipe({ transform: true, whitelist: true, forbidNonWhitelisted: true }))
+  filterAddressValidation(
+    @Query() queryDto: QueryAddressValidationDto,
+    @Req() req
+  ): Promise<Pagination<AddressValidation>> {
+    const { page, limit } = queryDto
+    removePaginatorFields(queryDto)
+    return this.shopService.filterAddressValidation(
+      queryDto,
+      {
+        page,
+        limit,
+        route: mainConfigs.URL + '/address-validation/filter/'
+      },
+      req.user
+    )
+  }
+
+  @ApiTags('Address Validation')
+  @ApiOkResponse({ type: AddressValidation })
+  @ApiNotFoundResponse()
+  @Get('/address-validation/:id')
+  getAddressValidation(
+    @Param('id', ParseIntPipe) id: number,
+    @Req() req
+  ): Promise<AddressValidation> {
+    return this.shopService.getAddressValidation(id, req.user)
+  }
+
+  @ApiTags('Address Validation')
+  @Patch('/address-validation/:id')
+  @HttpCode(204)
+  @ApiNoContentResponse()
+  @ApiNotFoundResponse()
+  @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
+  async updateAddressValidation(
+    @Param('id', ParseIntPipe) id: number,
+    @Body() updateAddressValidationDto: UpdateAddressValidationDto,
+    @Req() req
+  ) {
+    await this.shopService.updateAddressValidation(id, updateAddressValidationDto, req.user)
+    return
+  }
+
+  @ApiTags('Connection Auths')
+  @ApiOkResponse()
+  @ApiNotFoundResponse()
+  @Get('/connection-auths/ping/:id')
+  @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
+  testConnection(
+    @Param('id', ParseIntPipe) id: number,
+    @Req() req
+  ): Promise<TestConnectionResponseInterface> {
+    return this.shopService.testConnection(id)
+  }
+
+  @ApiTags('Connection Auths')
+  @ApiOkResponse({ type: ConnectionAuth, isArray: true })
+  @Get('/connection-auths/filter')
+  @UsePipes(new ValidationPipe({ transform: true, whitelist: true, forbidNonWhitelisted: true }))
+  filterConnectionAuths(
+    @Query() queryDto: QueryConnectionAuthsDto,
+    @Req() req
+  ): Promise<Pagination<ConnectionAuth>> {
+    const { page, limit } = queryDto
+    removePaginatorFields(queryDto)
+    return this.shopService.filterConnectionAuths(
+      queryDto,
+      {
+        page,
+        limit,
+        route: mainConfigs.URL + '/connection-auths/filter/'
+      },
+      req.user
+    )
+  }
+
+  @ApiTags('Connection Auths')
+  @Patch('/connection-auths/:id')
+  @HttpCode(204)
+  @ApiNoContentResponse()
+  @ApiNotFoundResponse()
+  @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
+  async updateConnectionAuth(
+    @Param('id', ParseIntPipe) id: number,
+    @Body() updateConnectionAuthDto: UpdateConnectionAuthDto,
+    @Req() req
+  ) {
+    await this.shopService.updateConnectionAuth(id, updateConnectionAuthDto, req.user)
+    return
+  }
+
+  @ApiTags('Connection Auths')
+  @ApiOkResponse({ type: ConnectionAuth })
+  @ApiNotFoundResponse()
+  @Get('/connection-auths/:id')
+  getConnectionAuth(@Param('id', ParseIntPipe) id: number, @Req() req): Promise<ConnectionAuth> {
+    return this.shopService.getConnectionAuth(id, req.user)
+  }
+
+  @ApiTags('Automation Rules')
+  @Post('/automation-rule')
+  @ApiCreatedResponse({ type: AutomationRule })
+  @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
+  async createAutomationRule(
+    @Body() createAutomationDto: CreateAutomationDto,
+    @Req() req
+  ): Promise<AutomationRule> {
+    return await this.automationService.create(createAutomationDto, req.user)
+  }
+
+  @ApiTags('Automation Rules')
+  @ApiOkResponse({ type: AutomationRule })
+  @Get('/automation-rule/filter')
+  @UsePipes(new ValidationPipe({ transform: true, whitelist: true, forbidNonWhitelisted: true }))
+  async filterAutomationRules(
+    @Query() queryDto: QueryAutomationDto,
+    @Req() req
+  ): Promise<Pagination<AutomationRule>> {
+    const { page, limit } = queryDto
+    removePaginatorFields(queryDto)
+    return await this.automationService.findByFilter(
+      queryDto,
+      {
+        page,
+        limit,
+        route: mainConfigs.URL + '/automation-rule/filter/'
+      },
+      req.user
+    )
+  }
+
+  @ApiTags('Automation Rules')
+  @ApiOkResponse({ type: AutomationRule })
+  @ApiNotFoundResponse()
+  @Get('/automation-rule/:id')
+  async getAutomationRule(
+    @Param('id', ParseIntPipe) id: number,
+    @Req() req
+  ): Promise<AutomationRule> {
+    return await this.automationService.findOne(id, req.user)
+  }
+
+  @ApiTags('Automation Rules')
+  @Patch('/automation-rule/:id')
+  @HttpCode(204)
+  @ApiNoContentResponse()
+  @ApiNotFoundResponse()
+  @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
+  async updateAutomationRule(
+    @Param('id', ParseIntPipe) id: number,
+    @Body() updateAutomationDto: UpdateAutomationDto,
+    @Req() req
+  ) {
+    await this.automationService.update(id, updateAutomationDto, req.user)
+    return
+  }
+
+  @ApiTags('Automation Rules')
+  @Delete('/automation-rule/:id')
+  @HttpCode(204)
+  @ApiNoContentResponse()
+  @ApiNotFoundResponse()
+  async removeAutomationRule(@Param('id', ParseIntPipe) id: number, @Req() req) {
+    await this.automationService.remove(id, req.user)
+    return
+  }
+
+  @ApiTags('Automation Rules')
+  @Post('/automation-rule/address-validation/toggle')
+  @ApiCreatedResponse({ type: AutomationRule })
+  @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
+  async addressValidationAutomationRuleToggle(
+    @Body() addressValidationToggleDto: AddressValidationToggleDto,
+    @Req() req
+  ): Promise<AutomationRule> {
+    return await this.automationService.addressValidationToggle(
+      addressValidationToggleDto,
+      req.user
+    )
+  }
+
+  @ApiTags('Implementations')
+  @ApiOkResponse({ type: Implementation, isArray: true })
+  @Get('/implementations/filter')
+  @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
+  filterImplementations(
+    @Query() queryImplementationDto: QueryImplementationDto,
+    @Req() req
+  ): Observable<Pagination<Implementation>> {
+    return this.shopService.filterImplementations(queryImplementationDto, req.user)
+  }
+
+  @ApiTags('Implementations')
+  @ApiOkResponse({ type: Implementation })
+  @ApiNotFoundResponse()
+  @Get('/implementations/:id')
+  getImplementation(@Param('id', ParseIntPipe) id: number, @Req() req): Observable<Implementation> {
+    return this.shopService.getImplementation(id, req.user)
+  }
+
+  @ApiTags('Partner Locations')
+  @ApiOkResponse({ type: PartnerLocation, isArray: true })
+  @Get('/partner-locations/filter')
+  @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
+  filterPartnerLocations(
+    @Query() queryPartnerLocationDto: QueryPartnerLocationDto,
+    @Req() req
+  ): Observable<PartnerLocation[]> {
+    return this.shopService.filterPartnerLocations(queryPartnerLocationDto, req.user)
+  }
+
+  @ApiTags('Partner Locations')
+  @ApiOkResponse({ type: PartnerLocation })
+  @ApiNotFoundResponse()
+  @Get('/partner-locations/:id')
+  getPartnerLocation(
+    @Param('id', ParseIntPipe) id: number,
+    @Req() req
+  ): Observable<PartnerLocation> {
+    return this.shopService.getPartnerLocation(id, req.user)
+  }
+
+  @ApiTags('Orders')
+  @ApiOkResponse({ type: OrdersAggregatedByStatusResponse })
+  @Get('/orders/aggregated-by-status')
+  @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
+  async getAggregatedByStatus(@Query('status') status: OrderStatus, @Req() req) {
+    return await this.shopService.getAggregatedByStatus(status, req.user)
+  }
+
+  @ApiTags('Orders')
+  @ApiOkResponse({ type: Order, isArray: true })
+  @Get('/orders/filter')
+  @UsePipes(new ValidationPipe({ transform: true, whitelist: true, forbidNonWhitelisted: true }))
+  filterOrders(
+    @Query() queryOrderDto: QueryOrderDto,
+    @Req() req
+  ): Observable<PaginatedResult<Order>> | Promise<void> {
+    const isReport = queryOrderDto.isReport
+    delete queryOrderDto.isReport
+    if (isReport) {
+      this.reportGeneratorService.generateReport(queryOrderDto, req.user)
+    } else {
+      return this.shopService.filterOrders(queryOrderDto, req.user)
+    }
+  }
+
+  @ApiTags('Orders')
+  @ApiOkResponse({ type: Order, isArray: true })
+  @Get('/orders/filter-by-current-status')
+  @UsePipes(new ValidationPipe({ transform: true, whitelist: true, forbidNonWhitelisted: true }))
+  filterOrderByCurrentStatus(
+    @Query() queryOrderDto: QueryOrderByCurrentStatusDto,
+    @Req() req
+  ): Observable<PaginatedResult<Order>> {
+    return this.shopService.filterOrderByCurrentStatus(queryOrderDto, req.user)
+  }
+
+  @ApiTags('Orders')
+  @Get('/orders/:id')
+  @ApiOkResponse({ type: ExtendedOrderDto })
+  @ApiNotFoundResponse()
+  async getOrder(@Param('id', ParseIntPipe) id: number, @Req() req): Promise<ExtendedOrderDto> {
+    return await this.shopService.getOrder(id, req.user)
+  }
+
+  @ApiTags('Orders')
+  @Post('/orders')
+  @ApiCreatedResponse({ type: Order })
+  @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
+  async createOrder(
+    @Body() createOrderDto: CreateOrderDto,
+    @Req() req
+  ): Promise<Observable<Order>> {
+    return await this.shopService.createOrder(createOrderDto, req.user)
+  }
+
+  @ApiTags('Orders')
+  @Post('/orders/release')
+  @HttpCode(202)
+  @ApiAcceptedResponse()
+  @ApiBadRequestResponse()
+  @ApiUnauthorizedResponse()
+  @ApiNotFoundResponse()
+  @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
+  async releaseOrders(@Body() releaseOrderDto: ReleaseOrderDto, @Req() req): Promise<void> {
+    return this.shopService.releaseOrders(releaseOrderDto, req.user)
+  }
+
+  @ApiTags('Orders')
+  @Patch('/orders/:id')
+  @HttpCode(204)
+  @ApiNoContentResponse()
+  @ApiNotFoundResponse()
+  @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
+  updateOrder(
+    @Param('id', ParseIntPipe) id: number,
+    @Body() updateOrderDto: UpdateOrderDto,
+    @Req() req
+  ): Observable<Order> {
+    return this.shopService.updateOrder(id, updateOrderDto, req.user)
+  }
+
+  @ApiTags('Orders')
+  @Post('/orders/change/:id')
+  @ApiCreatedResponse({ type: Order })
+  @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true, transform: true }))
+  async changeOrder(
+    @Param('id', ParseIntPipe) id: number,
+    @Body() changeOrderDto: ChangeOrderDto,
+    @Req() req
+  ): Promise<Order> {
+    return await this.shopService.changeOrder(id, changeOrderDto, req.user)
+  }
+
+  @ApiTags('Orders')
+  @Post('/orders/fulfillment/check')
+  @ApiCreatedResponse({ type: FulfillmentCheckResponseDto })
+  @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true, transform: true }))
+  fulfillmentCheck(
+    @Body() payload: FulfillmentCheckRequestDto,
+    @Req() req
+  ): Observable<FulfillmentCheckResponseDto> {
+    return this.shopService.fulfillmentStatusCheck(payload, req.user)
+  }
+
+  @ApiTags('Orders')
+  @Post('/orders/check-fulfillment-and-log-history')
+  @ApiQuery({ name: 'isCheckForOnHoldOrders', required: false })
+  @ApiCreatedResponse({ type: FulfillmentCheckResponseDto })
+  @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true, transform: true }))
+  checkFulfillmentAndLogHistory(
+    @Body() payload: FulfillmentCheckRequestDto,
+    @Req() req,
+    @Query('isCheckForOnHoldOrders') isCheckForOnHoldOrders: boolean
+  ): Observable<FulfillmentCheckResponseDto> {
+    return this.shopService.checkFulfillmentAndLogHistory(payload, req.user, isCheckForOnHoldOrders)
+  }
+
+  @ApiTags('Order History')
+  @ApiOkResponse({ type: OrderHistory, isArray: true })
+  @Get('/orders-history/filter')
+  @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
+  filterOrderHistories(
+    @Query() queryOrderHistoryDto: QueryOrdersHistoryDto,
+    @Req() req
+  ): Observable<OrderHistory[]> {
+    return this.shopService.filterOrderHistories(queryOrderHistoryDto, req.user)
+  }
+
+  @ApiTags('Order History')
+  @Get('/orders-history/:id')
+  @ApiOkResponse({ type: OrderHistory })
+  @ApiNotFoundResponse()
+  getOrderHistory(@Param('id', ParseIntPipe) id: number, @Req() req): Observable<OrderHistory> {
+    return this.shopService.getOrderHistory(id, req.user)
+  }
+
+  @ApiTags('Order History')
+  @Post('/orders-history')
+  @ApiCreatedResponse({ type: OrderHistory })
+  @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
+  createOrderHistory(
+    @Body() createOrderHistoryDto: CreateOrdersHistoryDto,
+    @Req() req
+  ): Observable<OrderHistory> {
+    return this.shopService.createOrderHistory(createOrderHistoryDto, req.user)
+  }
+
+  @ApiTags('Order History')
+  @Patch('/orders-history/:id')
+  @HttpCode(204)
+  @ApiNoContentResponse()
+  @ApiNotFoundResponse()
+  @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
+  updateOrderHistory(
+    @Param('id', ParseIntPipe) id: number,
+    @Body() updateOrderHistoryDto: UpdateOrdersHistoryDto,
+    @Req() req
+  ): Observable<OrderHistory> {
+    return this.shopService.updateOrderHistory(id, updateOrderHistoryDto, req.user)
+  }
+
+  @ApiTags('Order Items')
+  @ApiOkResponse({ type: OrderItem, isArray: true })
+  @Get('/order-items/filter')
+  @UsePipes(new ValidationPipe({ transform: true, whitelist: true, forbidNonWhitelisted: true }))
+  filterOrderItems(
+    @Query() queryOrderItemDto: QueryOrderItemDto,
+    @Req() req
+  ): Observable<PaginatedResult<OrderItem>> {
+    return this.shopService.filterOrderItems(queryOrderItemDto, req.user)
+  }
+
+  @ApiTags('Order Items')
+  @Get('/order-items/:id')
+  @ApiOkResponse({ type: OrderItem })
+  @ApiNotFoundResponse()
+  getOrderItem(@Param('id', ParseIntPipe) id: number, @Req() req): Observable<OrderItem> {
+    return this.shopService.getOrderItem(id, req.user)
+  }
+
+  @ApiTags('Order Items')
+  @Patch('/order-items/:id')
+  @HttpCode(204)
+  @ApiNoContentResponse()
+  @ApiNotFoundResponse()
+  @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
+  updateOrderItem(
+    @Param('id', ParseIntPipe) id: number,
+    @Body() updateOrderItemDto: UpdateOrderItemDto,
+    @Req() req
+  ): Observable<OrderItem> {
+    return this.shopService.updateOrderItem(id, updateOrderItemDto, req.user)
+  }
+
+  @ApiTags('Outbound Shipments')
+  @ApiOkResponse({ type: OutboundShipment, isArray: true })
+  @Get('/outbound-shipments/filter')
+  @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
+  filterOutboundShipments(
+    @Query() queryOutboundShipmentDto: QueryOutboundShipmentDto,
+    @Req() req
+  ): Observable<PaginatedResult<OutboundShipment>> {
+    return this.shopService.filterOutboundShipments(queryOutboundShipmentDto, req.user)
+  }
+
+  @ApiTags('Outbound Shipments')
+  @Get('/outbound-shipments/:id')
+  @ApiOkResponse({ type: OutboundShipment })
+  @ApiNotFoundResponse()
+  getOutboundShipment(
+    @Param('id', ParseIntPipe) id: number,
+    @Req() req
+  ): Observable<OutboundShipment> {
+    return this.shopService.getOutboundShipment(id, req.user)
+  }
+
+  @ApiTags('Outbound Shipment Items')
+  @ApiOkResponse({ type: OutboundShipmentItem, isArray: true })
+  @Get('/outbound-shipment-items/serial-numbers')
+  @UsePipes(new ValidationPipe({ transform: true, whitelist: true, forbidNonWhitelisted: true }))
+  traceSerialNumbers(@Req() req) {
+    return this.shopService.getSerialNumbers(req.user)
+  }
+
+  @ApiTags('Outbound Shipment Items')
+  @ApiOkResponse({ type: OutboundShipmentItem, isArray: true })
+  @Get('/outbound-shipment-items/lot-numbers')
+  @UsePipes(new ValidationPipe({ transform: true, whitelist: true, forbidNonWhitelisted: true }))
+  traceLotNumbers(@Req() req) {
+    return this.shopService.getLotNumbers(req.user)
+  }
+
+  @ApiTags('Return Shipments')
+  @ApiOkResponse({ type: ReturnShipment, isArray: true })
+  @Get('/return-shipments/filter')
+  @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
+  filterReturnShipments(
+    @Query() queryReturnShipmentDto: QueryReturnShipmentDto,
+    @Req() req
+  ): Observable<PaginatedResult<ReturnShipment>> {
+    return this.shopService.filterReturnShipments(queryReturnShipmentDto, req.user)
+  }
+
+  @ApiTags('Return Shipments')
+  @Get('/return-shipments/:id')
+  @ApiOkResponse({ type: ReturnShipment })
+  @ApiNotFoundResponse()
+  getReturnShipment(@Param('id', ParseIntPipe) id: number, @Req() req): Observable<ReturnShipment> {
+    return this.shopService.getReturnShipment(id, req.user)
+  }
+
+  @ApiTags('Inventory Items')
+  @ApiOkResponse({ type: InventoryItemsAggregatedByStatusResponse })
+  @Get('/inventory-items/aggregated-by-status')
+  @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true, transform: true }))
+  getInventoryItemsCountAggregatedByStatus(
+    @Query() aggregateByStatusInventoryItemDto: AggregateByStatusInventoryItemDto,
+    @Req() req
+  ) {
+    return this.shopService.getInventoryItemsCountAggregatedByStatus(
+      aggregateByStatusInventoryItemDto,
+      req.user
+    )
+  }
+
+  @ApiTags('Inventory Items')
+  @ApiOkResponse({ type: InventoryItem, isArray: true })
+  @Get('/inventory-items/filter')
+  @UsePipes(new ValidationPipe({ transform: true, whitelist: true, forbidNonWhitelisted: true }))
+  filterInventoryItems(
+    @Query() queryInventoryItemDto: QueryInventoryItemDto,
+    @Req() req
+  ): Observable<PaginatedResult<InventoryItem>> | Promise<void> {
+    const isReport = queryInventoryItemDto.isReport
+    delete queryInventoryItemDto.isReport
+    if (isReport) {
+      this.reportGeneratorService.generateReport(queryInventoryItemDto, req.user)
+    } else {
+      return this.shopService.filterInventoryItems(queryInventoryItemDto, req.user)
+    }
+  }
+
+  @ApiTags('Inventory Items')
+  @Get('/inventory-items/:id')
+  @ApiOkResponse({ type: InventoryItem })
+  @ApiNotFoundResponse()
+  getInventoryItem(@Param('id', ParseIntPipe) id: number, @Req() req): Observable<InventoryItem> {
+    return this.shopService.getInventoryItem(id, req.user)
+  }
+
+  @ApiTags('Inventory Items')
+  @Post('/inventory-items')
+  @ApiCreatedResponse({ type: InventoryItem })
+  @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
+  createInventoryItem(
+    @Body() createInventoryItemDto: CreateInventoryItemDto,
+    @Req() req
+  ): Observable<InventoryItem> {
+    return this.shopService.createInventoryItem(createInventoryItemDto, req.user)
+  }
+
+  @ApiTags('Inventory Items')
+  @Patch('/inventory-items/:id')
+  @HttpCode(204)
+  @ApiNoContentResponse()
+  @ApiNotFoundResponse()
+  @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
+  updateInventoryItem(
+    @Param('id', ParseIntPipe) id: number,
+    @Query('isInternalUpdate', new DefaultValuePipe(false), ParseBoolPipe)
+    isInternalUpdate: boolean,
+    @Body() updateInventoryItemDto: UpdateInventoryItemDto,
+    @Req() req
+  ): Observable<InventoryItem> {
+    return this.shopService.updateInventoryItem(
+      id,
+      updateInventoryItemDto,
+      isInternalUpdate,
+      req.user
+    )
+  }
+
+  @ApiTags('Inventory Items')
+  @Patch('/inventory-items/update/return-period/:implementationId')
+  @HttpCode(204)
+  @ApiNoContentResponse()
+  @ApiNotFoundResponse()
+  @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
+  updateReturnPeriod(
+    @Param('implementationId', ParseIntPipe) implementationId: number,
+    @Body() updateReturnPeriodDto: UpdateReturnPeriodDto,
+    @Req() req
+  ): Observable<any> {
+    return this.shopService.updateReturnPeriod(implementationId, updateReturnPeriodDto, req.user)
+  }
+
+  @ApiTags('Inventory Items')
+  @Get('/inventory-items/return-period/:implementationId')
+  @ApiOkResponse({ type: ReturnPeriodsResponse })
+  @ApiNotFoundResponse()
+  getReturnPeriod(
+    @Param('implementationId', ParseIntPipe) implementationId: number,
+    @Req() req
+  ): Observable<ReturnPeriodsResponse> {
+    return this.shopService.getReturnPeriod(implementationId, req.user)
+  }
+
+  @ApiTags('Inventory Items')
+  @Post('/inventory-items/bulk-update')
+  @HttpCode(204)
+  @ApiNoContentResponse()
+  @ApiNotFoundResponse()
+  @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
+  bulkUpdateInventoryItem(
+    @Query('isInternalUpdate', new DefaultValuePipe(false), ParseBoolPipe)
+    isInternalUpdate: boolean,
+    @Body() updateDtoList: UpdateInventoryItemDto[],
+    @Req() req
+  ): Observable<any> {
+    return this.shopService.bulkUpdateInventoryItem(updateDtoList, isInternalUpdate, req.user)
+  }
+
+  @ApiTags('Inventory Items')
+  @Post('/inventory-items/send-to-wms')
+  @ApiAcceptedResponse()
+  @ApiBadRequestResponse()
+  @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
+  sendInventoryItemsToWms(
+    @Body() reEmitEventDto: InventoryItemReEmitEventDto,
+    @Req() req
+  ): Observable<any> {
+    return this.shopService.sendInventoryItemsToWms(reEmitEventDto, req.user)
+  }
+
+  @ApiTags('Inventory Items')
+  @Patch('/inventory-items/:id/active-status')
+  @ApiNoContentResponse()
+  @ApiNotFoundResponse()
+  @ApiBadRequestResponse()
+  @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
+  updateInventoryItemActiveStatus(
+    @Param('id', ParseIntPipe) id: number,
+    @Body() body: UpdateInventoryItemActiveStatusDto,
+    @Req() req
+  ): Observable<any> {
+    return this.shopService.updateInventoryItemActiveStatus(body, id, req.user)
+  }
+
+  @ApiTags('Inventory Items')
+  @ApiOkResponse({ type: GetInventoryItemShopStockLevelsResponseDto })
+  @Get('/inventory-items/:inventoryItemId/shop-stock-levels')
+  getInventoryItemShopStockLevels(
+    @Query('inventoryItemId', ParseIntPipe) inventoryItemId: number,
+    @Req() req
+  ): Promise<GetInventoryItemShopStockLevelsResponseDto> {
+    return this.shopService.getInventoryItemShopStockLevels(inventoryItemId, req.user)
+  }
+
+  @ApiTags('Inventory Level Source')
+  @ApiOkResponse({ type: InventoryLevelSource, isArray: true })
+  @Get('/inventory-level-source/filter')
+  @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
+  filterInventoryLevelSourceItems(
+    @Query() queryInventoryLevelSourceDto: QueryInventoryLevelSourceDto,
+    @Req() req
+  ): Observable<PaginatedResult<InventoryLevelSource>> {
+    return this.shopService.filterInventoryLevelSourceItems(queryInventoryLevelSourceDto, req.user)
+  }
+
+  @ApiTags('Inventory Level Source')
+  @Get('/inventory-level-source/:id')
+  @ApiOkResponse({ type: InventoryLevelSource })
+  @ApiNotFoundResponse()
+  getInventoryLevelSourceItem(
+    @Param('id', ParseIntPipe) id: number,
+    @Req() req
+  ): Observable<InventoryLevelSource> {
+    return this.shopService.getInventoryLevelSourceItem(id, req.user)
+  }
+
+  @ApiTags('Partner Location Inventory Items')
+  @ApiOkResponse({ type: PartnerLocationInventoryItem, isArray: true })
+  @Get('/partner-location-inventory-items/filter')
+  @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
+  filterPartnerLocationInventoryItems(
+    @Query() queryPartnerLocationInventoryItemDto: QueryPartnerLocationInventoryItemDto,
+    @Req() req
+  ): Observable<PaginatedResult<PartnerLocationInventoryItem>> {
+    return this.shopService.filterPartnerLocationInventoryItems(
+      queryPartnerLocationInventoryItemDto,
+      req.user
+    )
+  }
+
+  @ApiTags('Partner Location Inventory Items')
+  @Get('/partner-location-inventory-items/:id')
+  @ApiOkResponse({ type: PartnerLocationInventoryItem })
+  @ApiNotFoundResponse()
+  getPartnerLocationInventoryItem(
+    @Param('id', ParseIntPipe) id: number,
+    @Req() req
+  ): Observable<PartnerLocationInventoryItem> {
+    return this.shopService.getPartnerLocationInventoryItem(id, req.user)
+  }
+
+  @ApiTags('Partner Location Inventory Items')
+  @Post('/partner-location-inventory-items')
+  @ApiCreatedResponse({ type: PartnerLocationInventoryItem })
+  @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
+  createPartnerLocationInventoryItem(
+    @Body() createPartnerLocationInventoryItemDto: CreatePartnerLocationInventoryItemDto,
+    @Req() req
+  ): Observable<PartnerLocationInventoryItem> {
+    return this.shopService.createPartnerLocationInventoryItem(
+      createPartnerLocationInventoryItemDto,
+      req.user
+    )
+  }
+
+  @ApiTags('Partner Location Storage Items')
+  @ApiOkResponse({ type: PartnerLocationInventoryItem, isArray: true })
+  @Get('/partner-location-storage-items/filter')
+  @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
+  filterPartnerLocationStorageItems(
+    @Query() queryPartnerLocationStorageItemDto: QueryPartnerLocationStorageItemDto,
+    @Req() req
+  ): Observable<PartnerLocationStorageItem[]> {
+    return this.shopService.filterPartnerLocationStorageItems(
+      queryPartnerLocationStorageItemDto,
+      req.user
+    )
+  }
+
+  @ApiTags('Partner Location Storage Items')
+  @Get('/partner-location-storage-items/:id')
+  @ApiOkResponse({ type: PartnerLocationStorageItem })
+  @ApiNotFoundResponse()
+  getPartnerLocationStorageItem(
+    @Param('id', ParseIntPipe) id: number,
+    @Req() req
+  ): Observable<PartnerLocationStorageItem> {
+    return this.shopService.getPartnerLocationStorageItem(id, req.user)
+  }
+
+  @ApiTags('Event Trigger')
+  @Post('/event-trigger')
+  @HttpCode(202)
+  @ApiNoContentResponse()
+  createEventTrigger(@Body() createEventTriggerDto: CreateEventTriggerDto, @Req() req) {
+    if (createEventTriggerDto?.target === OrgType.Carrier) {
+      createEventTriggerDto.target = OrgType.Carrier
+    } else {
+      createEventTriggerDto.target = OrgType.Shop
+    }
+    return this.triggerService.createEventTrigger(createEventTriggerDto, false, false, req.user)
+  }
+
+  @ApiTags('Field Mapper')
+  @Post('/field-mapper')
+  @HttpCode(201)
+  @ApiCreatedResponse()
+  @UsePipes(new ValidationPipe({ whitelist: true }))
+  async createFieldMapper(@Body() createDto: CreateFieldMapperDto, @Req() req) {
+    return await this.FieldMapperService.create(createDto, req.user)
+  }
+
+  @ApiTags('Field Mapper')
+  @Get('/field-mapper/filter')
+  @UsePipes(new ValidationPipe({ transform: true, whitelist: true }))
+  async filterFieldMapper(@Query() queryDto: QueryFieldMapperDto, @Req() req) {
+    let { page, limit } = queryDto
+    removePaginatorFields(queryDto)
+    return await this.FieldMapperService.findByFilter(
+      queryDto,
+      {
+        page: page,
+        limit: limit,
+        route: mainConfigs.URL + '/field-mapper/filter/'
+      },
+      req.user
+    )
+  }
+
+  @ApiTags('Field Mapper')
+  @Get('/field-mapper/:id')
+  @UsePipes(new ValidationPipe({ whitelist: true }))
+  async getFieldMapper(@Param('id', ParseIntPipe) id: number, @Req() req) {
+    return await this.FieldMapperService.findOne(id, req.user)
+  }
+
+  @ApiTags('Field Mapper')
+  @Patch('/field-mapper/:id')
+  @HttpCode(204)
+  @ApiNoContentResponse()
+  @UsePipes(new ValidationPipe({ whitelist: true }))
+  async updateFieldMapper(
+    @Param('id', ParseIntPipe) id: number,
+    @Body() updateDto: UpdateFieldMapperDto,
+    @Req() req
+  ) {
+    return await this.FieldMapperService.update(id, updateDto, req.user)
+  }
+
+  @ApiTags('Field Mapper')
+  @Delete('/field-mapper/:id')
+  @HttpCode(204)
+  @ApiNoContentResponse()
+  @UsePipes(new ValidationPipe({ whitelist: true }))
+  async deleteFieldMapper(@Param('id', ParseIntPipe) id: number, @Req() req) {
+    return await this.FieldMapperService.remove(id, req.user)
+  }
+
+  @ApiTags('Import')
+  @ApiConsumes('multipart/form-data')
+  @UseInterceptors(
+    FileInterceptor('file', { limits: { fileSize: mainConfigs.maxAllowedFileSize } })
+  )
+  @Post('import')
+  async uploadFile(
+    @Body() fileHandlerDto: FileHandlerDto,
+    @UploadedFile() file: Express.Multer.File,
+    @Req() req
+  ) {
+    return await this.fileHandlersService.fileRoute(fileHandlerDto, file, req.user)
+  }
+
+  @ApiTags('Notifications')
+  @ApiOkResponse({ type: Notification, isArray: true })
+  @Get('/notifications/filter')
+  @UsePipes(new ValidationPipe({ transform: true, whitelist: true, forbidNonWhitelisted: true }))
+  filterNotifications(
+    @Query() queryNotificationDto: QueryNotificationDto,
+    @Req() req
+  ): Observable<PaginatedResult<Notification>> {
+    return this.shopService.filterNotifications(queryNotificationDto, req.user)
+  }
+
+  @ApiTags('Notifications')
+  @Get('/notifications/:id')
+  @ApiOkResponse({ type: Notification })
+  @ApiNotFoundResponse()
+  getNotification(@Param('id', ParseIntPipe) id: number, @Req() req): Observable<Notification> {
+    return this.shopService.getNotification(id, req.user)
+  }
+
+  @ApiTags('Notifications')
+  @Patch('/notifications/:id')
+  @HttpCode(204)
+  @ApiNoContentResponse()
+  @ApiNotFoundResponse()
+  @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
+  updateNotification(
+    @Param('id', ParseIntPipe) id: number,
+    @Body() updateNotificationDto: UpdateNotificationDto,
+    @Req() req
+  ): Observable<Notification> {
+    return this.shopService.updateNotification(id, updateNotificationDto, req.user)
+  }
+
+  @ApiTags('Inbound Notices')
+  @ApiOkResponse({ type: InboundNotice, isArray: true })
+  @Get('/inbound-notices/filter')
+  @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
+  filterInboundNotices(
+    @Query() queryDto: QueryInboundNoticeDto,
+    @Req() req
+  ): Observable<PaginatedResult<InboundNotice>> {
+    return this.shopService.filterInboundNotices(queryDto, req.user)
+  }
+
+  @ApiTags('Inbound Notices')
+  @Get('/inbound-notices/:id')
+  @ApiOkResponse({ type: InboundNotice })
+  @ApiNotFoundResponse()
+  getInboundNotice(@Param('id', ParseIntPipe) id: number, @Req() req): Observable<InboundNotice> {
+    return this.shopService.getInboundNotice(id, req.user)
+  }
+
+  @ApiTags('Inbound Notices')
+  @Post('/inbound-notices')
+  @ApiCreatedResponse({ type: InboundNotice })
+  @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
+  createInboundNotice(
+    @Body() createDto: CreateInboundNoticeDto,
+    @Req() req
+  ): Observable<InboundNotice> {
+    return this.shopService.createInboundNotice(createDto, req.user)
+  }
+
+  @ApiTags('Inbound Notices')
+  @Patch('/inbound-notices/:id')
+  @HttpCode(204)
+  @ApiNoContentResponse()
+  @ApiNotFoundResponse()
+  @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
+  updateInboundNotice(
+    @Param('id', ParseIntPipe) id: number,
+    @Body() updateDto: UpdateInboundNoticeDto,
+    @Req() req
+  ): Observable<any> {
+    return this.shopService.updateInboundNotice(id, updateDto, req.user)
+  }
+
+  @ApiTags('Inbound Notice Items')
+  @ApiOkResponse({ type: InboundNoticeItem, isArray: true })
+  @Get('/inbound-notice-items/filter')
+  @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
+  filterInboundNoticeItems(
+    @Query() queryDto: QueryInboundNoticeItemDto,
+    @Req() req
+  ): Observable<PaginatedResult<InboundNoticeItem>> {
+    return this.shopService.filterInboundNoticeItems(queryDto, req.user)
+  }
+
+  @ApiTags('Inbound Notice Items')
+  @Get('/inbound-notice-items/:id')
+  @ApiOkResponse({ type: InboundNoticeItem })
+  @ApiNotFoundResponse()
+  getInboundNoticeItem(
+    @Param('id', ParseIntPipe) id: number,
+    @Req() req
+  ): Observable<InboundNoticeItem> {
+    return this.shopService.getInboundNoticeItem(id, req.user)
+  }
+
+  @ApiTags('Inbound Notice Items')
+  @Post('/inbound-notice-items')
+  @ApiCreatedResponse({ type: InboundNoticeItem })
+  @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
+  createInboundNoticeItem(
+    @Body() createDto: CreateInboundNoticeItemDto,
+    @Req() req
+  ): Observable<InboundNoticeItem> {
+    return this.shopService.createInboundNoticeItem(createDto, req.user)
+  }
+
+  @ApiTags('Inbound Notice Items')
+  @Patch('/inbound-notice-items/:id')
+  @HttpCode(204)
+  @ApiNoContentResponse()
+  @ApiNotFoundResponse()
+  @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
+  updateInboundNoticeItem(
+    @Param('id', ParseIntPipe) id: number,
+    @Body() updateDto: UpdateInboundNoticeItemDto,
+    @Req() req
+  ): Observable<any> {
+    return this.shopService.updateInboundNoticeItem(id, updateDto, req.user)
+  }
+
+  @ApiTags('Inbound Notice History')
+  @ApiOkResponse({ type: InboundNoticeHistory, isArray: true })
+  @Get('/inbound-notice-history/filter')
+  @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
+  filterInboundNoticeHistories(
+    @Query() queryDto: QueryInboundNoticeHistoryDto,
+    @Req() req
+  ): Observable<PaginatedResult<InboundNoticeHistory>> {
+    return this.shopService.filterInboundNoticeHistories(queryDto, req.user)
+  }
+
+  @ApiTags('Inbound Notice History')
+  @Get('/inbound-notice-history/:id')
+  @ApiOkResponse({ type: InboundNoticeHistory })
+  @ApiNotFoundResponse()
+  getInboundNoticeHistory(
+    @Param('id', ParseIntPipe) id: number,
+    @Req() req
+  ): Observable<InboundNoticeHistory> {
+    return this.shopService.getInboundNoticeHistory(id, req.user)
+  }
+
+  @ApiTags('Inbound Notice History')
+  @Patch('/inbound-notice-history/:id')
+  @HttpCode(204)
+  @ApiNoContentResponse()
+  @ApiNotFoundResponse()
+  @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
+  updateInboundNoticeHistory(
+    @Param('id', ParseIntPipe) id: number,
+    @Body() updateDto: UpdateInboundNoticeHistoryDto,
+    @Req() req
+  ): Observable<any> {
+    return this.shopService.updateInboundNoticeHistory(id, updateDto, req.user)
+  }
+
+  @ApiTags('Inbound Receipts')
+  @Get('/inbound-receipts/filter')
+  @ApiOkResponse({ type: InboundReceipt, isArray: true })
+  @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
+  filterInboundReceipts(
+    @Query() queryDto: QueryInboundReceiptDto,
+    @Req() req
+  ): Observable<PaginatedResult<InboundReceipt>> {
+    return this.shopService.filterInboundReceipts(queryDto, req.user)
+  }
+
+  @ApiTags('Inbound Receipts')
+  @Get('/inbound-receipts/:id')
+  @ApiOkResponse({ type: InboundReceipt })
+  @ApiNotFoundResponse()
+  getInboundReceipt(@Param('id', ParseIntPipe) id: number, @Req() req): Observable<InboundReceipt> {
+    return this.shopService.getInboundReceipt(id, req.user)
+  }
+
+  @ApiTags('Inbound Receipt Items')
+  @Get('/inbound-receipt-items/filter')
+  @ApiOkResponse({ type: InboundReceiptItem, isArray: true })
+  @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
+  filterInboundReceiptItems(
+    @Query() queryDto: QueryInboundReceiptItemDto,
+    @Req() req
+  ): Observable<PaginatedResult<InboundReceiptItem>> {
+    return this.shopService.filterInboundReceiptItems(queryDto, req.user)
+  }
+
+  @ApiTags('Inbound Receipt Items')
+  @Get('/inbound-receipt-items/:id')
+  @ApiOkResponse({ type: InboundReceiptItem })
+  @ApiNotFoundResponse()
+  getInboundReceiptItem(
+    @Param('id', ParseIntPipe) id: number,
+    @Req() req
+  ): Observable<InboundReceiptItem> {
+    return this.shopService.getInboundReceiptItem(id, req.user)
+  }
+
+  @ApiTags('Sync Preferences')
+  @ApiOkResponse({ type: SyncPreference, isArray: true })
+  @Get('/sync-preferences/filter')
+  @UsePipes(new ValidationPipe({ transform: true, whitelist: true }))
+  async filterSyncPreferences(
+    @Query() queryDto: QuerySyncPreferenceDto,
+    @Query() paginatorDto: PaginatorDto,
+    @Req() req
+  ): Promise<Pagination<SyncPreference>> {
+    return await this.syncPreferencesService.findByFilter(
+      queryDto,
+      {
+        page: paginatorDto.page,
+        limit: paginatorDto.limit,
+        route: mainConfigs.URL + '/sync-preferences/filter'
+      },
+      req.user
+    )
+  }
+
+  @ApiTags('Sync Preferences')
+  @Get('/sync-preferences/:id')
+  @ApiOkResponse({ type: SyncPreference })
+  @ApiNotFoundResponse()
+  async getSyncPreference(
+    @Param('id', ParseIntPipe) id: number,
+    @Req() req
+  ): Promise<SyncPreference> {
+    return await this.syncPreferencesService.findOne(id, req.user)
+  }
+
+  @ApiTags('Sync Preferences')
+  @Post('/sync-preferences')
+  @ApiCreatedResponse({ type: SyncPreference })
+  @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
+  async createSyncPreference(
+    @Body() createDto: CreateSyncPreferenceDto,
+    @Req() req
+  ): Promise<SyncPreference> {
+    createDto.target = OrgType.Shop
+    return await this.syncPreferencesService.create(createDto, req.user)
+  }
+
+  @ApiTags('Sync Preferences')
+  @Patch('/sync-preferences/:id')
+  @HttpCode(204)
+  @ApiNoContentResponse()
+  @ApiNotFoundResponse()
+  @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
+  async updateSyncPreference(
+    @Param('id', ParseIntPipe) id: number,
+    @Body() updateDto: UpdateSyncPreferenceDto,
+    @Req() req
+  ) {
+    if (updateDto.target) updateDto.target = OrgType.Shop
+    return await this.syncPreferencesService.update(id, updateDto, req.user)
+  }
+
+  @ApiTags('Sync Preferences')
+  @Delete('/sync-preferences/:id')
+  @HttpCode(204)
+  @ApiNoContentResponse()
+  @ApiNotFoundResponse()
+  async removeSyncPreference(@Param('id', ParseIntPipe) id: number, @Req() req) {
+    return await this.syncPreferencesService.remove(id, req.user)
+  }
+
+  @ApiTags('Inventory Bundle')
+  @Get('/inventory-bundles/filter')
+  @ApiOkResponse({ type: InventoryBundle, isArray: true })
+  @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
+  filterInventoryBundles(
+    @Query() queryDto: QueryInventoryBundleDto,
+    @Req() req
+  ): Observable<PaginatedResult<InventoryBundle>> {
+    return this.shopService.filterInventoryBundles(queryDto, req.user)
+  }
+
+  @ApiTags('Inventory Bundle')
+  @Get('/inventory-bundles/by-bundle-sku-implementation')
+  @ApiOkResponse({ type: InventoryBundle, isArray: true })
+  @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
+  getInventoryBundlesByBundleSkuImplementation(
+    @Query('bundleSkuImplementationCsv') bundleSkuImplementationCsv: string,
+    @Req() req
+  ): Observable<InventoryBundle[]> {
+    return this.shopService.getInventoryBundlesByBundleSkuImplementation(
+      bundleSkuImplementationCsv,
+      req.user
+    )
+  }
+
+  @ApiTags('Inventory Bundle')
+  @Post('/inventory-bundles')
+  @ApiCreatedResponse({ type: InventoryBundle })
+  @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
+  createInventoryBundle(
+    @Body() createDto: CreateInventoryBundleDto,
+    @Req() req
+  ): Observable<InventoryBundle> {
+    return this.shopService.createInventoryBundle(createDto, req.user)
+  }
+
+  @ApiTags('Inventory Bundle')
+  @Get('/inventory-bundles/:id')
+  @ApiOkResponse({ type: InventoryBundle })
+  @ApiNotFoundResponse()
+  getInventoryBundle(
+    @Param('id', ParseIntPipe) id: number,
+    @Req() req
+  ): Observable<InventoryBundle> {
+    return this.shopService.getInventoryBundle(id, req.user)
+  }
+
+  @ApiTags('Inventory Bundle')
+  @Patch('/inventory-bundles/:id')
+  @HttpCode(204)
+  @ApiNoContentResponse()
+  @ApiNotFoundResponse()
+  @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
+  updateInventoryBundle(
+    @Param('id', ParseIntPipe) id: number,
+    @Body() updateDto: UpdateInventoryBundleDto,
+    @Req() req
+  ): Observable<any> {
+    return this.shopService.updateInventoryBundle(id, updateDto, req.user)
+  }
+
+  @ApiTags('Inventory Bundle')
+  @Delete('/inventory-bundles/:id')
+  @ApiNoContentResponse()
+  @ApiNotFoundResponse()
+  @HttpCode(204)
+  async removeInventoryBundle(@Param('id', ParseIntPipe) id: number, @Req() req): Promise<any> {
+    return this.shopService.removeInventoryBundle(id, req.user)
+  }
+
+  @ApiTags('Ships With')
+  @Post('/ships-with')
+  @ApiCreatedResponse({ type: ShipsWith })
+  @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
+  createShipsWith(@Body() createDto: CreateShipsWithDto, @Req() req): Observable<ShipsWith> {
+    return this.shopService.createShipsWith(createDto, req.user)
+  }
+
+  @ApiTags('Ships With')
+  @Patch('/ships-with/:id')
+  @HttpCode(204)
+  @ApiNoContentResponse()
+  @ApiNotFoundResponse()
+  @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
+  updateShipsWith(
+    @Param('id', ParseIntPipe) id: number,
+    @Body() updateDto: UpdateShipsWithDto,
+    @Req() req
+  ): Observable<ShipsWith> {
+    return this.shopService.updateShipsWith(id, updateDto, req.user)
+  }
+
+  @ApiTags('Ships With')
+  @Get('/ships-with/filter')
+  @ApiOkResponse({ type: ShipsWith, isArray: true })
+  @UsePipes(new ValidationPipe({ transform: true, whitelist: true, forbidNonWhitelisted: true }))
+  filterShipsWith(
+    @Query() queryDto: QueryShipsWithDto,
+    @Req() req
+  ): Observable<PaginatedResult<ShipsWith>> {
+    return this.shopService.filterShipsWith(queryDto, req.user)
+  }
+
+  @ApiTags('Ships With')
+  @Get('/ships-with/:id')
+  @ApiOkResponse({ type: ShipsWith })
+  @ApiNotFoundResponse()
+  getShipsWith(@Param('id', ParseIntPipe) id: number, @Req() req): Observable<ShipsWith> {
+    return this.shopService.getShipsWith(id, req.user)
+  }
+
+  @ApiTags('Ships With')
+  @Delete('/ships-with/:id')
+  @HttpCode(204)
+  @ApiNoContentResponse()
+  deleteShipsWith(@Param('id', ParseIntPipe) id: number, @Req() req) {
+    return this.shopService.deleteShipsWith(id, req.user)
+  }
+
+  @ApiTags('Trackings')
+  @Post('/trackings')
+  @ApiCreatedResponse({ type: Tracking })
+  @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
+  createTracking(@Body() createDto: CreateTrackingDto, @Req() req): Observable<Tracking> {
+    return this.shopService.createTracking(createDto, req.user)
+  }
+
+  @ApiTags('Trackings')
+  @Patch('/trackings/:id')
+  @HttpCode(204)
+  @ApiNoContentResponse()
+  @ApiNotFoundResponse()
+  @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
+  updateTracking(
+    @Param('id', ParseIntPipe) id: number,
+    @Body() updateDto: UpdateTrackingDto,
+    @Req() req
+  ): Observable<Tracking> {
+    return this.shopService.updateTracking(id, updateDto, req.user)
+  }
+
+  @ApiTags('Trackings')
+  @Get('/trackings/filter')
+  @ApiOkResponse({ type: Tracking, isArray: true })
+  @UsePipes(new ValidationPipe({ transform: true, whitelist: true, forbidNonWhitelisted: true }))
+  filterTracking(
+    @Query() queryDto: QueryTrackingDto,
+    @Req() req
+  ): Observable<PaginatedResult<Tracking>> {
+    return this.shopService.filterTracking(queryDto, req.user)
+  }
+
+  @ApiTags('Trackings')
+  @Get('/trackings/tracking-by-code')
+  @UsePipes(new ValidationPipe({ whitelist: true, transform: true, forbidNonWhitelisted: true }))
+  getTrackingMapByCode(
+    @Query('trackingCode') trackingCode: string,
+    @Req() req
+  ): Observable<Record<string, Tracking[]>> {
+    return this.shopService.getTrackingMapByCode(trackingCode, req.user)
+  }
+
+  @ApiTags('Trackings')
+  @Get('/trackings/:id')
+  @ApiOkResponse({ type: Tracking })
+  @ApiNotFoundResponse()
+  getTracking(@Param('id', ParseIntPipe) id: number, @Req() req): Observable<Tracking> {
+    return this.shopService.getTracking(id, req.user)
+  }
+
+  @ApiTags('Refund Orders')
+  @ApiOkResponse({ type: RefundOrder, isArray: true })
+  @Get('/refund-orders/filter')
+  @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
+  filterRefundOrders(
+    @Query() queryRefundOrderDto: QueryRefundOrderDto,
+    @Req() req
+  ): Observable<PaginatedResult<RefundOrder>> {
+    return this.shopService.filterRefundOrders(queryRefundOrderDto, req.user)
+  }
+
+  @ApiTags('Refund Orders')
+  @Get('/refund-orders/:id')
+  @ApiOkResponse({ type: RefundOrder })
+  @ApiNotFoundResponse()
+  getRefundOrder(@Param('id', ParseIntPipe) id: number, @Req() req): Observable<RefundOrder> {
+    return this.shopService.getRefundOrder(id, req.user)
+  }
+
+  @ApiTags('Refund Orders')
+  @Post('/refund/calculate')
+  @ApiCreatedResponse({ type: CalculateRefundOrderResponseDto })
+  @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true, transform: true }))
+  async calculateRefundOrder(
+    @Body() refundOrderDto: CalculateRefundOrderDto,
+    @Req() req
+  ): Promise<CalculateRefundOrderResponseDto> {
+    return this.shopService.calculateRefundOrder(refundOrderDto, req.user)
+  }
+
+  @ApiTags('Refund Orders')
+  @Post('/refund/create')
+  @ApiCreatedResponse({ type: RefundOrder })
+  @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true, transform: true }))
+  async createRefundOrder(
+    @Body() refundOrderDto: CalculateRefundOrderResponseDto,
+    @Req() req
+  ): Promise<RefundOrder> {
+    return this.shopService.createRefundOrder(refundOrderDto, req.user)
+  }
+
+  @ApiTags('Refund Order Items')
+  @ApiOkResponse({ type: RefundOrderItem, isArray: true })
+  @Get('/refund-order-items/filter')
+  @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
+  filterRefundOrderItems(
+    @Query() queryRefundOrderDto: QueryRefundOrderItemDto,
+    @Req() req
+  ): Observable<PaginatedResult<RefundOrderItem>> {
+    return this.shopService.filterRefundOrderItems(queryRefundOrderDto, req.user)
+  }
+
+  @ApiTags('Refund Order Items')
+  @Get('/refund-order-items/:id')
+  @ApiOkResponse({ type: RefundOrder })
+  @ApiNotFoundResponse()
+  getRefundOrderItem(
+    @Param('id', ParseIntPipe) id: number,
+    @Req() req
+  ): Observable<RefundOrderItem> {
+    return this.shopService.getRefundOrderItem(id, req.user)
+  }
+
+  @ApiTags('Return Reasons')
+  @ApiOkResponse({ type: ReturnReason, isArray: true })
+  @Get('/return-reasons/filter')
+  @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true, transform: true }))
+  filterReturnReasons(
+    @Query() queryReturnReasonDto: QueryReturnReasonDto,
+    @Req() req
+  ): Observable<PaginatedResult<ReturnReason>> {
+    return this.shopService.filterReturnReasons(queryReturnReasonDto, req.user)
+  }
+
+  @ApiTags('Return Reasons')
+  @Get('/return-reasons/:id')
+  @ApiOkResponse({ type: ReturnReason })
+  @ApiNotFoundResponse()
+  getReturnReason(@Param('id', ParseIntPipe) id: number, @Req() req): Observable<ReturnReason> {
+    return this.shopService.getReturnReason(id, req.user)
+  }
+
+  @ApiTags('Return Reasons')
+  @Post('/return-reasons')
+  @ApiCreatedResponse({ type: ReturnReason })
+  @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
+  createReturnReason(
+    @Body() createDto: CreateReturnReasonDto,
+    @Req() req
+  ): Observable<ReturnReason> {
+    return this.shopService.createReturnReason(createDto, req.user)
+  }
+
+  @ApiTags('Return Reasons')
+  @Patch('/return-reasons/:id')
+  @HttpCode(204)
+  @ApiNoContentResponse()
+  @ApiNotFoundResponse()
+  @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
+  updateReturnReason(
+    @Param('id', ParseIntPipe) id: number,
+    @Body() updateDto: UpdateReturnReasonDto,
+    @Req() req
+  ): Observable<ReturnReason> {
+    return this.shopService.updateReturnReason(id, updateDto, req.user)
+  }
+
+  @ApiTags('Return Reasons')
+  @Delete('/return-reasons/:id')
+  @HttpCode(204)
+  @ApiNoContentResponse()
+  deleteReturnReason(@Param('id', ParseIntPipe) id: number, @Req() req) {
+    return this.shopService.deleteReturnReason(id, req.user)
+  }
+
+  @ApiTags('Return Steps')
+  @ApiOkResponse({ type: ReturnSteps, isArray: true })
+  @Get('/return-steps/filter')
+  @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true, transform: true }))
+  filterReturnSteps(
+    @Query() queryReturnStepsDto: QueryReturnStepsDto,
+    @Req() req
+  ): Observable<PaginatedResult<ReturnSteps>> {
+    return this.shopService.filterReturnSteps(queryReturnStepsDto, req.user)
+  }
+
+  @ApiTags('Return Steps')
+  @Get('/return-steps/:id')
+  @ApiOkResponse({ type: ReturnSteps })
+  @ApiNotFoundResponse()
+  getReturnStep(@Param('id', ParseIntPipe) id: number, @Req() req): Observable<ReturnSteps> {
+    return this.shopService.getReturnStep(id, req.user)
+  }
+
+  @ApiTags('Return Steps')
+  @Post('/return-steps')
+  @ApiCreatedResponse({ type: ReturnSteps })
+  @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
+  createReturnStep(@Body() createDto: CreateReturnStepsDto, @Req() req): Observable<ReturnSteps> {
+    return this.shopService.createReturnStep(createDto, req.user)
+  }
+
+  @ApiTags('Return Steps')
+  @Patch('/return-steps/:id')
+  @HttpCode(204)
+  @ApiNoContentResponse()
+  @ApiNotFoundResponse()
+  @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
+  updateReturnStep(
+    @Param('id', ParseIntPipe) id: number,
+    @Body() updateDto: UpdateReturnStepsDto,
+    @Req() req
+  ): Observable<ReturnSteps> {
+    return this.shopService.updateReturnStep(id, updateDto, req.user)
+  }
+
+  @ApiTags('Return Steps')
+  @Delete('/return-steps/:id')
+  @HttpCode(204)
+  @ApiNoContentResponse()
+  @ApiNotFoundResponse()
+  @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
+  deleteReturnStep(@Param('id', ParseIntPipe) id: number, @Req() req): Observable<any> {
+    return this.shopService.deleteReturnStep(id, req.user)
+  }
+
+  @ApiTags('Free Returns')
+  @ApiOkResponse({ type: FreeReturn, isArray: true })
+  @Get('/free-returns/filter')
+  @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
+  filterFreeReturns(
+    @Query() queryFreeReturnDto: QueryFreeReturnDto,
+    @Req() req
+  ): Observable<PaginatedResult<FreeReturn>> {
+    return this.shopService.filterFreeReturns(queryFreeReturnDto, req.user)
+  }
+
+  @ApiTags('Free Returns')
+  @Get('/free-returns/:id')
+  @ApiOkResponse({ type: FreeReturn })
+  @ApiNotFoundResponse()
+  getFreeReturn(@Param('id', ParseIntPipe) id: number, @Req() req): Observable<FreeReturn> {
+    return this.shopService.getFreeReturn(id, req.user)
+  }
+
+  @ApiTags('Free Returns')
+  @Post('/free-returns')
+  @ApiCreatedResponse({ type: FreeReturn })
+  @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
+  createFreeReturn(@Body() createDto: CreateFreeReturnDto, @Req() req): Observable<FreeReturn> {
+    return this.shopService.createFreeReturn(createDto, req.user)
+  }
+
+  @ApiTags('Free Returns')
+  @Post('/free-returns/options')
+  @HttpCode(204)
+  @ApiNoContentResponse()
+  @ApiNotFoundResponse()
+  @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
+  createFreeReturnFromOptions(
+    @Body() createFreeReturnsFromOptionsDto: CreateFreeReturnsFromOptionsDto,
+    @Req() req
+  ): Observable<any> {
+    return this.shopService.createFreeReturnFromOptions(createFreeReturnsFromOptionsDto, req.user)
+  }
+
+  @ApiTags('Free Returns')
+  @Patch('/free-returns/:id')
+  @HttpCode(204)
+  @ApiNoContentResponse()
+  @ApiNotFoundResponse()
+  @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
+  updateFreeReturn(
+    @Param('id', ParseIntPipe) id: number,
+    @Body() updateDto: UpdateFreeReturnDto,
+    @Req() req
+  ): Observable<FreeReturn> {
+    return this.shopService.updateFreeReturn(id, updateDto, req.user)
+  }
+
+  @ApiTags('Email Summary')
+  @Post('/email-summary')
+  @HttpCode(201)
+  @ApiBody({ type: CreateEmailSummaryDto, isArray: true })
+  @ApiCreatedResponse({ type: EmailSummary, isArray: true })
+  @UsePipes(
+    new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }),
+    new EmailSummaryCreateValidationPipe()
+  )
+  async createEmailSummary(
+    @Body(new ParseArrayPipe({ items: CreateEmailSummaryDto, whitelist: true }))
+    createDtos: CreateEmailSummaryDto[],
+    @Req() req
+  ): Promise<EmailSummary[]> {
+    return await this.emailSummaryService.create(createDtos, req.user)
+  }
+
+  @ApiTags('Email Summary')
+  @ApiOkResponse({ type: EmailSummary, isArray: true })
+  @Get('/email-summary/filter')
+  @UsePipes(new ValidationPipe({ transform: true, whitelist: true }))
+  async filterEmailSummary(
+    @Query() queryDto: QueryEmailSummaryDto,
+    @Req() req
+  ): Promise<Pagination<EmailSummary>> {
+    const { page, limit } = queryDto
+    removePaginatorFields(queryDto)
+
+    return await this.emailSummaryService.findByFilter(
+      queryDto,
+      {
+        page: page,
+        limit: limit,
+        route: mainConfigs.URL + '/email-summary/filter'
+      },
+      req.user
+    )
+  }
+
+  @ApiTags('Email Summary')
+  @Patch('/email-summary/batch-update')
+  @HttpCode(204)
+  @ApiBody({ type: UpdateEmailSummaryDto, isArray: true })
+  @ApiNoContentResponse()
+  @ApiNotFoundResponse()
+  @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
+  updateEmailSummary(
+    @Body(new ParseArrayPipe({ items: UpdateEmailSummaryDto, whitelist: true }))
+    updateDtos: UpdateEmailSummaryDto[],
+    @Req() req
+  ): Promise<void> {
+    return this.emailSummaryService.update(updateDtos, req.user)
+  }
+
+  @ApiTags('Address Validation Trackers')
+  @ApiCreatedResponse({ type: AddressValidationTracker })
+  @Post('/address-validation-trackers')
+  @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
+  createAddressValidationTracker(
+    @Body() createAddressValidationTrackerDto: CreateAddressValidationTrackerDto,
+    @Req() req
+  ): Observable<AddressValidationTracker> {
+    return this.addressValidationTrackerService.create(createAddressValidationTrackerDto, req.user)
+  }
+
+  @ApiTags('Address Validation Trackers')
+  @ApiCreatedResponse({ type: AddressValidationTracker, isArray: true })
+  @Get('/address-validation-trackers/filter')
+  @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true, transform: true }))
+  filter(
+    @Query() queryDto: QueryAddressValidationTrackerDto,
+    @Req() req
+  ): Observable<PaginatedResult<AddressValidationTracker>> {
+    return this.addressValidationTrackerService.findByFilter(queryDto, req.user)
+  }
+
+  @ApiTags('Address Validation Trackers')
+  @ApiOkResponse({ type: AddressValidationTracker })
+  @ApiNotFoundResponse()
+  @Get('/address-validation-trackers/:id')
+  getAddressValidationTracker(
+    @Param('id', ParseIntPipe) id: number,
+    @Req() req
+  ): Observable<AddressValidationTracker> {
+    return this.addressValidationTrackerService.findOne(id, req.user)
+  }
+
+  @ApiTags('Address Validation Trackers')
+  @Patch('/address-validation-trackers/:id')
+  @HttpCode(204)
+  @ApiNoContentResponse()
+  @ApiNotFoundResponse()
+  @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
+  updateAddressValidationTracker(
+    @Param('id', ParseIntPipe) id: number,
+    @Body() updateDto: UpdateAddressValidationTrackerDto,
+    @Req() req
+  ): Observable<void> {
+    return this.addressValidationTrackerService.update(id, updateDto, req.user)
+  }
+
+  @ApiTags('Shipping Method')
+  @ApiOkResponse({ type: AddressValidationTracker })
+  @ApiNotFoundResponse()
+  @UsePipes(new ValidationPipe({ transform: true, whitelist: true, forbidNonWhitelisted: true }))
+  @Get('/shipping-method/filter')
+  getShippingMethod(
+    @Query() queryFieldMapper: QueryFieldMapper,
+    @Req() req
+  ): Promise<FieldMapper[]> {
+    return this.shopService.getShippingMethod(queryFieldMapper)
+  }
+
+  @ApiTags('Order Tags')
+  @Post('/order-tags')
+  @HttpCode(201)
+  @ApiCreatedResponse({ type: OrderTagEntity })
+  @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
+  createOrderTag(
+    @Body() createOrderTagDto: CreateOrderTagDto,
+    @Req() req
+  ): Observable<OrderTagEntity> {
+    return this.shopService.createOrderTag(createOrderTagDto, req.user)
+  }
+
+  @ApiTags('Order Tags')
+  @ApiCreatedResponse({ type: OrderTagEntity, isArray: true })
+  @Get('/order-tags/filter')
+  @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true, transform: true }))
+  filterOrderTags(
+    @Query() queryDto: QueryOrderTagDto,
+    @Req() req
+  ): Observable<PaginatedResult<OrderTagEntity>> {
+    return this.shopService.filterOrderTags(queryDto, req.user)
+  }
+
+  @ApiTags('Order Tags')
+  @ApiOperation({ summary: 'auto-complete suggestion for tags' })
+  @ApiCreatedResponse({ type: OrderTagEntity, isArray: true })
+  @Get('/order-tags/search')
+  @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true, transform: true }))
+  searchOrderTags(@Query('name') tagName: string, @Req() req): Observable<Array<OrderTagEntity>> {
+    return this.shopService.searchOrderTags(tagName, req.user)
+  }
+
+  @ApiTags('Order Tags')
+  @ApiOkResponse({ type: OrderTagEntity })
+  @ApiNotFoundResponse()
+  @Get('/order-tags/:id')
+  getOrderTag(@Param('id', ParseIntPipe) id: number, @Req() req): Observable<OrderTagEntity> {
+    return this.shopService.getOrderTag(id, req.user)
+  }
+
+  @ApiTags('Connection Auths')
+  @ApiCreatedResponse({ type: ConnectionAuth })
+  @Post('/connection-auths')
+  @ApiConflictResponse({ description: 'Connection auth already exists' })
+  @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
+  createConnectionAuth(
+    @Body() createConnectionAuthDto: CreateShopConnectionAuthDto,
+    @Req() req
+  ): Promise<ConnectionAuth> {
+    if (createConnectionAuthDto.targetType !== OrgType.Shop) {
+      throw new ForbiddenException(
+        'You are only allowed to create connection auth for `shop` target type'
+      )
+    }
+
+    const implementationIds = req.user.implementationIds.split(',').filter(Boolean).map(Number)
+
+    createConnectionAuthDto.implementationId = implementationIds[0]
+    createConnectionAuthDto.sharedImplementations = null
+
+    return this.shopService.createConnectionAuth(
+      createConnectionAuthDto as CreateConnectionAuthDto,
+      req.user
+    )
+  }
+
+  @ApiTags('Connection Auths')
+  @ApiCreatedResponse({ type: ConnectionAuth })
+  @Post('/shopify/connection-auths')
+  @ApiConflictResponse({ description: 'Connection auth already exists' })
+  @ApiNotFoundResponse({ description: 'Implementation not found' })
+  @ApiBadRequestResponse({ description: 'Invalid NOS company id' })
+  @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true, transform: true }))
+  createConnectionAuthForShopifyApp(
+    @Body() createShopifyIntregrationDto: CreateShopifyIntregrationDto,
+    @Req() req
+  ): Promise<ConnectionAuth> {
+    const implementationIds = req.user.implementationIds.split(',').filter(Boolean).map(Number)
+
+    createShopifyIntregrationDto.implementationId = implementationIds[0]
+
+    return this.shopService.createShopifyAppConnectionAuth(
+      createShopifyIntregrationDto,
+      req.user
+    )
+  }
+
+  @ApiTags('Shopify')
+  @SetMetadata('no-auth', true)
+  @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
+  @Post('/shopify/webhooks')
+  handleShopifyWebhook(@Query() queryDto: ShopifyWebhookDto, @Req() req, @Res() res) {
+    const topic = req.headers['x-shopify-topic'] || 'topic not found'
+    const shopDomain = req.headers['x-shopify-shop-domain'] || 'shop domain not found'
+    this.shopService.handleShopifyWebhook({
+      ...queryDto,
+      topic,
+      shopDomain,
+      data: req.body
+    })
+
+    return res.status(200).json({ ok: true })
+  }
+
+  @ApiTags('Tickets')
+  @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
+  @Post('/tickets')
+  createTicket(@Body() createTicketDto: CreateTicketDto, @Req() req) {
+    return this.ticketsService.createTicket(createTicketDto, req.user)
+  }
+
+  @ApiTags('Tickets')
+  @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true, transform: true }))
+  @Get('/tickets/filter')
+  filterTickets(@Query() queryTicketDto: QueryTicketDto, @Req() req) {
+    return this.ticketsService.filterTickets(queryTicketDto, req.user)
+  }
+
+  @ApiTags('Tickets')
+  @Get('/tickets/messages')
+  @UsePipes(new ValidationPipe({ transform: true, whitelist: true }))
+  getTicketMessages(
+    @Query() queryDto: QueryTicketMessageDto,
+    @Req() req
+  ) {
+    return this.ticketsService.getTicketMessages(queryDto, req.user)
+  }
+
+  @ApiTags('Tickets')
+  @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true, transform: true }))
+  @Get('/tickets/:id')
+  getTicket(@Param('id', ParseIntPipe) id: number, @Req() req) {
+    return this.ticketsService.getTicketById(id, req.user)
+  }
+
+  @ApiTags('Tickets')
+  @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
+  @Post('/tickets/:ticketId/messages')
+  sendMessage(
+    @Param('ticketId', ParseIntPipe) ticketId: number,
+    @Body() createTicketMessageDto: CreateTicketMessageDto,
+    @Req() req
+  ) {
+    return this.ticketsService.createTicketMessage(ticketId, createTicketMessageDto, req.user)
+  }
+
+  @ApiTags('Tickets')
+  @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
+  @Patch('/tickets/:id/status')
+  updateTicketStatus(
+    @Param('id', ParseIntPipe) id: number,
+    @Body() updateTicketStatusDto: UpdateTicketStatusDto,
+    @Req() req
+  ) {
+    return this.ticketsService.updateTicketStatus(id, updateTicketStatusDto, req.user)
+  }
+
+  @ApiTags('Tickets')
+  @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
+  @Post('/tickets/:id/upload-presigned-url')
+  createTicketAttachmentUploadPreSignedUrl(
+    @Param('id', ParseIntPipe) id: number,
+    @Body()
+    createTicketAttachmentUploadPreSignedUrlDto: CreateTicketAttachmentUploadPreSignedUrlDto,
+    @Req() req
+  ) {
+    return this.ticketsService.createTicketAttachmentUploadPreSignedUrl(
+      id,
+      createTicketAttachmentUploadPreSignedUrlDto,
+      req.user
+    )
+  }
+
+
+}

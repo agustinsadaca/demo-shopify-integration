@@ -1,0 +1,146 @@
+{
+  "fulfillmentOrders": [
+    {
+      "id": "gid://shopify/FulfillmentOrder/7683869835425",
+      "orderId": "gid://shopify/Order/6529171718305",
+      "updatedAt": "2025-02-24T12:26:01Z",
+      "assignedLocation": {
+        "location": {
+          "id": "gid://shopify/Location/70592987297",
+          "legacyResourceId": "70592987297"
+        }
+      },
+      "requestStatus": "SUBMITTED",
+      "status": "OPEN",
+      "lineItems": {
+        "nodes": [
+          {
+            "id": "gid://shopify/FulfillmentOrderLineItem/16080666165409",
+            "lineItem": {
+              "id": "gid://shopify/LineItem/15835608645793"
+            },
+            "inventoryItemId": "gid://shopify/InventoryItem/42287620096161",
+            "totalQuantity": 2,
+            "variant": {
+              "id": "gid://shopify/ProductVariant/40193016758433"
+            }
+          }
+        ]
+      },
+      "destination": {
+        "firstName": "Jeel",
+        "email": "jeel@testttt.com",
+        "lastName": "Parikh",
+        "address1": "test",
+        "address2": "test",
+        "company": null,
+        "zip": "382424",
+        "city": "ahmedabad",
+        "province": "Gujarat",
+        "countryCode": "IN",
+        "phone": null
+      },
+      "supportedActions": [
+        {
+          "action": "CANCEL_FULFILLMENT_ORDER"
+        }
+      ],
+      "order": {
+        "id": "gid://shopify/Order/6529171718305",
+        "legacyResourceId": "6529171718305",
+        "name": "#1109",
+        "totalPriceSet": {
+          "shopMoney": {
+            "amount": "610.0"
+          }
+        },
+        "totalTaxSet": {
+          "shopMoney": {
+            "amount": "0.0"
+          }
+        },
+        "currencyCode": "INR",
+        "shippingAddress": {
+          "firstName": "Jeel",
+          "lastName": "Parikh",
+          "address1": "test",
+          "address2": "test",
+          "company": null,
+          "zip": "382424",
+          "city": "ahmedabad",
+          "province": "Gujarat",
+          "countryCodeV2": "IN",
+          "phone": null
+        },
+        "customer": {
+          "defaultEmailAddress": {
+            "emailAddress": "jeel@testttt.com"
+          }
+        },
+        "paymentGatewayNames": [
+          "bogus"
+        ],
+        "lineItems": {
+          "nodes": [
+            {
+              "id": "gid://shopify/LineItem/15835608645793",
+              "sku": "wh12102020",
+              "originalUnitPriceSet": {
+                "shopMoney": {
+                  "amount": "100.0"
+                }
+              },
+              "quantity": 5,
+              "taxLines": [],
+              "discountAllocations": []
+            }
+          ]
+        },
+        "createdAt": "2025-02-24T12:25:06Z",
+        "shippingLines": {
+          "nodes": [
+            {
+              "code": "1",
+              "originalPriceSet": {
+                "shopMoney": {
+                  "amount": "110.0"
+                }
+              },
+              "discountedPriceSet": {
+                "shopMoney": {
+                  "amount": "110.0"
+                }
+              },
+              "taxLines": []
+            }
+          ]
+        },
+        "billingAddress": {
+          "firstName": "Jeel",
+          "lastName": "Parikh",
+          "address1": "test",
+          "address2": "test",
+          "company": null,
+          "zip": "382424",
+          "city": "ahmedabad",
+          "province": "Gujarat",
+          "countryCodeV2": "IN",
+          "phone": null
+        },
+        "taxesIncluded": true,
+        "totalDiscountsSet": {
+          "shopMoney": {
+            "amount": "0.0"
+          }
+        },
+        "totalShippingPriceSet": {
+          "shopMoney": {
+            "amount": "110.0"
+          }
+        },
+        "taxLines": [],
+        "displayFinancialStatus": "PAID"
+      }
+    }
+  ]
+}

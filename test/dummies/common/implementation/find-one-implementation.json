@@ -1,0 +1,35 @@
+{
+  "id": 106,
+  "createdAt": "2022-12-01T16:10:16.773Z",
+  "updatedAt": "2022-12-01T16:10:16.773Z",
+  "customerId": 99,
+  "partnerId": 7,
+  "shopName": "shopify",
+  "wmsName": "wmstest",
+  "implementationIdCustomer": null,
+  "implementationIdPartner": null,
+  "partnerLocationId": 7,
+  "customerLocationId": "75600953653",
+  "isActive": true,
+  "customer": {
+    "id": 99,
+    "createdAt": "2022-10-26T08:18:40.185Z",
+    "updatedAt": "2022-10-26T08:18:40.185Z",
+    "companyName": "comp_test26oct",
+    "nosCustomerCompanyId": 440,
+    "companyAddressLine1": null,
+    "companyZipCode": null,
+    "companyCity": null,
+    "companyCountry": null,
+    "companyEmail": null,
+    "companyPhone": null,
+    "companyTaxNumber": null,
+    "companyTaxId": null
+  },
+  "partner": {
+    "id": 7,
+    "createdAt": "2021-09-23T10:50:25.706Z",
+    "updatedAt": "2021-09-23T10:50:25.706Z",
+    "companyName": "Demo Partner"
+  }
+}

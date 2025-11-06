@@ -1,0 +1,2458 @@
+{
+  "fulfillment_orders": [
+    {
+      "id": 6686158160218,
+      "assigned_location_id": 75600953653,
+      "request_status": "unsubmitted",
+      "status": "open",
+      "supported_actions": [
+        "request_fulfillment",
+        "hold",
+        "move"
+      ],
+      "destination": {
+        "address2": null,
+        "city": "Bernsbach",
+        "company": null,
+        "country": "Germany",
+        "last_name": "Lang",
+        "province": null,
+        "zip": "08315"
+      },
+      "line_items": [
+        {
+          "id": 14860700385626,
+          "quantity": 2,
+          "line_item_id": 14723830251866,
+          "inventory_item_id": 48924571369818,
+          "fulfillable_quantity": 2,
+          "variant_id": 46825943138650
+        }
+      ],
+      "outgoing_requests": [],
+      "fulfill_at": "2023-08-01T14:00:00+02:00",
+      "fulfill_by": null,
+      "international_duties": null,
+      "fulfillment_holds": [],
+      "delivery_method": null,
+      "created_at": "2023-08-03T09:33:46+02:00",
+      "updated_at": "2023-08-03T09:33:46+02:00",
+      "assigned_location": {
+        "address2": null,
+        "city": null,
+        "country_code": "DE",
+        "name": " Fulfillment",
+        "province": null,
+        "zip": null
+      }
+    },
+    {
+      "id": 6686159733082,
+      "assigned_location_id": 75600953653,
+      "request_status": "unsubmitted",
+      "status": "open",
+      "supported_actions": [
+        "request_fulfillment",
+        "hold",
+        "move"
+      ],
+      "destination": {
+        "id": 6733221364058,
+        "address2": "27b",
+        "city": "Neuried",
+        "company": null,
+        "country": "Germany",
+        "email": "monaanz@hotmail.de",
+        "last_name": "Anzenberger",
+        "province": null,
+        "zip": "82061"
+      },
+      "line_items": [
+        {
+          "id": 14862381515098,
+          "quantity": 1,
+          "line_item_id": 14725507744090,
+          "inventory_item_id": 48838446285146,
+          "fulfillable_quantity": 1,
+          "variant_id": 46739562955098
+        }
+      ],
+      "outgoing_requests": [],
+      "fulfill_at": "2023-08-02T10:00:00+02:00",
+      "fulfill_by": null,
+      "international_duties": null,
+      "fulfillment_holds": [],
+      "delivery_method": null,
+      "created_at": "2023-08-03T09:35:13+02:00",
+      "updated_at": "2023-08-03T09:35:13+02:00",
+      "assigned_location": {
+        "address2": null,
+        "city": null,
+        "country_code": "DE",
+        "name": " Fulfillment",
+        "province": null,
+        "zip": null
+      }
+    },
+    {
+      "id": 6686159831386,
+      "assigned_location_id": 83860750682,
+      "request_status": "unsubmitted",
+      "status": "open",
+      "supported_actions": [
+        "request_fulfillment",
+        "hold",
+        "move"
+      ],
+      "destination": {
+        "id": 6733221462362,
+        "address2": null,
+        "city": "Ingolstadt",
+        "company": null,
+        "country": "Germany",
+        "email": "volker-weiss@t-online.de",
+        "last_name": "Weiß",
+        "province": null,
+        "zip": "85051"
+      },
+      "line_items": [
+        {
+          "id": 14862774993242,
+          "quantity": 1,
+          "line_item_id": 14725898961242,
+          "inventory_item_id": 48971438522714,
+          "fulfillable_quantity": 1,
+          "variant_id": 46876289958234
+        }
+      ],
+      "outgoing_requests": [],
+      "fulfill_at": "2023-08-02T13:00:00+02:00",
+      "fulfill_by": null,
+      "international_duties": null,
+      "fulfillment_holds": [],
+      "delivery_method": null,
+      "created_at": "2023-08-03T09:35:25+02:00",
+      "updated_at": "2023-08-03T09:35:25+02:00",
+      "assigned_location": {
+        "address2": null,
+        "city": null,
+        "country_code": "DE",
+        "name": " Fulfillment",
+        "province": null,
+        "zip": null
+      }
+    },
+    {
+      "id": 6686363025754,
+      "assigned_location_id": 83860750682,
+      "request_status": "unsubmitted",
+      "status": "open",
+      "supported_actions": [
+        "request_fulfillment",
+        "hold",
+        "move"
+      ],
+      "destination": {
+        "id": 6733411811674,
+        "address2": null,
+        "city": "Hamm",
+        "company": null,
+        "country": "Germany",
+        "email": "anni.kunz.ak@googlemail.com",
+        "last_name": "Kunz",
+        "province": null,
+        "zip": "59077"
+      },
+      "line_items": [
+        {
+          "id": 14864808903002,
+          "quantity": 1,
+          "line_item_id": 14727925825882,
+          "inventory_item_id": 45036455755991,
+          "fulfillable_quantity": 1,
+          "variant_id": 42944670171351
+        },
+        {
+          "id": 14864808935770,
+          "quantity": 1,
+          "line_item_id": 14727925858650,
+          "inventory_item_id": 48868385161562,
+          "fulfillable_quantity": 1,
+          "variant_id": 46769597186394
+        }
+      ],
+      "outgoing_requests": [],
+      "fulfill_at": "2023-08-03T12:00:00+02:00",
+      "fulfill_by": null,
+      "international_duties": null,
+      "fulfillment_holds": [],
+      "delivery_method": {
+        "id": 744374698330,
+        "method_type": "shipping",
+        "min_delivery_date_time": null,
+        "max_delivery_date_time": null
+      },
+      "created_at": "2023-08-03T12:42:02+02:00",
+      "updated_at": "2023-08-03T12:42:02+02:00",
+      "assigned_location": {
+        "address2": null,
+        "city": null,
+        "country_code": "DE",
+        "name": " Fulfillment",
+        "province": null,
+        "zip": null
+      }
+    },
+    {
+      "id": 6688686965082,
+      "assigned_location_id": 83860750682,
+      "request_status": "unsubmitted",
+      "status": "open",
+      "supported_actions": [
+        "request_fulfillment",
+        "hold",
+        "move"
+      ],
+      "destination": {
+        "id": 6735492546906,
+        "address2": null,
+        "city": "Mannheim",
+        "company": null,
+        "country": "Germany",
+        "email": "c.rotterdam@web.de",
+        "last_name": "Rotterdam ()",
+        "province": null,
+        "zip": "68163"
+      },
+      "line_items": [
+        {
+          "id": 14868994982234,
+          "quantity": 1,
+          "line_item_id": 14732105679194,
+          "inventory_item_id": 48971438752090,
+          "fulfillable_quantity": 1,
+          "variant_id": 46876290187610
+        }
+      ],
+      "outgoing_requests": [],
+      "fulfill_at": "2023-08-05T03:00:00+02:00",
+      "fulfill_by": null,
+      "international_duties": null,
+      "fulfillment_holds": [],
+      "delivery_method": {
+        "id": 745772876122,
+        "method_type": "shipping",
+        "min_delivery_date_time": null,
+        "max_delivery_date_time": null
+      },
+      "created_at": "2023-08-05T03:30:24+02:00",
+      "updated_at": "2023-08-05T03:30:24+02:00",
+      "assigned_location": {
+        "address2": null,
+        "city": null,
+        "country_code": "DE",
+        "name": " Fulfillment",
+        "province": null,
+        "zip": null
+      }
+    },
+    {
+      "id": 6688893141338,
+      "assigned_location_id": 83860750682,
+      "request_status": "unsubmitted",
+      "status": "open",
+      "supported_actions": [
+        "request_fulfillment",
+        "hold",
+        "move"
+      ],
+      "destination": {
+        "id": 6735684534618,
+        "address2": null,
+        "city": "Regensburg",
+        "company": null,
+        "country": "Germany",
+        "email": "stefaniegrethlein@web.de",
+        "last_name": "Grethlein",
+        "province": null,
+        "zip": "93047"
+      },
+      "line_items": [
+        {
+          "id": 14869332459866,
+          "quantity": 1,
+          "line_item_id": 14732443189594,
+          "inventory_item_id": 45036455788759,
+          "fulfillable_quantity": 1,
+          "variant_id": 42944670204119
+        },
+        {
+          "id": 14869332492634,
+          "quantity": 2,
+          "line_item_id": 14732443222362,
+          "inventory_item_id": 48868385030490,
+          "fulfillable_quantity": 2,
+          "variant_id": 46769597055322
+        }
+      ],
+      "outgoing_requests": [],
+      "fulfill_at": "2023-08-05T08:00:00+02:00",
+      "fulfill_by": null,
+      "international_duties": null,
+      "fulfillment_holds": [],
+      "delivery_method": {
+        "id": 745832743258,
+        "method_type": "shipping",
+        "min_delivery_date_time": null,
+        "max_delivery_date_time": null
+      },
+      "created_at": "2023-08-05T08:51:12+02:00",
+      "updated_at": "2023-08-05T08:51:12+02:00",
+      "assigned_location": {
+        "address2": null,
+        "city": null,
+        "country_code": "DE",
+        "name": " Fulfillment",
+        "province": null,
+        "zip": null
+      }
+    },
+    {
+      "id": 6689541685594,
+      "assigned_location_id": 83860750682,
+      "request_status": "unsubmitted",
+      "status": "open",
+      "supported_actions": [
+        "request_fulfillment",
+        "hold",
+        "move"
+      ],
+      "destination": {
+        "id": 6736213770586,
+        "address2": null,
+        "city": "Biberach an der Riß",
+        "company": null,
+        "country": "Germany",
+        "email": "anni.muecke@web.de",
+        "last_name": "Mücke",
+        "province": null,
+        "zip": "88400"
+      },
+      "line_items": [
+        {
+          "id": 14870543237466,
+          "quantity": 1,
+          "line_item_id": 14733653049690,
+          "inventory_item_id": 48838446252378,
+          "fulfillable_quantity": 1,
+          "variant_id": 46739562922330
+        },
+        {
+          "id": 14870543270234,
+          "quantity": 1,
+          "line_item_id": 14733653082458,
+          "inventory_item_id": 48868698390874,
+          "fulfillable_quantity": 1,
+          "variant_id": 46769909137754
+        }
+      ],
+      "outgoing_requests": [],
+      "fulfill_at": "2023-08-05T21:00:00+02:00",
+      "fulfill_by": null,
+      "international_duties": null,
+      "fulfillment_holds": [],
+      "delivery_method": {
+        "id": 746403725658,
+        "method_type": "shipping",
+        "min_delivery_date_time": null,
+        "max_delivery_date_time": null
+      },
+      "created_at": "2023-08-05T21:00:10+02:00",
+      "updated_at": "2023-08-05T21:00:10+02:00",
+      "assigned_location": {
+        "address2": null,
+        "city": null,
+        "country_code": "DE",
+        "name": " Fulfillment",
+        "province": null,
+        "zip": null
+      }
+    },
+    {
+      "id": 6689977139546,
+      "assigned_location_id": 83860750682,
+      "request_status": "accepted",
+      "status": "in_progress",
+      "supported_actions": [
+        "request_cancellation"
+      ],
+      "destination": {
+        "id": 6736635887962,
+        "address2": null,
+        "city": "Teublitz",
+        "company": null,
+        "country": "Germany",
+        "email": "stefanie.bauernfeind@gmx.de",
+        "last_name": "Bauernfeind",
+        "province": null,
+        "zip": "93158"
+      },
+      "line_items": [
+        {
+          "id": 14871316758874,
+          "quantity": 1,
+          "line_item_id": 14734426866010,
+          "inventory_item_id": 48868699177306,
+          "fulfillable_quantity": 1,
+          "variant_id": 46769909924186
+        }
+      ],
+      "outgoing_requests": [
+        {
+          "message": "",
+          "request_options": {
+            "notify_customer": false
+          },
+          "sent_at": "2023-08-07T12:24:10+02:00",
+          "kind": "fulfillment_request"
+        }
+      ],
+      "fulfill_at": "2023-08-06T13:00:00+02:00",
+      "fulfill_by": null,
+      "international_duties": null,
+      "fulfillment_holds": [],
+      "delivery_method": {
+        "id": 746789241178,
+        "method_type": "shipping",
+        "min_delivery_date_time": null,
+        "max_delivery_date_time": null
+      },
+      "created_at": "2023-08-06T13:08:18+02:00",
+      "updated_at": "2023-08-07T12:24:14+02:00",
+      "assigned_location": {
+        "address2": null,
+        "city": null,
+        "country_code": "DE",
+        "name": " Fulfillment",
+        "province": null,
+        "zip": null
+      }
+    },
+    {
+      "id": 6689994539354,
+      "assigned_location_id": 83860750682,
+      "request_status": "submitted",
+      "status": "open",
+      "supported_actions": [
+        "cancel_fulfillment_order"
+      ],
+      "destination": {
+        "id": 6736651878746,
+        "address2": null,
+        "city": "Karlsdorf-Neuthard",
+        "company": null,
+        "country": "Germany",
+        "email": "jenni-t@web.de",
+        "last_name": "Tauer",
+        "province": null,
+        "zip": "76689"
+      },
+      "line_items": [
+        {
+          "id": 14871347986778,
+          "quantity": 1,
+          "line_item_id": 14734457995610,
+          "inventory_item_id": 45036455395543,
+          "fulfillable_quantity": 1,
+          "variant_id": 42944669810903
+        },
+        {
+          "id": 14871348019546,
+          "quantity": 2,
+          "line_item_id": 14734458028378,
+          "inventory_item_id": 48868698882394,
+          "fulfillable_quantity": 2,
+          "variant_id": 46769909629274
+        }
+      ],
+      "outgoing_requests": [
+        {
+          "message": "",
+          "request_options": {
+            "notify_customer": false
+          },
+          "sent_at": "2023-08-07T12:24:17+02:00",
+          "kind": "fulfillment_request"
+        }
+      ],
+      "fulfill_at": "2023-08-06T13:00:00+02:00",
+      "fulfill_by": null,
+      "international_duties": null,
+      "fulfillment_holds": [],
+      "delivery_method": {
+        "id": 746805297498,
+        "method_type": "shipping",
+        "min_delivery_date_time": null,
+        "max_delivery_date_time": null
+      },
+      "created_at": "2023-08-06T13:27:14+02:00",
+      "updated_at": "2023-08-07T12:24:17+02:00",
+      "assigned_location": {
+        "address2": null,
+        "city": null,
+        "country_code": "DE",
+        "name": " Fulfillment",
+        "province": null,
+        "zip": null
+      }
+    },
+    {
+      "id": 6690020360538,
+      "assigned_location_id": 75600953653,
+      "request_status": "submitted",
+      "status": "open",
+      "supported_actions": [
+        "cancel_fulfillment_order"
+      ],
+      "destination": {
+        "id": 6736675340634,
+        "address2": null,
+        "city": "Köln",
+        "company": null,
+        "country": "Germany",
+        "email": "info@kingventures.de",
+        "last_name": "Massong",
+        "province": null,
+        "zip": "50672"
+      },
+      "line_items": [
+        {
+          "id": 14871396516186,
+          "quantity": 1,
+          "line_item_id": 14734506459482,
+          "inventory_item_id": 45036455133399,
+          "fulfillable_quantity": 1,
+          "variant_id": 42944669548759
+        },
+        {
+          "id": 14871396548954,
+          "quantity": 1,
+          "line_item_id": 14734506492250,
+          "inventory_item_id": 48580879057242,
+          "fulfillable_quantity": 1,
+          "variant_id": 46482338349402
+        }
+      ],
+      "outgoing_requests": [
+        {
+          "message": "",
+          "request_options": {
+            "notify_customer": false
+          },
+          "sent_at": "2023-08-07T12:24:26+02:00",
+          "kind": "fulfillment_request"
+        }
+      ],
+      "fulfill_at": "2023-08-06T13:00:00+02:00",
+      "fulfill_by": null,
+      "international_duties": null,
+      "fulfillment_holds": [],
+      "delivery_method": {
+        "id": 746828235098,
+        "method_type": "shipping",
+        "min_delivery_date_time": null,
+        "max_delivery_date_time": null
+      },
+      "created_at": "2023-08-06T13:56:43+02:00",
+      "updated_at": "2023-08-07T12:24:26+02:00",
+      "assigned_location": {
+        "address2": null,
+        "city": null,
+        "country_code": "DE",
+        "name": " Fulfillment",
+        "province": null,
+        "zip": null
+      }
+    },
+    {
+      "id": 6690040086874,
+      "assigned_location_id": 75600953653,
+      "request_status": "submitted",
+      "status": "open",
+      "supported_actions": [
+        "cancel_fulfillment_order"
+      ],
+      "destination": {
+        "id": 6736693068122,
+        "address2": null,
+        "city": "Hamburg",
+        "company": null,
+        "country": "Germany",
+        "email": "d.wendrich@hotmail.com",
+        "last_name": "Wendrich",
+        "province": null,
+        "zip": "20535"
+      },
+      "line_items": [
+        {
+          "id": 14871436034394,
+          "quantity": 1,
+          "line_item_id": 14734546043226,
+          "inventory_item_id": 45036455133399,
+          "fulfillable_quantity": 1,
+          "variant_id": 42944669548759
+        },
+        {
+          "id": 14871436067162,
+          "quantity": 1,
+          "line_item_id": 14734546075994,
+          "inventory_item_id": 48868699570522,
+          "fulfillable_quantity": 1,
+          "variant_id": 46769910317402
+        }
+      ],
+      "outgoing_requests": [
+        {
+          "message": "",
+          "request_options": {
+            "notify_customer": false
+          },
+          "sent_at": "2023-08-07T12:24:33+02:00",
+          "kind": "fulfillment_request"
+        }
+      ],
+      "fulfill_at": "2023-08-06T14:00:00+02:00",
+      "fulfill_by": null,
+      "international_duties": null,
+      "fulfillment_holds": [],
+      "delivery_method": {
+        "id": 746846257498,
+        "method_type": "shipping",
+        "min_delivery_date_time": null,
+        "max_delivery_date_time": null
+      },
+      "created_at": "2023-08-06T14:20:04+02:00",
+      "updated_at": "2023-08-07T12:24:33+02:00",
+      "assigned_location": {
+        "address2": null,
+        "city": null,
+        "country_code": "DE",
+        "name": " Fulfillment",
+        "province": null,
+        "zip": null
+      }
+    },
+    {
+      "id": 6690057453914,
+      "assigned_location_id": 75600953653,
+      "request_status": "submitted",
+      "status": "open",
+      "supported_actions": [
+        "cancel_fulfillment_order"
+      ],
+      "destination": {
+        "id": 6736708862298,
+        "address2": "Steigerwaldstraße",
+        "city": "Bamberg",
+        "company": null,
+        "country": "Germany",
+        "email": "service@lollibel.de",
+        "last_name": "Baum",
+        "province": null,
+        "zip": "96049"
+      },
+      "line_items": [
+        {
+          "id": 14871468245338,
+          "quantity": 1,
+          "line_item_id": 14734578286938,
+          "inventory_item_id": 48868699046234,
+          "fulfillable_quantity": 1,
+          "variant_id": 46769909793114
+        }
+      ],
+      "outgoing_requests": [
+        {
+          "message": "",
+          "request_options": {
+            "notify_customer": false
+          },
+          "sent_at": "2023-08-07T12:24:40+02:00",
+          "kind": "fulfillment_request"
+        }
+      ],
+      "fulfill_at": "2023-08-06T14:00:00+02:00",
+      "fulfill_by": null,
+      "international_duties": null,
+      "fulfillment_holds": [],
+      "delivery_method": {
+        "id": 746862051674,
+        "method_type": "shipping",
+        "min_delivery_date_time": null,
+        "max_delivery_date_time": null
+      },
+      "created_at": "2023-08-06T14:40:54+02:00",
+      "updated_at": "2023-08-07T12:24:40+02:00",
+      "assigned_location": {
+        "address2": null,
+        "city": null,
+        "country_code": "DE",
+        "name": " Fulfillment",
+        "province": null,
+        "zip": null
+      }
+    },
+    {
+      "id": 6690112307546,
+      "assigned_location_id": 75600953653,
+      "request_status": "submitted",
+      "status": "open",
+      "supported_actions": [
+        "cancel_fulfillment_order"
+      ],
+      "destination": {
+        "id": 6736757129562,
+        "address2": null,
+        "city": "Pößneck",
+        "company": null,
+        "country": "Germany",
+        "email": "kdb@augenoptik-beck.de",
+        "last_name": "Beck",
+        "province": null,
+        "zip": "07381"
+      },
+      "line_items": [
+        {
+          "id": 14871569793370,
+          "quantity": 1,
+          "line_item_id": 14734679802202,
+          "inventory_item_id": 48868384407898,
+          "fulfillable_quantity": 1,
+          "variant_id": 46769596432730
+        }
+      ],
+      "outgoing_requests": [
+        {
+          "message": "",
+          "request_options": {
+            "notify_customer": false
+          },
+          "sent_at": "2023-08-07T12:24:47+02:00",
+          "kind": "fulfillment_request"
+        }
+      ],
+      "fulfill_at": "2023-08-06T15:00:00+02:00",
+      "fulfill_by": null,
+      "international_duties": null,
+      "fulfillment_holds": [],
+      "delivery_method": {
+        "id": 746911269210,
+        "method_type": "shipping",
+        "min_delivery_date_time": null,
+        "max_delivery_date_time": null
+      },
+      "created_at": "2023-08-06T15:47:12+02:00",
+      "updated_at": "2023-08-07T12:24:47+02:00",
+      "assigned_location": {
+        "address2": null,
+        "city": null,
+        "country_code": "DE",
+        "name": " Fulfillment",
+        "province": null,
+        "zip": null
+      }
+    },
+    {
+      "id": 6690224243034,
+      "assigned_location_id": 83860750682,
+      "request_status": "unsubmitted",
+      "status": "open",
+      "supported_actions": [
+        "request_fulfillment",
+        "hold",
+        "move"
+      ],
+      "destination": {
+        "id": 6736857694554,
+        "address2": null,
+        "city": "Weilrod",
+        "company": null,
+        "country": "Germany",
+        "email": "webdesign-afc@gmx.de",
+        "last_name": "Pitz",
+        "province": null,
+        "zip": "61276"
+      },
+      "line_items": [
+        {
+          "id": 14871775379802,
+          "quantity": 1,
+          "line_item_id": 14734884307290,
+          "inventory_item_id": 48971402641754,
+          "fulfillable_quantity": 1,
+          "variant_id": 46876253946202
+        }
+      ],
+      "outgoing_requests": [],
+      "fulfill_at": "2023-08-06T17:00:00+02:00",
+      "fulfill_by": null,
+      "international_duties": null,
+      "fulfillment_holds": [],
+      "delivery_method": {
+        "id": 747011768666,
+        "method_type": "shipping",
+        "min_delivery_date_time": null,
+        "max_delivery_date_time": null
+      },
+      "created_at": "2023-08-06T17:57:23+02:00",
+      "updated_at": "2023-08-06T17:57:23+02:00",
+      "assigned_location": {
+        "address2": null,
+        "city": null,
+        "country_code": "DE",
+        "name": " Fulfillment",
+        "province": null,
+        "zip": null
+      }
+    },
+    {
+      "id": 6690266939738,
+      "assigned_location_id": 75600953653,
+      "request_status": "submitted",
+      "status": "open",
+      "supported_actions": [
+        "cancel_fulfillment_order"
+      ],
+      "destination": {
+        "id": 6736899113306,
+        "address2": null,
+        "city": "Eppingen",
+        "company": null,
+        "country": "Germany",
+        "email": "bodensteins@web.de",
+        "last_name": "Bodenstein",
+        "province": null,
+        "zip": "75031"
+      },
+      "line_items": [
+        {
+          "id": 14871852253530,
+          "quantity": 1,
+          "line_item_id": 14734961312090,
+          "inventory_item_id": 45036455133399,
+          "fulfillable_quantity": 1,
+          "variant_id": 42944669548759
+        },
+        {
+          "id": 14871852286298,
+          "quantity": 1,
+          "line_item_id": 14734961377626,
+          "inventory_item_id": 48868697768282,
+          "fulfillable_quantity": 1,
+          "variant_id": 46769908515162
+        }
+      ],
+      "outgoing_requests": [
+        {
+          "message": "",
+          "request_options": {
+            "notify_customer": false
+          },
+          "sent_at": "2023-08-07T12:24:57+02:00",
+          "kind": "fulfillment_request"
+        }
+      ],
+      "fulfill_at": "2023-08-06T18:00:00+02:00",
+      "fulfill_by": null,
+      "international_duties": null,
+      "fulfillment_holds": [],
+      "delivery_method": {
+        "id": 747050697050,
+        "method_type": "shipping",
+        "min_delivery_date_time": null,
+        "max_delivery_date_time": null
+      },
+      "created_at": "2023-08-06T18:47:46+02:00",
+      "updated_at": "2023-08-07T12:24:57+02:00",
+      "assigned_location": {
+        "address2": null,
+        "city": null,
+        "country_code": "DE",
+        "name": " Fulfillment",
+        "province": null,
+        "zip": null
+      }
+    },
+    {
+      "id": 6690330411354,
+      "assigned_location_id": 83860750682,
+      "request_status": "unsubmitted",
+      "status": "open",
+      "supported_actions": [
+        "request_fulfillment",
+        "hold",
+        "move"
+      ],
+      "destination": {
+        "id": 6736959177050,
+        "address2": "22",
+        "city": "Mettmann",
+        "company": null,
+        "country": "Germany",
+        "email": "olgahimmelspach@yahoo.de",
+        "last_name": "Himmelspach",
+        "province": null,
+        "zip": "40822"
+      },
+      "line_items": [
+        {
+          "id": 14871966417242,
+          "quantity": 2,
+          "line_item_id": 14735075574106,
+          "inventory_item_id": 48924560949594,
+          "fulfillable_quantity": 2,
+          "variant_id": 46825932685658
+        }
+      ],
+      "outgoing_requests": [],
+      "fulfill_at": "2023-08-06T20:00:00+02:00",
+      "fulfill_by": null,
+      "international_duties": null,
+      "fulfillment_holds": [],
+      "delivery_method": {
+        "id": 747107254618,
+        "method_type": "shipping",
+        "min_delivery_date_time": null,
+        "max_delivery_date_time": null
+      },
+      "created_at": "2023-08-06T20:05:26+02:00",
+      "updated_at": "2023-08-06T20:05:26+02:00",
+      "assigned_location": {
+        "address2": null,
+        "city": null,
+        "country_code": "DE",
+        "name": " Fulfillment",
+        "province": null,
+        "zip": null
+      }
+    },
+    {
+      "id": 6690396635482,
+      "assigned_location_id": 83860750682,
+      "request_status": "unsubmitted",
+      "status": "open",
+      "supported_actions": [
+        "request_fulfillment",
+        "hold",
+        "move"
+      ],
+      "destination": {
+        "id": 6737023271258,
+        "address2": null,
+        "city": "Erftstadt",
+        "company": null,
+        "country": "Germany",
+        "email": "ms.luna.l@gmail.com",
+        "last_name": "Bester",
+        "province": null,
+        "zip": "50374"
+      },
+      "line_items": [
+        {
+          "id": 14872085070170,
+          "quantity": 2,
+          "line_item_id": 14735193964890,
+          "inventory_item_id": 48868698423642,
+          "fulfillable_quantity": 2,
+          "variant_id": 46769909170522
+        },
+        {
+          "id": 14872085102938,
+          "quantity": 2,
+          "line_item_id": 14735193997658,
+          "inventory_item_id": 48868698095962,
+          "fulfillable_quantity": 2,
+          "variant_id": 46769908842842
+        }
+      ],
+      "outgoing_requests": [],
+      "fulfill_at": "2023-08-06T21:00:00+02:00",
+      "fulfill_by": null,
+      "international_duties": null,
+      "fulfillment_holds": [],
+      "delivery_method": {
+        "id": 747166564698,
+        "method_type": "shipping",
+        "min_delivery_date_time": null,
+        "max_delivery_date_time": null
+      },
+      "created_at": "2023-08-06T21:20:02+02:00",
+      "updated_at": "2023-08-06T21:20:02+02:00",
+      "assigned_location": {
+        "address2": null,
+        "city": null,
+        "country_code": "DE",
+        "name": " Fulfillment",
+        "province": null,
+        "zip": null
+      }
+    },
+    {
+      "id": 6690429305178,
+      "assigned_location_id": 83860750682,
+      "request_status": "submitted",
+      "status": "open",
+      "supported_actions": [
+        "cancel_fulfillment_order"
+      ],
+      "destination": {
+        "id": 6737054957914,
+        "address2": null,
+        "city": "Lingen",
+        "company": null,
+        "country": "Germany",
+        "email": "juvenil@gmx.net",
+        "last_name": "Lüken",
+        "province": null,
+        "zip": "49808"
+      },
+      "line_items": [
+        {
+          "id": 14872148672858,
+          "quantity": 1,
+          "line_item_id": 14735257633114,
+          "inventory_item_id": 45545480913111,
+          "fulfillable_quantity": 1,
+          "variant_id": 43452383396055
+        },
+        {
+          "id": 14872148705626,
+          "quantity": 1,
+          "line_item_id": 14735257665882,
+          "inventory_item_id": 48868384407898,
+          "fulfillable_quantity": 1,
+          "variant_id": 46769596432730
+        }
+      ],
+      "outgoing_requests": [
+        {
+          "message": "",
+          "request_options": {
+            "notify_customer": false
+          },
+          "sent_at": "2023-08-07T12:25:41+02:00",
+          "kind": "fulfillment_request"
+        }
+      ],
+      "fulfill_at": "2023-08-06T21:00:00+02:00",
+      "fulfill_by": null,
+      "international_duties": null,
+      "fulfillment_holds": [],
+      "delivery_method": {
+        "id": 747195400538,
+        "method_type": "shipping",
+        "min_delivery_date_time": null,
+        "max_delivery_date_time": null
+      },
+      "created_at": "2023-08-06T21:58:45+02:00",
+      "updated_at": "2023-08-07T12:25:41+02:00",
+      "assigned_location": {
+        "address2": null,
+        "city": null,
+        "country_code": "DE",
+        "name": " Fulfillment",
+        "province": null,
+        "zip": null
+      }
+    },
+    {
+      "id": 6690434908506,
+      "assigned_location_id": 83860750682,
+      "request_status": "submitted",
+      "status": "open",
+      "supported_actions": [
+        "cancel_fulfillment_order"
+      ],
+      "destination": {
+        "id": 6737060528474,
+        "address2": null,
+        "city": "Mönsheim",
+        "company": null,
+        "country": "Germany",
+        "email": "binder.cm@web.de",
+        "last_name": "Binder",
+        "province": null,
+        "zip": "71297"
+      },
+      "line_items": [
+        {
+          "id": 14872159584602,
+          "quantity": 2,
+          "line_item_id": 14735268512090,
+          "inventory_item_id": 45036455428311,
+          "fulfillable_quantity": 2,
+          "variant_id": 42944669843671
+        },
+        {
+          "id": 14872159617370,
+          "quantity": 2,
+          "line_item_id": 14735268544858,
+          "inventory_item_id": 48868385390938,
+          "fulfillable_quantity": 2,
+          "variant_id": 46769597415770
+        }
+      ],
+      "outgoing_requests": [
+        {
+          "message": "",
+          "request_options": {
+            "notify_customer": false
+          },
+          "sent_at": "2023-08-07T12:25:47+02:00",
+          "kind": "fulfillment_request"
+        }
+      ],
+      "fulfill_at": "2023-08-06T22:00:00+02:00",
+      "fulfill_by": null,
+      "international_duties": null,
+      "fulfillment_holds": [],
+      "delivery_method": {
+        "id": 747200479578,
+        "method_type": "shipping",
+        "min_delivery_date_time": null,
+        "max_delivery_date_time": null
+      },
+      "created_at": "2023-08-06T22:05:32+02:00",
+      "updated_at": "2023-08-07T12:25:47+02:00",
+      "assigned_location": {
+        "address2": null,
+        "city": null,
+        "country_code": "DE",
+        "name": " Fulfillment",
+        "province": null,
+        "zip": null
+      }
+    },
+    {
+      "id": 6690480259418,
+      "assigned_location_id": 83860750682,
+      "request_status": "submitted",
+      "status": "open",
+      "supported_actions": [
+        "cancel_fulfillment_order"
+      ],
+      "destination": {
+        "id": 6737104634202,
+        "address2": null,
+        "city": "Knetzgau",
+        "company": null,
+        "country": "Germany",
+        "email": "christina.seidel93@gmx.de",
+        "last_name": "Seidel",
+        "province": null,
+        "zip": "97478"
+      },
+      "line_items": [
+        {
+          "id": 14872246255962,
+          "quantity": 1,
+          "line_item_id": 14735355248986,
+          "inventory_item_id": 48868385685850,
+          "fulfillable_quantity": 1,
+          "variant_id": 46769597710682
+        }
+      ],
+      "outgoing_requests": [
+        {
+          "message": "",
+          "request_options": {
+            "notify_customer": false
+          },
+          "sent_at": "2023-08-07T12:25:54+02:00",
+          "kind": "fulfillment_request"
+        }
+      ],
+      "fulfill_at": "2023-08-06T23:00:00+02:00",
+      "fulfill_by": null,
+      "international_duties": null,
+      "fulfillment_holds": [],
+      "delivery_method": {
+        "id": 747240915290,
+        "method_type": "shipping",
+        "min_delivery_date_time": null,
+        "max_delivery_date_time": null
+      },
+      "created_at": "2023-08-06T23:15:01+02:00",
+      "updated_at": "2023-08-07T12:25:54+02:00",
+      "assigned_location": {
+        "address2": null,
+        "city": null,
+        "country_code": "DE",
+        "name": " Fulfillment",
+        "province": null,
+        "zip": null
+      }
+    },
+    {
+      "id": 6690796798298,
+      "assigned_location_id": 83860750682,
+      "request_status": "unsubmitted",
+      "status": "open",
+      "supported_actions": [
+        "request_fulfillment",
+        "hold",
+        "move"
+      ],
+      "destination": {
+        "id": 6737417109850,
+        "address2": null,
+        "city": "Kreuztal",
+        "company": null,
+        "country": "Germany",
+        "email": "carinho3535@yahoo.de",
+        "last_name": "Grosalski",
+        "province": null,
+        "zip": "57223"
+      },
+      "line_items": [
+        {
+          "id": 14872804393306,
+          "quantity": 1,
+          "line_item_id": 14735912337754,
+          "inventory_item_id": 48924571468122,
+          "fulfillable_quantity": 1,
+          "variant_id": 46825943236954
+        }
+      ],
+      "outgoing_requests": [],
+      "fulfill_at": "2023-08-07T09:00:00+02:00",
+      "fulfill_by": null,
+      "international_duties": null,
+      "fulfillment_holds": [],
+      "delivery_method": {
+        "id": 747409277274,
+        "method_type": "shipping",
+        "min_delivery_date_time": null,
+        "max_delivery_date_time": null
+      },
+      "created_at": "2023-08-07T09:46:54+02:00",
+      "updated_at": "2023-08-07T09:46:54+02:00",
+      "assigned_location": {
+        "address2": null,
+        "city": null,
+        "country_code": "DE",
+        "name": " Fulfillment",
+        "province": null,
+        "zip": null
+      }
+    },
+    {
+      "id": 6690917908826,
+      "assigned_location_id": 83860750682,
+      "request_status": "submitted",
+      "status": "open",
+      "supported_actions": [
+        "cancel_fulfillment_order"
+      ],
+      "destination": {
+        "id": 6737533337946,
+        "address2": "Show-Service-Center Mühlbeyer GmbH",
+        "city": "Freinsheim",
+        "company": null,
+        "country": "Germany",
+        "email": "info@show-service-center.de",
+        "last_name": "Mühlbeyer",
+        "province": null,
+        "zip": "67251"
+      },
+      "line_items": [
+        {
+          "id": 14873009193306,
+          "quantity": 2,
+          "line_item_id": 14736116318554,
+          "inventory_item_id": 48580879024474,
+          "fulfillable_quantity": 2,
+          "variant_id": 46482338316634
+        }
+      ],
+      "outgoing_requests": [
+        {
+          "message": "",
+          "request_options": {
+            "notify_customer": false
+          },
+          "sent_at": "2023-08-07T11:19:15+02:00",
+          "kind": "fulfillment_request"
+        }
+      ],
+      "fulfill_at": "2023-08-07T11:00:00+02:00",
+      "fulfill_by": null,
+      "international_duties": null,
+      "fulfillment_holds": [],
+      "delivery_method": {
+        "id": 747489591642,
+        "method_type": "shipping",
+        "min_delivery_date_time": null,
+        "max_delivery_date_time": null
+      },
+      "created_at": "2023-08-07T11:15:44+02:00",
+      "updated_at": "2023-08-07T11:19:15+02:00",
+      "assigned_location": {
+        "address2": null,
+        "city": null,
+        "country_code": "DE",
+        "name": " Fulfillment",
+        "province": null,
+        "zip": null
+      }
+    },
+    {
+      "id": 6691205939546,
+      "assigned_location_id": 83860750682,
+      "request_status": "unsubmitted",
+      "status": "on_hold",
+      "supported_actions": [
+        "release_hold"
+      ],
+      "destination": {
+        "id": 6737794728282,
+        "address2": "977061583",
+        "city": "Chemnitz",
+        "company": null,
+        "country": "Germany",
+        "email": "huber93@t-online.de",
+        "last_name": "Huber",
+        "province": null,
+        "zip": "09113"
+      },
+      "line_items": [
+        {
+          "id": 14873532825946,
+          "quantity": 1,
+          "line_item_id": 14736637788506,
+          "inventory_item_id": 48868384833882,
+          "fulfillable_quantity": 1,
+          "variant_id": 46769596858714
+        }
+      ],
+      "outgoing_requests": [],
+      "fulfill_at": "2023-08-07T14:00:00+02:00",
+      "fulfill_by": null,
+      "international_duties": null,
+      "fulfillment_holds": [
+        {
+          "reason": "other",
+          "reason_notes": "Ist bereits bei eingetragen"
+        }
+      ],
+      "delivery_method": {
+        "id": 747669684570,
+        "method_type": "shipping",
+        "min_delivery_date_time": null,
+        "max_delivery_date_time": null
+      },
+      "created_at": "2023-08-07T14:29:55+02:00",
+      "updated_at": "2023-08-07T14:33:18+02:00",
+      "assigned_location": {
+        "address2": null,
+        "city": null,
+        "country_code": "DE",
+        "name": " Fulfillment",
+        "province": null,
+        "zip": null
+      }
+    },
+    {
+      "id": 6694227935578,
+      "assigned_location_id": 83860750682,
+      "request_status": "unsubmitted",
+      "status": "open",
+      "supported_actions": [
+        "request_fulfillment",
+        "hold"
+      ],
+      "destination": {
+        "id": 6740546290010,
+        "address2": "81",
+        "city": "Düsseldorf",
+        "company": null,
+        "country": "Germany",
+        "email": "info@behme.de",
+        "last_name": "Behme",
+        "province": null,
+        "zip": "40549"
+      },
+      "line_items": [
+        {
+          "id": 14879075008858,
+          "quantity": 1,
+          "line_item_id": 14742167552346,
+          "inventory_item_id": 45036455526615,
+          "fulfillable_quantity": 1,
+          "variant_id": 42944669941975
+        }
+      ],
+      "outgoing_requests": [],
+      "fulfill_at": "2023-08-09T16:00:00+02:00",
+      "fulfill_by": null,
+      "international_duties": null,
+      "fulfillment_holds": [],
+      "delivery_method": {
+        "id": 749544735066,
+        "method_type": "shipping",
+        "min_delivery_date_time": null,
+        "max_delivery_date_time": null
+      },
+      "created_at": "2023-08-09T16:54:00+02:00",
+      "updated_at": "2023-08-09T16:54:00+02:00",
+      "assigned_location": {
+        "address2": null,
+        "city": null,
+        "country_code": "DE",
+        "name": " Fulfillment",
+        "province": null,
+        "zip": null
+      }
+    },
+    {
+      "id": 6694332694874,
+      "assigned_location_id": 83860750682,
+      "request_status": "unsubmitted",
+      "status": "open",
+      "supported_actions": [
+        "request_fulfillment",
+        "hold",
+        "move"
+      ],
+      "destination": {
+        "id": 6740631224666,
+        "address2": null,
+        "city": "Ruhstorf",
+        "company": null,
+        "country": "Germany",
+        "email": "florian.janak@gmail.com",
+        "last_name": "Janak",
+        "province": null,
+        "zip": "94099"
+      },
+      "line_items": [
+        {
+          "id": 14879277646170,
+          "quantity": 1,
+          "line_item_id": 14742369927514,
+          "inventory_item_id": 45545466757335,
+          "fulfillable_quantity": 1,
+          "variant_id": 43452369240279
+        },
+        {
+          "id": 14879277678938,
+          "quantity": 1,
+          "line_item_id": 14742369960282,
+          "inventory_item_id": 48838433374554,
+          "fulfillable_quantity": 1,
+          "variant_id": 46739549946202
+        }
+      ],
+      "outgoing_requests": [],
+      "fulfill_at": "2023-08-09T18:00:00+02:00",
+      "fulfill_by": null,
+      "international_duties": null,
+      "fulfillment_holds": [],
+      "delivery_method": {
+        "id": 749640581466,
+        "method_type": "shipping",
+        "min_delivery_date_time": null,
+        "max_delivery_date_time": null
+      },
+      "created_at": "2023-08-09T18:43:17+02:00",
+      "updated_at": "2023-08-09T18:43:17+02:00",
+      "assigned_location": {
+        "address2": null,
+        "city": null,
+        "country_code": "DE",
+        "name": " Fulfillment",
+        "province": null,
+        "zip": null
+      }
+    },
+    {
+      "id": 6694807863642,
+      "assigned_location_id": 83860750682,
+      "request_status": "unsubmitted",
+      "status": "open",
+      "supported_actions": [
+        "request_fulfillment",
+        "hold",
+        "move"
+      ],
+      "destination": {
+        "id": 6741049770330,
+        "address2": null,
+        "city": "Köln",
+        "company": null,
+        "country": "Germany",
+        "email": "carmenboersch@gmail.com",
+        "last_name": "Börsch",
+        "province": null,
+        "zip": "50677"
+      },
+      "line_items": [
+        {
+          "id": 14880182174042,
+          "quantity": 2,
+          "line_item_id": 14743272882522,
+          "inventory_item_id": 48924571369818,
+          "fulfillable_quantity": 2,
+          "variant_id": 46825943138650
+        }
+      ],
+      "outgoing_requests": [],
+      "fulfill_at": "2023-08-10T09:00:00+02:00",
+      "fulfill_by": null,
+      "international_duties": null,
+      "fulfillment_holds": [],
+      "delivery_method": {
+        "id": 749978616154,
+        "method_type": "shipping",
+        "min_delivery_date_time": null,
+        "max_delivery_date_time": null
+      },
+      "created_at": "2023-08-10T09:22:01+02:00",
+      "updated_at": "2023-08-10T09:22:01+02:00",
+      "assigned_location": {
+        "address2": null,
+        "city": null,
+        "country_code": "DE",
+        "name": " Fulfillment",
+        "province": null,
+        "zip": null
+      }
+    },
+    {
+      "id": 6695132692826,
+      "assigned_location_id": 83860750682,
+      "request_status": "accepted",
+      "status": "in_progress",
+      "supported_actions": [
+        "request_cancellation"
+      ],
+      "destination": {
+        "id": 6741326627162,
+        "address2": null,
+        "city": "Bassum",
+        "company": null,
+        "country": "Germany",
+        "email": "tanjavonhaefen@aol.com",
+        "last_name": "von Häfen",
+        "province": null,
+        "zip": "27211"
+      },
+      "line_items": [
+        {
+          "id": 14880806994266,
+          "quantity": 1,
+          "line_item_id": 14743893639514,
+          "inventory_item_id": 45036455592151,
+          "fulfillable_quantity": 1,
+          "variant_id": 42944670007511
+        },
+        {
+          "id": 14880807027034,
+          "quantity": 2,
+          "line_item_id": 14743893672282,
+          "inventory_item_id": 48868698882394,
+          "fulfillable_quantity": 2,
+          "variant_id": 46769909629274
+        }
+      ],
+      "outgoing_requests": [
+        {
+          "message": "",
+          "request_options": {
+            "notify_customer": false
+          },
+          "sent_at": "2023-08-11T10:19:03+02:00",
+          "kind": "fulfillment_request"
+        }
+      ],
+      "fulfill_at": "2023-08-10T15:00:00+02:00",
+      "fulfill_by": null,
+      "international_duties": null,
+      "fulfillment_holds": [],
+      "delivery_method": {
+        "id": 750259536218,
+        "method_type": "shipping",
+        "min_delivery_date_time": null,
+        "max_delivery_date_time": null
+      },
+      "created_at": "2023-08-10T15:03:23+02:00",
+      "updated_at": "2023-08-11T10:24:08+02:00",
+      "assigned_location": {
+        "address2": null,
+        "city": null,
+        "country_code": "DE",
+        "name": " Fulfillment",
+        "province": null,
+        "zip": null
+      }
+    },
+    {
+      "id": 6695144194394,
+      "assigned_location_id": 83860750682,
+      "request_status": "unsubmitted",
+      "status": "open",
+      "supported_actions": [
+        "request_fulfillment",
+        "hold"
+      ],
+      "destination": {
+        "id": 6741336228186,
+        "address2": "23",
+        "city": "Kaltenkirchen",
+        "company": null,
+        "country": "Germany",
+        "email": "renshibohni@gmx.de",
+        "last_name": "Bohnsack",
+        "province": null,
+        "zip": "24568"
+      },
+      "line_items": [
+        {
+          "id": 14857609478490,
+          "quantity": 2,
+          "line_item_id": 14720758251866,
+          "inventory_item_id": 48868385194330,
+          "fulfillable_quantity": 2,
+          "variant_id": 46769597219162
+        }
+      ],
+      "outgoing_requests": [],
+      "fulfill_at": "2023-07-31T04:00:00+02:00",
+      "fulfill_by": null,
+      "international_duties": null,
+      "fulfillment_holds": [],
+      "delivery_method": {
+        "id": 750269464922,
+        "method_type": "shipping",
+        "min_delivery_date_time": null,
+        "max_delivery_date_time": null
+      },
+      "created_at": "2023-08-10T15:14:47+02:00",
+      "updated_at": "2023-08-10T15:14:47+02:00",
+      "assigned_location": {
+        "address2": null,
+        "city": null,
+        "country_code": "DE",
+        "name": " Fulfillment",
+        "province": null,
+        "zip": null
+      }
+    },
+    {
+      "id": 6695177650522,
+      "assigned_location_id": 83860750682,
+      "request_status": "accepted",
+      "status": "in_progress",
+      "supported_actions": [
+        "request_cancellation"
+      ],
+      "destination": {
+        "id": 6741360476506,
+        "address2": null,
+        "city": "Konstanz",
+        "company": null,
+        "country": "Germany",
+        "email": "Patrick.Fiur@arcor.de",
+        "last_name": "Fiur",
+        "province": null,
+        "zip": "78464"
+      },
+      "line_items": [
+        {
+          "id": 14880890323290,
+          "quantity": 1,
+          "line_item_id": 14743976149338,
+          "inventory_item_id": 48868385718618,
+          "fulfillable_quantity": 1,
+          "variant_id": 46769597743450
+        }
+      ],
+      "outgoing_requests": [
+        {
+          "message": "",
+          "request_options": {
+            "notify_customer": false
+          },
+          "sent_at": "2023-08-11T10:19:11+02:00",
+          "kind": "fulfillment_request"
+        }
+      ],
+      "fulfill_at": "2023-08-10T15:00:00+02:00",
+      "fulfill_by": null,
+      "international_duties": null,
+      "fulfillment_holds": [],
+      "delivery_method": {
+        "id": 750296269146,
+        "method_type": "shipping",
+        "min_delivery_date_time": null,
+        "max_delivery_date_time": null
+      },
+      "created_at": "2023-08-10T15:43:27+02:00",
+      "updated_at": "2023-08-11T10:24:08+02:00",
+      "assigned_location": {
+        "address2": null,
+        "city": null,
+        "country_code": "DE",
+        "name": " Fulfillment",
+        "province": null,
+        "zip": null
+      }
+    },
+    {
+      "id": 6695255408986,
+      "assigned_location_id": 83860750682,
+      "request_status": "accepted",
+      "status": "in_progress",
+      "supported_actions": [
+        "request_cancellation"
+      ],
+      "destination": {
+        "id": 6741419721050,
+        "address2": null,
+        "city": "neuss",
+        "company": null,
+        "country": "Germany",
+        "email": "markus.krawinkel74@gmail.com",
+        "last_name": "krawinkel",
+        "province": null,
+        "zip": "41462"
+      },
+      "line_items": [
+        {
+          "id": 14881033224538,
+          "quantity": 1,
+          "line_item_id": 14744118034778,
+          "inventory_item_id": 48868393189722,
+          "fulfillable_quantity": 1,
+          "variant_id": 46769605214554
+        }
+      ],
+      "outgoing_requests": [
+        {
+          "message": "",
+          "request_options": {
+            "notify_customer": false
+          },
+          "sent_at": "2023-08-11T10:19:18+02:00",
+          "kind": "fulfillment_request"
+        }
+      ],
+      "fulfill_at": "2023-08-10T17:00:00+02:00",
+      "fulfill_by": null,
+      "international_duties": null,
+      "fulfillment_holds": [],
+      "delivery_method": {
+        "id": 750366163290,
+        "method_type": "shipping",
+        "min_delivery_date_time": null,
+        "max_delivery_date_time": null
+      },
+      "created_at": "2023-08-10T17:05:02+02:00",
+      "updated_at": "2023-08-11T10:24:08+02:00",
+      "assigned_location": {
+        "address2": null,
+        "city": null,
+        "country_code": "DE",
+        "name": " Fulfillment",
+        "province": null,
+        "zip": null
+      }
+    },
+    {
+      "id": 6695322911066,
+      "assigned_location_id": 83860750682,
+      "request_status": "accepted",
+      "status": "in_progress",
+      "supported_actions": [
+        "request_cancellation"
+      ],
+      "destination": {
+        "id": 6741472608602,
+        "address2": null,
+        "city": "Potsdam",
+        "company": null,
+        "country": "Germany",
+        "email": "clemens.golombek@gmail.com",
+        "last_name": "Golombek",
+        "province": null,
+        "zip": "14471"
+      },
+      "line_items": [
+        {
+          "id": 14881157841242,
+          "quantity": 1,
+          "line_item_id": 14744242094426,
+          "inventory_item_id": 45036455755991,
+          "fulfillable_quantity": 1,
+          "variant_id": 42944670171351
+        },
+        {
+          "id": 14881157874010,
+          "quantity": 1,
+          "line_item_id": 14744242127194,
+          "inventory_item_id": 48868698095962,
+          "fulfillable_quantity": 1,
+          "variant_id": 46769908842842
+        }
+      ],
+      "outgoing_requests": [
+        {
+          "message": "",
+          "request_options": {
+            "notify_customer": false
+          },
+          "sent_at": "2023-08-11T10:19:32+02:00",
+          "kind": "fulfillment_request"
+        }
+      ],
+      "fulfill_at": "2023-08-10T18:00:00+02:00",
+      "fulfill_by": null,
+      "international_duties": null,
+      "fulfillment_holds": [],
+      "delivery_method": {
+        "id": 750428651866,
+        "method_type": "shipping",
+        "min_delivery_date_time": null,
+        "max_delivery_date_time": null
+      },
+      "created_at": "2023-08-10T18:22:58+02:00",
+      "updated_at": "2023-08-11T10:24:07+02:00",
+      "assigned_location": {
+        "address2": null,
+        "city": null,
+        "country_code": "DE",
+        "name": " Fulfillment",
+        "province": null,
+        "zip": null
+      }
+    },
+    {
+      "id": 6695375536474,
+      "assigned_location_id": 83860750682,
+      "request_status": "accepted",
+      "status": "in_progress",
+      "supported_actions": [
+        "request_cancellation"
+      ],
+      "destination": {
+        "id": 6741518844250,
+        "address2": null,
+        "city": "Bremen",
+        "company": null,
+        "country": "Germany",
+        "email": "meyer.m22@web.de",
+        "last_name": "Meyer",
+        "province": null,
+        "zip": "28717"
+      },
+      "line_items": [
+        {
+          "id": 14881253884250,
+          "quantity": 1,
+          "line_item_id": 14744338235738,
+          "inventory_item_id": 48580849336666,
+          "fulfillable_quantity": 1,
+          "variant_id": 46482307776858
+        }
+      ],
+      "outgoing_requests": [
+        {
+          "message": "",
+          "request_options": {
+            "notify_customer": false
+          },
+          "sent_at": "2023-08-11T10:19:39+02:00",
+          "kind": "fulfillment_request"
+        }
+      ],
+      "fulfill_at": "2023-08-10T19:00:00+02:00",
+      "fulfill_by": null,
+      "international_duties": null,
+      "fulfillment_holds": [],
+      "delivery_method": {
+        "id": 750476984666,
+        "method_type": "shipping",
+        "min_delivery_date_time": null,
+        "max_delivery_date_time": null
+      },
+      "created_at": "2023-08-10T19:25:05+02:00",
+      "updated_at": "2023-08-11T10:24:07+02:00",
+      "assigned_location": {
+        "address2": null,
+        "city": null,
+        "country_code": "DE",
+        "name": " Fulfillment",
+        "province": null,
+        "zip": null
+      }
+    },
+    {
+      "id": 6695412891994,
+      "assigned_location_id": 83860750682,
+      "request_status": "accepted",
+      "status": "in_progress",
+      "supported_actions": [
+        "request_cancellation"
+      ],
+      "destination": {
+        "id": 6741551743322,
+        "address2": "34 Eingang links",
+        "city": "Ingolstadt",
+        "company": null,
+        "country": "Germany",
+        "email": "robert.heinz77@web.de",
+        "last_name": "Heinz",
+        "province": null,
+        "zip": "85049"
+      },
+      "line_items": [
+        {
+          "id": 14881319485786,
+          "quantity": 1,
+          "line_item_id": 14744403902810,
+          "inventory_item_id": 48813987135834,
+          "fulfillable_quantity": 1,
+          "variant_id": 46715019788634
+        },
+        {
+          "id": 14881319518554,
+          "quantity": 1,
+          "line_item_id": 14744403935578,
+          "inventory_item_id": 45036455788759,
+          "fulfillable_quantity": 1,
+          "variant_id": 42944670204119
+        },
+        {
+          "id": 14881319551322,
+          "quantity": 1,
+          "line_item_id": 14744403968346,
+          "inventory_item_id": 48868393189722,
+          "fulfillable_quantity": 1,
+          "variant_id": 46769605214554
+        }
+      ],
+      "outgoing_requests": [
+        {
+          "message": "",
+          "request_options": {
+            "notify_customer": false
+          },
+          "sent_at": "2023-08-11T10:19:48+02:00",
+          "kind": "fulfillment_request"
+        }
+      ],
+      "fulfill_at": "2023-08-10T20:00:00+02:00",
+      "fulfill_by": null,
+      "international_duties": null,
+      "fulfillment_holds": [],
+      "delivery_method": {
+        "id": 750510637402,
+        "method_type": "shipping",
+        "min_delivery_date_time": null,
+        "max_delivery_date_time": null
+      },
+      "created_at": "2023-08-10T20:11:16+02:00",
+      "updated_at": "2023-08-11T10:24:09+02:00",
+      "assigned_location": {
+        "address2": null,
+        "city": null,
+        "country_code": "DE",
+        "name": " Fulfillment",
+        "province": null,
+        "zip": null
+      }
+    },
+    {
+      "id": 6695447134554,
+      "assigned_location_id": 83860750682,
+      "request_status": "accepted",
+      "status": "in_progress",
+      "supported_actions": [
+        "request_cancellation"
+      ],
+      "destination": {
+        "id": 6741584019802,
+        "address2": "Missunde",
+        "city": "Kosel",
+        "company": null,
+        "country": "Germany",
+        "email": "anja-davids@t-online.de",
+        "last_name": "Davids",
+        "province": null,
+        "zip": "24354"
+      },
+      "line_items": [
+        {
+          "id": 14881383547226,
+          "quantity": 1,
+          "line_item_id": 14744467800410,
+          "inventory_item_id": 48868384538970,
+          "fulfillable_quantity": 1,
+          "variant_id": 46769596563802
+        }
+      ],
+      "outgoing_requests": [
+        {
+          "message": "",
+          "request_options": {
+            "notify_customer": false
+          },
+          "sent_at": "2023-08-11T10:19:55+02:00",
+          "kind": "fulfillment_request"
+        }
+      ],
+      "fulfill_at": "2023-08-10T20:00:00+02:00",
+      "fulfill_by": null,
+      "international_duties": null,
+      "fulfillment_holds": [],
+      "delivery_method": {
+        "id": 750541767002,
+        "method_type": "shipping",
+        "min_delivery_date_time": null,
+        "max_delivery_date_time": null
+      },
+      "created_at": "2023-08-10T20:56:14+02:00",
+      "updated_at": "2023-08-11T10:24:09+02:00",
+      "assigned_location": {
+        "address2": null,
+        "city": null,
+        "country_code": "DE",
+        "name": " Fulfillment",
+        "province": null,
+        "zip": null
+      }
+    },
+    {
+      "id": 6695476920666,
+      "assigned_location_id": 83860750682,
+      "request_status": "unsubmitted",
+      "status": "open",
+      "supported_actions": [
+        "request_fulfillment",
+        "hold",
+        "move"
+      ],
+      "destination": {
+        "id": 6741612364122,
+        "address2": "6A",
+        "city": "Bremen",
+        "company": null,
+        "country": "Germany",
+        "email": "robert.boettcher.86@googlemail.com",
+        "last_name": "Böttcher",
+        "province": null,
+        "zip": "28215"
+      },
+      "line_items": [
+        {
+          "id": 14881437614426,
+          "quantity": 1,
+          "line_item_id": 14744521867610,
+          "inventory_item_id": 48868385030490,
+          "fulfillable_quantity": 1,
+          "variant_id": 46769597055322
+        }
+      ],
+      "outgoing_requests": [],
+      "fulfill_at": "2023-08-10T21:00:00+02:00",
+      "fulfill_by": null,
+      "international_duties": null,
+      "fulfillment_holds": [],
+      "delivery_method": {
+        "id": 750569324890,
+        "method_type": "shipping",
+        "min_delivery_date_time": null,
+        "max_delivery_date_time": null
+      },
+      "created_at": "2023-08-10T21:34:11+02:00",
+      "updated_at": "2023-08-10T21:34:11+02:00",
+      "assigned_location": {
+        "address2": null,
+        "city": null,
+        "country_code": "DE",
+        "name": " Fulfillment",
+        "province": null,
+        "zip": null
+      }
+    },
+    {
+      "id": 6695483539802,
+      "assigned_location_id": 83860750682,
+      "request_status": "accepted",
+      "status": "in_progress",
+      "supported_actions": [
+        "request_cancellation"
+      ],
+      "destination": {
+        "id": 6741618590042,
+        "address2": null,
+        "city": "Hamburg",
+        "company": null,
+        "country": "Germany",
+        "email": "Erfan.Panah@gmail.com",
+        "last_name": "Haghighat Panah",
+        "province": null,
+        "zip": "22525"
+      },
+      "line_items": [
+        {
+          "id": 14881450033498,
+          "quantity": 2,
+          "line_item_id": 14744534286682,
+          "inventory_item_id": 48868699537754,
+          "fulfillable_quantity": 2,
+          "variant_id": 46769910284634
+        }
+      ],
+      "outgoing_requests": [
+        {
+          "message": "",
+          "request_options": {
+            "notify_customer": false
+          },
+          "sent_at": "2023-08-11T10:20:07+02:00",
+          "kind": "fulfillment_request"
+        }
+      ],
+      "fulfill_at": "2023-08-10T21:00:00+02:00",
+      "fulfill_by": null,
+      "international_duties": null,
+      "fulfillment_holds": [],
+      "delivery_method": {
+        "id": 750575452506,
+        "method_type": "shipping",
+        "min_delivery_date_time": null,
+        "max_delivery_date_time": null
+      },
+      "created_at": "2023-08-10T21:42:12+02:00",
+      "updated_at": "2023-08-11T10:24:09+02:00",
+      "assigned_location": {
+        "address2": null,
+        "city": null,
+        "country_code": "DE",
+        "name": " Fulfillment",
+        "province": null,
+        "zip": null
+      }
+    },
+    {
+      "id": 6695531839834,
+      "assigned_location_id": 83860750682,
+      "request_status": "accepted",
+      "status": "in_progress",
+      "supported_actions": [
+        "request_cancellation"
+      ],
+      "destination": {
+        "id": 6741665546586,
+        "address2": null,
+        "city": "Versmold",
+        "company": null,
+        "country": "Germany",
+        "email": "jutta.redecker@redecker.de",
+        "last_name": "Redecker",
+        "province": null,
+        "zip": "33775"
+      },
+      "line_items": [
+        {
+          "id": 14881539359066,
+          "quantity": 1,
+          "line_item_id": 14744623710554,
+          "inventory_item_id": 48580879057242,
+          "fulfillable_quantity": 1,
+          "variant_id": 46482338349402
+        },
+        {
+          "id": 14881539391834,
+          "quantity": 3,
+          "line_item_id": 14744623743322,
+          "inventory_item_id": 48580878991706,
+          "fulfillable_quantity": 3,
+          "variant_id": 46482338283866
+        },
+        {
+          "id": 14881539424602,
+          "quantity": 2,
+          "line_item_id": 14744623776090,
+          "inventory_item_id": 48868697768282,
+          "fulfillable_quantity": 2,
+          "variant_id": 46769908515162
+        }
+      ],
+      "outgoing_requests": [
+        {
+          "message": "",
+          "request_options": {
+            "notify_customer": false
+          },
+          "sent_at": "2023-08-11T10:20:18+02:00",
+          "kind": "fulfillment_request"
+        }
+      ],
+      "fulfill_at": "2023-08-10T22:00:00+02:00",
+      "fulfill_by": null,
+      "international_duties": null,
+      "fulfillment_holds": [],
+      "delivery_method": {
+        "id": 750619263322,
+        "method_type": "shipping",
+        "min_delivery_date_time": null,
+        "max_delivery_date_time": null
+      },
+      "created_at": "2023-08-10T22:51:17+02:00",
+      "updated_at": "2023-08-11T10:24:09+02:00",
+      "assigned_location": {
+        "address2": null,
+        "city": null,
+        "country_code": "DE",
+        "name": " Fulfillment",
+        "province": null,
+        "zip": null
+      }
+    },
+    {
+      "id": 6695566999898,
+      "assigned_location_id": 83860750682,
+      "request_status": "accepted",
+      "status": "in_progress",
+      "supported_actions": [
+        "request_cancellation"
+      ],
+      "destination": {
+        "id": 6741699363162,
+        "address2": null,
+        "city": "Mannheim",
+        "company": null,
+        "country": "Germany",
+        "email": "c.rotterdam@web.de",
+        "last_name": "Rotterdam",
+        "province": null,
+        "zip": "68163"
+      },
+      "line_items": [
+        {
+          "id": 14881610367322,
+          "quantity": 1,
+          "line_item_id": 14744694751578,
+          "inventory_item_id": 45036455067863,
+          "fulfillable_quantity": 1,
+          "variant_id": 42944669483223
+        },
+        {
+          "id": 14881610400090,
+          "quantity": 2,
+          "line_item_id": 14744694784346,
+          "inventory_item_id": 48868384375130,
+          "fulfillable_quantity": 2,
+          "variant_id": 46769596399962
+        }
+      ],
+      "outgoing_requests": [
+        {
+          "message": "",
+          "request_options": {
+            "notify_customer": false
+          },
+          "sent_at": "2023-08-11T10:20:27+02:00",
+          "kind": "fulfillment_request"
+        }
+      ],
+      "fulfill_at": "2023-08-11T00:00:00+02:00",
+      "fulfill_by": null,
+      "international_duties": null,
+      "fulfillment_holds": [],
+      "delivery_method": {
+        "id": 750650917210,
+        "method_type": "shipping",
+        "min_delivery_date_time": null,
+        "max_delivery_date_time": null
+      },
+      "created_at": "2023-08-11T00:00:29+02:00",
+      "updated_at": "2023-08-11T10:24:08+02:00",
+      "assigned_location": {
+        "address2": null,
+        "city": null,
+        "country_code": "DE",
+        "name": " Fulfillment",
+        "province": null,
+        "zip": null
+      }
+    },
+    {
+      "id": 6695645610330,
+      "assigned_location_id": 83860750682,
+      "request_status": "unsubmitted",
+      "status": "open",
+      "supported_actions": [
+        "request_fulfillment",
+        "hold"
+      ],
+      "destination": {
+        "id": 6741769814362,
+        "address2": null,
+        "city": "Isen",
+        "company": null,
+        "country": "Germany",
+        "email": "barbara.wagner94@gmail.com",
+        "last_name": "Wagner",
+        "province": null,
+        "zip": "84424"
+      },
+      "line_items": [
+        {
+          "id": 14881763754330,
+          "quantity": 1,
+          "line_item_id": 14744848499034,
+          "inventory_item_id": 45036455231703,
+          "fulfillable_quantity": 1,
+          "variant_id": 42944669647063
+        }
+      ],
+      "outgoing_requests": [],
+      "fulfill_at": "2023-08-11T07:00:00+02:00",
+      "fulfill_by": null,
+      "international_duties": null,
+      "fulfillment_holds": [],
+      "delivery_method": {
+        "id": 750713110874,
+        "method_type": "shipping",
+        "min_delivery_date_time": null,
+        "max_delivery_date_time": null
+      },
+      "created_at": "2023-08-11T07:06:08+02:00",
+      "updated_at": "2023-08-11T07:06:08+02:00",
+      "assigned_location": {
+        "address2": null,
+        "city": null,
+        "country_code": "DE",
+        "name": " Fulfillment",
+        "province": null,
+        "zip": null
+      }
+    },
+    {
+      "id": 6695701217626,
+      "assigned_location_id": 83860750682,
+      "request_status": "unsubmitted",
+      "status": "open",
+      "supported_actions": [
+        "request_fulfillment",
+        "hold",
+        "move"
+      ],
+      "destination": {
+        "id": 6741826928986,
+        "address2": null,
+        "city": "Köln",
+        "company": null,
+        "country": "Germany",
+        "email": "carmenboersch@gmail.com",
+        "last_name": "Börsch",
+        "province": null,
+        "zip": "50677"
+      },
+      "line_items": [
+        {
+          "id": 14881858552154,
+          "quantity": 1,
+          "line_item_id": 14744943296858,
+          "inventory_item_id": 48924742451546,
+          "fulfillable_quantity": 1,
+          "variant_id": 46826114711898
+        }
+      ],
+      "outgoing_requests": [],
+      "fulfill_at": "2023-08-11T09:00:00+02:00",
+      "fulfill_by": null,
+      "international_duties": null,
+      "fulfillment_holds": [],
+      "delivery_method": {
+        "id": 750762459482,
+        "method_type": "shipping",
+        "min_delivery_date_time": null,
+        "max_delivery_date_time": null
+      },
+      "created_at": "2023-08-11T09:10:11+02:00",
+      "updated_at": "2023-08-11T09:10:11+02:00",
+      "assigned_location": {
+        "address2": null,
+        "city": null,
+        "country_code": "DE",
+        "name": " Fulfillment",
+        "province": null,
+        "zip": null
+      }
+    },
+    {
+      "id": 6695730643290,
+      "assigned_location_id": 83860750682,
+      "request_status": "unsubmitted",
+      "status": "open",
+      "supported_actions": [
+        "request_fulfillment",
+        "hold"
+      ],
+      "destination": {
+        "id": 6741855699290,
+        "address2": null,
+        "city": "Leipzig",
+        "company": null,
+        "country": "Germany",
+        "email": "robyn_chamberlain@live.com",
+        "last_name": "Chamberlain",
+        "province": null,
+        "zip": "04229"
+      },
+      "line_items": [
+        {
+          "id": 14881913635162,
+          "quantity": 1,
+          "line_item_id": 14744998052186,
+          "inventory_item_id": 48868698128730,
+          "fulfillable_quantity": 1,
+          "variant_id": 46769908875610
+        },
+        {
+          "id": 14881913667930,
+          "quantity": 1,
+          "line_item_id": 14744998084954,
+          "inventory_item_id": 45036455526615,
+          "fulfillable_quantity": 1,
+          "variant_id": 42944669941975
+        }
+      ],
+      "outgoing_requests": [],
+      "fulfill_at": "2023-08-11T09:00:00+02:00",
+      "fulfill_by": null,
+      "international_duties": null,
+      "fulfillment_holds": [],
+      "delivery_method": {
+        "id": 750789493082,
+        "method_type": "shipping",
+        "min_delivery_date_time": null,
+        "max_delivery_date_time": null
+      },
+      "created_at": "2023-08-11T09:51:11+02:00",
+      "updated_at": "2023-08-11T09:51:11+02:00",
+      "assigned_location": {
+        "address2": null,
+        "city": null,
+        "country_code": "DE",
+        "name": " Fulfillment",
+        "province": null,
+        "zip": null
+      }
+    }
+  ]
+}

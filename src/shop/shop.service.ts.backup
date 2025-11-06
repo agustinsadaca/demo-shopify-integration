@@ -1,0 +1,903 @@
+import {
+  ActionEnum,
+  AggregateByStatusInventoryItemDto,
+  CalculateRefundOrderDto,
+  CalculateRefundOrderResponseDto,
+  ChangeOrderDto,
+  CreateFreeReturnDto,
+  CreateFreeReturnsFromOptionsDto,
+  CreateInboundNoticeDto,
+  CreateInboundNoticeItemDto,
+  CreateInventoryBundleDto,
+  CreateInventoryItemDto,
+  CreateOrderDto,
+  CreateOrderTagDto,
+  CreateOrdersHistoryDto,
+  CreatePartnerLocationInventoryItemDto,
+  CreateReturnReasonDto,
+  CreateReturnStepsDto,
+  CreateShipsWithDto,
+  CreateTrackingDto,
+  EntityEnum,
+  ExtendedOrderDto,
+  FreeReturn,
+  FulfillmentCheckRequestDto,
+  FulfillmentCheckResponseDto,
+  Implementation,
+  InboundNotice,
+  InboundNoticeHistory,
+  InboundNoticeItem,
+  InboundReceipt,
+  InboundReceiptItem,
+  InventoryBundle,
+  InventoryItem,
+  InventoryItemsAggregatedByStatusResponse,
+  InventoryLevelSource,
+  JwtUser,
+  Notification,
+  Order,
+  OrderEditDto,
+  OrderHistory,
+  OrderItem,
+  OrderStatus,
+  OrderTagEntity,
+  OrdersAggregatedByStatusResponse,
+  OrgType,
+  OutboundShipment,
+  PartnerLocation,
+  PartnerLocationInventoryItem,
+  PartnerLocationStorageItem,
+  QueryFreeReturnDto,
+  QueryImplementationDto,
+  QueryInboundNoticeDto,
+  QueryInboundNoticeHistoryDto,
+  QueryInboundNoticeItemDto,
+  QueryInboundReceiptDto,
+  QueryInboundReceiptItemDto,
+  QueryInventoryBundleDto,
+  QueryInventoryItemDto,
+  QueryInventoryLevelSourceDto,
+  QueryNotificationDto,
+  QueryOrderByCurrentStatusDto,
+  QueryOrderDto,
+  QueryOrderItemDto,
+  QueryOrderTagDto,
+  QueryOrdersHistoryDto,
+  QueryOutboundShipmentDto,
+  QueryPartnerLocationDto,
+  QueryPartnerLocationInventoryItemDto,
+  QueryPartnerLocationStorageItemDto,
+  QueryRefundOrderDto,
+  QueryRefundOrderItemDto,
+  QueryReturnReasonDto,
+  QueryReturnShipmentDto,
+  QueryReturnStepsDto,
+  QueryShipsWithDto,
+  QueryTrackingDto,
+  RefundOrder,
+  RefundOrderItem,
+  ReleaseOrderDto,
+  ReturnPeriodsResponse,
+  ReturnReason,
+  ReturnShipment,
+  ReturnSteps,
+  ShipsWith,
+  Tracking,
+  UpdateFreeReturnDto,
+  UpdateInboundNoticeDto,
+  UpdateInboundNoticeHistoryDto,
+  UpdateInboundNoticeItemDto,
+  UpdateInventoryBundleDto,
+  UpdateInventoryItemActiveStatusDto,
+  UpdateInventoryItemDto,
+  UpdateNotificationDto,
+  UpdateOrderDto,
+  UpdateOrderItemDto,
+  UpdateOrdersHistoryDto,
+  UpdateReturnPeriodDto,
+  UpdateReturnReasonDto,
+  UpdateReturnStepsDto,
+  UpdateShipsWithDto,
+  UpdateTrackingDto
+} from '@digital-logistics-gmbh/wh1plus-common'
+import { IPaginationOptions, Pagination } from '../core/types/common.types'
+import { Injectable, Logger } from '@nestjs/common'
+import { ContextIdFactory, ModuleRef } from '@nestjs/core'
+import { Observable, lastValueFrom } from 'rxjs'
+import { ConnectionAuthsService } from '../connection-auths/connection-auths.service'
+import {
+  CreateConnectionAuthDto,
+  CreateShopifyIntregrationDto
+} from '../connection-auths/dtos/create-connection-auth.dto'
+import { QueryConnectionAuthsDto } from '../connection-auths/dtos/query-connection-auths.dto'
+import { UpdateConnectionAuthDto } from '../connection-auths/dtos/update-connection-auth.dto'
+import { ConnectionAuth } from '../connection-auths/entities/connection-auth.entity'
+import { TestConnectionResponseInterface } from '../connection-auths/interface/test-connection-response.interface'
+import { PaginatedResult } from '../core/interfaces/pagination-result.interface'
+import { FieldMapper } from '../field-mapper/entities/field-mapper.entity'
+import { QueryFieldMapper } from '../field-mapper/interfaces/query-field-mapper.interface'
+import { ImplementationsService } from '../implementations/implementations.service'
+import { InventoryBundlesService } from '../inventory-bundles/inventory-bundles.service'
+import { InventoryItemsService } from '../inventory-items/inventory-items.service'
+import { InventoryLevelSourceService } from '../inventory-level-source/inventory-level-source.service'
+import { OrdersService } from '../orders/orders.service'
+import { OutboundShipmentsService } from '../outbound-shipments/outbound-shipments.service'
+import { RefundOrdersService } from '../refund-orders/refund-orders.service'
+import { ReturnShipmentsService } from '../return-shipments/return-shipments.service'
+import { ShopConnectorsService } from '../shop-connectors/shop-connectors.service'
+import { ShopifyService } from '../shop-connectors/shopify/shopify.service'
+import GetInventoryItemShopStockLevelsResponseDto from './dtos/get-inventory-item-shop-stock-levels-response.dto'
+
+@Injectable()
+export class ShopService {
+  private readonly logger = new Logger(ShopService.name)
+  private shopConnectorsService: ShopConnectorsService
+
+  constructor(
+    private moduleRef: ModuleRef,
+    private implementationService: ImplementationsService,
+    private ordersService: OrdersService,
+    private outboundShipmentService: OutboundShipmentsService,
+    private returnShipmentService: ReturnShipmentsService,
+    private inventoryItemService: InventoryItemsService,
+    private readonly inventoryBundlesService: InventoryBundlesService,
+    private inventoryLevelSourceService: InventoryLevelSourceService,
+    private connectionAuthsService: ConnectionAuthsService,
+    private refundOrdersService: RefundOrdersService,
+    private shopifyService: ShopifyService
+  ) {
+    this.transientResolver()
+  }
+
+  async transientResolver() {
+    try {
+      const contextId = ContextIdFactory.create()
+      this.shopConnectorsService = await this.moduleRef.resolve(ShopConnectorsService, contextId, {
+        strict: false
+      })
+    } catch (err) {
+      this.logger.error(err, err?.stack)
+      throw err
+    }
+  }
+
+
+  testConnection(connAuthId: number): Promise<TestConnectionResponseInterface> {
+    return this.connectionAuthsService.testConnection(connAuthId)
+  }
+
+  filterConnectionAuths(
+    queryDto: QueryConnectionAuthsDto,
+    options: IPaginationOptions,
+    user: JwtUser
+  ): Promise<Pagination<ConnectionAuth>> {
+    return this.connectionAuthsService.findByFilter(queryDto, options, user)
+  }
+
+  updateConnectionAuth(
+    id: number,
+    updateConnectionAuthDto: UpdateConnectionAuthDto,
+    user?: JwtUser
+  ) {
+    return this.connectionAuthsService.update(id, updateConnectionAuthDto, user)
+  }
+
+  getConnectionAuth(id: number, user?: JwtUser): Promise<ConnectionAuth> {
+    return this.connectionAuthsService.findOne(id, user)
+  }
+
+  filterImplementations(
+    queryImplementationDto: QueryImplementationDto,
+    user: JwtUser
+  ): Observable<Pagination<Implementation>> {
+    return this.implementationService.filterImplementations(queryImplementationDto, user)
+  }
+
+  getImplementation(id: number, user: JwtUser): Observable<Implementation> {
+    return this.implementationService.getImplementation(id, user)
+  }
+
+
+  getAggregatedByStatus(
+    status: OrderStatus,
+    user: JwtUser
+  ): Observable<OrdersAggregatedByStatusResponse> {
+    return this.ordersService.getAggregatedByStatus(status, user)
+  }
+
+  filterOrders(queryOrderDto: QueryOrderDto, user: JwtUser): Observable<PaginatedResult<Order>> {
+    return this.ordersService.filterOrders(queryOrderDto, user)
+  }
+
+  filterOrderByCurrentStatus(
+    queryOrderDto: QueryOrderByCurrentStatusDto,
+    user: JwtUser
+  ): Observable<PaginatedResult<Order>> {
+    return this.ordersService.filterOrderByCurrentStatus(queryOrderDto, user)
+  }
+
+  async getOrder(id: number, user: JwtUser): Promise<ExtendedOrderDto> {
+    return await this.ordersService.getOrderWithChangeableTimestamp(id, user)
+  }
+
+  fulfillmentStatusCheck(
+    payload: FulfillmentCheckRequestDto,
+    user: JwtUser
+  ): Observable<FulfillmentCheckResponseDto> {
+    return this.ordersService.fulfillmentStatusCheck(payload, user)
+  }
+
+  checkFulfillmentAndLogHistory(
+    payload: FulfillmentCheckRequestDto,
+    user: JwtUser,
+    isCheckForOnHoldOrders: boolean
+  ): Observable<FulfillmentCheckResponseDto> {
+    return this.ordersService.checkFulfillmentAndLogHistory(payload, user, isCheckForOnHoldOrders)
+  }
+
+  async createOrder(createOrderDto: CreateOrderDto, user: JwtUser): Promise<Observable<Order>> {
+    ; (createOrderDto.orderHistories || []).map((historyObj) =>
+      this.setHistoryTimestamps(historyObj, {
+        shopCreatedAt: historyObj.shopCreatedAt || new Date()
+      })
+    )
+
+    if (createOrderDto?.customerOrderNumber) {
+      let date = new Date()
+      createOrderDto.customerOrderNumber = `W${date.getDate()}${date.getMilliseconds()}_${createOrderDto.customerOrderNumber}`
+    }
+
+    if (createOrderDto.channel === 'manual') {
+      createOrderDto.customerOrderId = createOrderDto.customerOrderId
+        ? `wh1_manual_${Date.now()}_${createOrderDto.customerOrderId}`
+        : `wh1_manual_${Date.now()}`
+    }
+
+    // Shipping method util service not available in this project
+    return this.ordersService.createOrder(createOrderDto, user)
+  }
+
+  updateOrder(id: number, updateOrderDto: UpdateOrderDto, user: JwtUser): Observable<Order> {
+    return this.ordersService.updateOrder(id, updateOrderDto, user)
+  }
+
+  releaseOrders(releaseOrderDto: ReleaseOrderDto, user: JwtUser): Promise<void> {
+    return this.ordersService.releaseOrders(releaseOrderDto, user)
+  }
+
+  updateOrCreateOrders(
+    orderDtoList: CreateOrderDto[] | UpdateOrderDto[],
+    user?: JwtUser
+  ): Observable<any> {
+    return this.ordersService.updateOrCreateOrders(orderDtoList, user)
+  }
+
+  async changeOrder(id: number, changeOrderDto: ChangeOrderDto, user?: JwtUser): Promise<Order> {
+    try {
+      let changedOrder: OrderEditDto = await lastValueFrom(
+        this.ordersService.changeOrder(id, changeOrderDto, user)
+      )
+
+      // Automation engine and shipping method util services not available in this project
+
+      //Order will be in lock state, the unlock should happen automatically with the logic in isFulfillmentReadyAndUpdateOrder
+      return await lastValueFrom(
+        this.ordersService.isFulfillmentReadyAndUpdateOrder(changedOrder, user)
+      )
+    } catch (error) {
+      throw error
+    }
+  }
+
+  filterOrderHistories(
+    queryOrderHistoryDto: QueryOrdersHistoryDto,
+    user: JwtUser
+  ): Observable<OrderHistory[]> {
+    return this.ordersService.filterOrderHistories(queryOrderHistoryDto, user)
+  }
+
+  getOrderHistory(id: number, user: JwtUser): Observable<OrderHistory> {
+    return this.ordersService.getOrderHistory(id, user)
+  }
+
+  createOrderHistory(
+    createOrderHistoryDto: CreateOrdersHistoryDto,
+    user: JwtUser
+  ): Observable<OrderHistory> {
+    this.setHistoryTimestamps(createOrderHistoryDto, {
+      shopCreatedAt: createOrderHistoryDto.shopCreatedAt || new Date()
+    })
+    return this.ordersService.createOrderHistory(createOrderHistoryDto, user)
+  }
+
+  updateOrderHistory(
+    id: number,
+    updateOrderHistoryDto: UpdateOrdersHistoryDto,
+    user: JwtUser
+  ): Observable<OrderHistory> {
+    this.setHistoryTimestamps(updateOrderHistoryDto, {
+      shopUpdatedAt: updateOrderHistoryDto.shopUpdatedAt,
+      shopCreatedAt: updateOrderHistoryDto.shopCreatedAt,
+      wmsCreatedAt: updateOrderHistoryDto.wmsCreatedAt
+    })
+    return this.ordersService.updateOrderHistory(id, updateOrderHistoryDto, user)
+  }
+
+  filterOrderItems(
+    queryOrderItemDto: QueryOrderItemDto,
+    user: JwtUser
+  ): Observable<PaginatedResult<OrderItem>> {
+    return this.ordersService.filterOrderItems(queryOrderItemDto, user)
+  }
+
+  getOrderItem(id: number, user: JwtUser): Observable<OrderItem> {
+    return this.ordersService.getOrderItem(id, user)
+  }
+
+  updateOrderItem(
+    id: number,
+    updateOrderItemDto: UpdateOrderItemDto,
+    user: JwtUser
+  ): Observable<OrderItem> {
+    return this.ordersService.updateOrderItem(id, updateOrderItemDto, user)
+  }
+
+  filterOutboundShipments(
+    queryOutboundShipmentDto: QueryOutboundShipmentDto,
+    user: JwtUser
+  ): Observable<PaginatedResult<OutboundShipment>> {
+    return this.outboundShipmentService.filterOutboundShipments(queryOutboundShipmentDto, user)
+  }
+
+  getSerialNumbers(user: JwtUser) {
+    return this.outboundShipmentService.getSerialNumbers(user)
+  }
+
+  getLotNumbers(user: JwtUser) {
+    return this.outboundShipmentService.getLotNumbers(user)
+  }
+
+  getOutboundShipment(id: number, user: JwtUser): Observable<OutboundShipment> {
+    return this.outboundShipmentService.getOutboundShipment(id, user)
+  }
+
+  filterReturnShipments(
+    queryReturnShipmentDto: QueryReturnShipmentDto,
+    user: JwtUser
+  ): Observable<PaginatedResult<ReturnShipment>> {
+    return this.returnShipmentService.filterReturnShipments(queryReturnShipmentDto, user)
+  }
+
+  getReturnShipment(id: number, user: JwtUser): Observable<ReturnShipment> {
+    return this.returnShipmentService.getReturnShipment(id, user)
+  }
+
+  filterInventoryItems(
+    queryInventoryItemDto: QueryInventoryItemDto,
+    user: JwtUser
+  ): Observable<PaginatedResult<InventoryItem>> {
+    return this.inventoryItemService.filterInventoryItems(queryInventoryItemDto, user)
+  }
+
+  getInventoryItem(id: number, user: JwtUser): Observable<InventoryItem> {
+    return this.inventoryItemService.getInventoryItem(id, user)
+  }
+
+  createInventoryItem(
+    createInventoryItemDto: CreateInventoryItemDto,
+    user: JwtUser
+  ): Observable<InventoryItem> {
+    this.syncShopInventoryTimestamps(createInventoryItemDto)
+    return this.inventoryItemService.createInventoryItem(createInventoryItemDto, user)
+  }
+
+  updateInventoryItem(
+    id: number,
+    updateInventoryItemDto: UpdateInventoryItemDto,
+    isInternalUpdate: boolean,
+    user: JwtUser
+  ): Observable<InventoryItem> {
+    this.syncShopInventoryTimestamps(updateInventoryItemDto)
+    return this.inventoryItemService.updateInventoryItem(
+      id,
+      updateInventoryItemDto,
+      isInternalUpdate,
+      user
+    )
+  }
+
+  updateReturnPeriod(
+    implementationId: number,
+    updateReturnPeriodDto: UpdateReturnPeriodDto,
+    user: JwtUser
+  ): Observable<any> {
+    return this.inventoryItemService.updateReturnPeriod(
+      implementationId,
+      updateReturnPeriodDto,
+      user
+    )
+  }
+
+  getReturnPeriod(implementationId: number, user: JwtUser): Observable<ReturnPeriodsResponse> {
+    return this.inventoryItemService.getReturnPeriod(implementationId, user)
+  }
+
+  bulkUpdateInventoryItem(
+    updateDto: UpdateInventoryItemDto[],
+    isInternalUpdate: boolean,
+    user: JwtUser
+  ): Observable<any> {
+    return this.inventoryItemService.bulkUpdateInventoryItems(updateDto, isInternalUpdate, user)
+  }
+
+  getInventoryItemsCountAggregatedByStatus(
+    aggregateByStatusInventoryItemDto: AggregateByStatusInventoryItemDto,
+    user: JwtUser
+  ): Observable<InventoryItemsAggregatedByStatusResponse> {
+    return this.inventoryItemService.getInventoryItemsCountAggregatedByStatus(
+      aggregateByStatusInventoryItemDto,
+      user
+    )
+  }
+
+  filterPartnerLocationInventoryItems(
+    queryPartnerLocationInventoryItemDto: QueryPartnerLocationInventoryItemDto,
+    user: JwtUser
+  ): Observable<PaginatedResult<PartnerLocationInventoryItem>> {
+    return this.partnerLocationInventoryItemService.filterPartnerLocationInventoryItems(
+      queryPartnerLocationInventoryItemDto,
+      user
+    )
+  }
+
+  getPartnerLocationInventoryItem(
+    id: number,
+    user: JwtUser
+  ): Observable<PartnerLocationInventoryItem> {
+    return this.partnerLocationInventoryItemService.getPartnerLocationInventoryItem(id, user)
+  }
+
+  createPartnerLocationInventoryItem(
+    createPartnerLocationInventoryItemDto: CreatePartnerLocationInventoryItemDto,
+    user: JwtUser
+  ): Observable<PartnerLocationInventoryItem> {
+    createPartnerLocationInventoryItemDto.quantityAvailable = 0
+    createPartnerLocationInventoryItemDto.quantityDamaged = null
+    createPartnerLocationInventoryItemDto.quantityReserved = null
+    if (createPartnerLocationInventoryItemDto.wmsSyncedAt) {
+      delete createPartnerLocationInventoryItemDto.wmsSyncedAt
+    }
+
+    return this.partnerLocationInventoryItemService.createPartnerLocationInventoryItem(
+      createPartnerLocationInventoryItemDto,
+      user
+    )
+  }
+
+  filterPartnerLocationStorageItems(
+    queryItemDto: QueryPartnerLocationStorageItemDto,
+    user: JwtUser
+  ): Observable<PartnerLocationStorageItem[]> {
+    return this.partnerLocationStorageItemService.filterPartnerLocationStorageItems(
+      queryItemDto,
+      user
+    )
+  }
+
+  getPartnerLocationStorageItem(id: number, user: JwtUser): Observable<PartnerLocationStorageItem> {
+    return this.partnerLocationStorageItemService.getPartnerLocationStorageItem(id, user)
+  }
+
+  filterNotifications(
+    queryNotificationDto: QueryNotificationDto,
+    user: JwtUser
+  ): Observable<PaginatedResult<Notification>> {
+    return this.notificationsService.filterNotifications(queryNotificationDto, user)
+  }
+
+  getNotification(id: number, user: JwtUser): Observable<Notification> {
+    return this.notificationsService.getNotification(id, user)
+  }
+
+  updateNotification(
+    id: number,
+    updateNotificationDto: UpdateNotificationDto,
+    user: JwtUser
+  ): Observable<Notification> {
+    return this.notificationsService.updateNotification(id, updateNotificationDto, user)
+  }
+
+  filterInboundNotices(
+    queryDto: QueryInboundNoticeDto,
+    user: JwtUser
+  ): Observable<PaginatedResult<InboundNotice>> {
+    return this.inboundNoticesService.filterInboundNotices(queryDto, user)
+  }
+
+  getInboundNotice(id: number, user: JwtUser): Observable<InboundNotice> {
+    return this.inboundNoticesService.getInboundNotice(id, user)
+  }
+
+  createInboundNotice(createDto: CreateInboundNoticeDto, user: JwtUser): Observable<InboundNotice> {
+    ; (createDto.inboundNoticeHistories || []).map((historyObj) =>
+      this.setHistoryTimestamps(historyObj, {
+        shopCreatedAt: historyObj.shopCreatedAt || new Date()
+      })
+    )
+    return this.inboundNoticesService.createInboundNotice(createDto, user)
+  }
+
+  updateInboundNotice(
+    id: number,
+    updateDto: UpdateInboundNoticeDto,
+    user: JwtUser
+  ): Observable<any> {
+    return this.inboundNoticesService.updateInboundNotice(id, updateDto, user)
+  }
+
+  filterInboundNoticeItems(
+    queryDto: QueryInboundNoticeItemDto,
+    user: JwtUser
+  ): Observable<PaginatedResult<InboundNoticeItem>> {
+    return this.inboundNoticesService.filterInboundNoticeItems(queryDto, user)
+  }
+
+  getInboundNoticeItem(id: number, user: JwtUser): Observable<InboundNoticeItem> {
+    return this.inboundNoticesService.getInboundNoticeItem(id, user)
+  }
+
+  createInboundNoticeItem(
+    createDto: CreateInboundNoticeItemDto,
+    user: JwtUser
+  ): Observable<InboundNoticeItem> {
+    return this.inboundNoticesService.createInboundNoticeItem(createDto, user)
+  }
+
+  updateInboundNoticeItem(
+    id: number,
+    updateDto: UpdateInboundNoticeItemDto,
+    user: JwtUser
+  ): Observable<any> {
+    return this.inboundNoticesService.updateInboundNoticeItem(id, updateDto, user)
+  }
+
+  filterInboundNoticeHistories(
+    queryDto: QueryInboundNoticeHistoryDto,
+    user: JwtUser
+  ): Observable<PaginatedResult<InboundNoticeHistory>> {
+    return this.inboundNoticesService.filterInboundNoticeHistories(queryDto, user)
+  }
+
+  getInboundNoticeHistory(id: number, user: JwtUser): Observable<InboundNoticeHistory> {
+    return this.inboundNoticesService.getInboundNoticeHistory(id, user)
+  }
+
+  updateInboundNoticeHistory(
+    id: number,
+    updateDto: UpdateInboundNoticeHistoryDto,
+    user: JwtUser
+  ): Observable<any> {
+    this.setHistoryTimestamps(updateDto, { shopUpdatedAt: updateDto.shopUpdatedAt || new Date() })
+    return this.inboundNoticesService.updateInboundNoticeHistory(id, updateDto, user)
+  }
+
+  setHistoryTimestamps(
+    historyObject: any,
+    modifyParams: { shopCreatedAt?: Date; shopUpdatedAt?: Date; wmsCreatedAt?: Date }
+  ) {
+    historyObject.source = OrgType.Shop
+    delete historyObject.wmsCreatedAt
+    delete historyObject.wmsUpdatedAt
+
+    if (modifyParams.wmsCreatedAt) {
+      historyObject.wmsCreatedAt = modifyParams.wmsCreatedAt
+    }
+
+    if (modifyParams.shopCreatedAt) {
+      historyObject.shopCreatedAt = modifyParams.shopCreatedAt
+    }
+    if (modifyParams.shopUpdatedAt) {
+      historyObject.shopUpdatedAt = modifyParams.shopUpdatedAt
+    }
+  }
+
+  syncShopInventoryTimestamps(
+    inventoryItemDto: CreateInventoryItemDto | UpdateInventoryItemDto
+  ): void {
+    inventoryItemDto.shopSyncedAt = inventoryItemDto.shopSyncedAt || new Date()
+    inventoryItemDto.wmsSyncedAt = undefined
+  }
+
+  getInboundReceipt(id: number, user: JwtUser): Observable<InboundReceipt> {
+    return this.inboundReceiptsService.getInboundReceipt(id, user)
+  }
+
+  filterInboundReceipts(
+    queryDto: QueryInboundReceiptDto,
+    user: JwtUser
+  ): Observable<PaginatedResult<InboundReceipt>> {
+    return this.inboundReceiptsService.filterInboundReceipts(queryDto, user)
+  }
+
+  getInboundReceiptItem(id: number, user: JwtUser): Observable<InboundReceiptItem> {
+    return this.inboundReceiptsService.getInboundReceiptItem(id, user)
+  }
+
+  filterInboundReceiptItems(
+    queryDto: QueryInboundReceiptItemDto,
+    user: JwtUser
+  ): Observable<PaginatedResult<InboundReceiptItem>> {
+    return this.inboundReceiptsService.filterInboundReceiptItems(queryDto, user)
+  }
+
+  getInventoryBundle(id: number, user: JwtUser): Observable<InventoryBundle> {
+    return this.inventoryBundlesService.getInventoryBundle(id, user)
+  }
+
+  filterInventoryBundles(
+    queryDto: QueryInventoryBundleDto,
+    user: JwtUser
+  ): Observable<PaginatedResult<InventoryBundle>> {
+    return this.inventoryBundlesService.filterInventoryBundles(queryDto, user)
+  }
+
+  createInventoryBundle(
+    createDto: CreateInventoryBundleDto,
+    user: JwtUser
+  ): Observable<InventoryBundle> {
+    return this.inventoryBundlesService.createInventoryBundle(createDto, user)
+  }
+
+  updateInventoryBundle(
+    id: number,
+    updateDto: UpdateInventoryBundleDto,
+    user: JwtUser
+  ): Observable<any> {
+    return this.inventoryBundlesService.updateInventoryBundle(id, updateDto, user)
+  }
+
+  removeInventoryBundle(id: number, user: JwtUser): Observable<any> {
+    return this.inventoryBundlesService.removeInventoryBundle(id, user)
+  }
+
+  getInventoryBundlesByBundleSkuImplementation(
+    bundleSkuImplementationCsv: string,
+    user: JwtUser
+  ): Observable<InventoryBundle[]> {
+    return this.inventoryBundlesService.getInventoryBundlesByBundleSkuImplementation(
+      bundleSkuImplementationCsv,
+      user
+    )
+  }
+
+  getInventoryLevelSourceItem(id: number, user: JwtUser): Observable<InventoryLevelSource> {
+    return this.inventoryLevelSourceService.getInventoryLevelSource(id, user)
+  }
+
+  filterInventoryLevelSourceItems(
+    queryDto: QueryInventoryLevelSourceDto,
+    user: JwtUser
+  ): Observable<PaginatedResult<InventoryLevelSource>> {
+    return this.inventoryLevelSourceService.filterInventoryLevelSources(queryDto, user)
+  }
+
+  getShipsWith(id: number, user: JwtUser): Observable<ShipsWith> {
+    return this.shipsWithService.getShipsWith(id, user)
+  }
+
+  filterShipsWith(
+    queryDto: QueryShipsWithDto,
+    user: JwtUser
+  ): Observable<PaginatedResult<ShipsWith>> {
+    return this.shipsWithService.filterShipsWith(queryDto, user)
+  }
+
+  createShipsWith(createDto: CreateShipsWithDto, user: JwtUser): Observable<ShipsWith> {
+    return this.shipsWithService.createShipsWith(createDto, user)
+  }
+
+  updateShipsWith(id: number, updateDto: UpdateShipsWithDto, user: JwtUser): Observable<any> {
+    return this.shipsWithService.updateShipsWith(id, updateDto, user)
+  }
+
+  deleteShipsWith(id: number, user: JwtUser): Observable<any> {
+    return this.shipsWithService.deleteShipsWith(id, user)
+  }
+
+  getTracking(id: number, user: JwtUser): Observable<Tracking> {
+    return this.trackingsService.getTracking(id, user)
+  }
+
+  filterTracking(queryDto: QueryTrackingDto, user: JwtUser): Observable<PaginatedResult<Tracking>> {
+    return this.trackingsService.filterTrackings(queryDto, user)
+  }
+
+  createTracking(createDto: CreateTrackingDto, user: JwtUser): Observable<Tracking> {
+    return this.trackingsService.createTracking(createDto, user)
+  }
+
+  updateTracking(id: number, updateDto: UpdateTrackingDto, user: JwtUser): Observable<any> {
+    return this.trackingsService.updateTracking(id, updateDto, user)
+  }
+
+  getTrackingMapByCode(
+    trackingCode: string,
+    user: JwtUser
+  ): Observable<Record<string, Tracking[]>> {
+    return this.trackingsService.getTrackingMapByCode(trackingCode, user)
+  }
+
+  filterRefundOrders(
+    queryRefundOrderDto: QueryRefundOrderDto,
+    user: JwtUser
+  ): Observable<PaginatedResult<RefundOrder>> {
+    return this.refundOrdersService.filterRefundOrders(queryRefundOrderDto, user)
+  }
+
+  getRefundOrder(id: number, user: JwtUser): Observable<RefundOrder> {
+    return this.refundOrdersService.getRefundOrder(id, user)
+  }
+
+  filterRefundOrderItems(
+    queryRefundOrderItemDto: QueryRefundOrderItemDto,
+    user: JwtUser
+  ): Observable<PaginatedResult<RefundOrderItem>> {
+    return this.refundOrdersService.filterRefundOrderItems(queryRefundOrderItemDto, user)
+  }
+
+  getRefundOrderItem(id: number, user: JwtUser): Observable<RefundOrderItem> {
+    return this.refundOrdersService.getRefundOrderItem(id, user)
+  }
+
+  calculateRefundOrder(
+    refundOrderDto: CalculateRefundOrderDto,
+    user: JwtUser
+  ): Promise<CalculateRefundOrderResponseDto> {
+    return this.shopConnectorsService.calculateRefundOrder(refundOrderDto)
+  }
+
+  createRefundOrder(
+    refundOrderDto: CalculateRefundOrderResponseDto,
+    user: JwtUser
+  ): Promise<RefundOrder> {
+    return this.shopConnectorsService.createRefundOrder(refundOrderDto)
+  }
+
+  filterReturnReasons(
+    queryReturnReasonDto: QueryReturnReasonDto,
+    user: JwtUser
+  ): Observable<PaginatedResult<ReturnReason>> {
+    return this.returnReasonService.filterReturnReason(queryReturnReasonDto, user)
+  }
+
+  getReturnReason(id: number, user: JwtUser): Observable<ReturnReason> {
+    return this.returnReasonService.getReturnReason(id, user)
+  }
+
+  createReturnReason(createDto: CreateReturnReasonDto, user: JwtUser): Observable<ReturnReason> {
+    return this.returnReasonService.createReturnReason(createDto, user)
+  }
+
+  updateReturnReason(id: number, updateDto: UpdateReturnReasonDto, user: JwtUser): Observable<any> {
+    return this.returnReasonService.updateReturnReason(id, updateDto, user)
+  }
+
+  deleteReturnReason(id: number, user: JwtUser): Observable<ReturnReason> {
+    return this.returnReasonService.deleteReturnReason(id, user)
+  }
+
+  filterReturnSteps(
+    queryReturnStepsDto: QueryReturnStepsDto,
+    user: JwtUser
+  ): Observable<PaginatedResult<ReturnSteps>> {
+    return this.returnStepsService.filterReturnSteps(queryReturnStepsDto, user)
+  }
+
+  getReturnStep(id: number, user: JwtUser): Observable<ReturnSteps> {
+    return this.returnStepsService.getReturnSteps(id, user)
+  }
+
+  createReturnStep(createDto: CreateReturnStepsDto, user: JwtUser): Observable<ReturnSteps> {
+    return this.returnStepsService.createReturnSteps(createDto, user)
+  }
+
+  updateReturnStep(id: number, updateDto: UpdateReturnStepsDto, user: JwtUser): Observable<any> {
+    return this.returnStepsService.updateReturnSteps(id, updateDto, user)
+  }
+
+  deleteReturnStep(id: number, user: JwtUser): Observable<any> {
+    return this.returnStepsService.deleteReturnSteps(id, user)
+  }
+
+  sendInventoryItemsToWms(
+    reEmitEventDto: InventoryItemReEmitEventDto,
+    user: JwtUser
+  ): Observable<any> {
+    return this.inventoryItemService.reEmitEvent(reEmitEventDto, user)
+  }
+
+  updateInventoryItemActiveStatus(
+    data: UpdateInventoryItemActiveStatusDto,
+    id: number,
+    user: JwtUser
+  ): Observable<any> {
+    return this.inventoryItemService.updateInventoryItemActiveStatus(data, id, user)
+  }
+
+  async getInventoryItemShopStockLevels(
+    inventoryItemId: number,
+    user: JwtUser
+  ): Promise<GetInventoryItemShopStockLevelsResponseDto> {
+    return this.shopConnectorsService.getInventoryItemShopStockLevels(inventoryItemId, user)
+  }
+
+  filterFreeReturns(
+    queryFreeReturnDto: QueryFreeReturnDto,
+    user: JwtUser
+  ): Observable<PaginatedResult<FreeReturn>> {
+    return this.freeReturnsService.filterFreeReturns(queryFreeReturnDto, user)
+  }
+
+  getFreeReturn(id: number, user: JwtUser): Observable<FreeReturn> {
+    return this.freeReturnsService.getFreeReturn(id, user)
+  }
+
+  createFreeReturn(createDto: CreateFreeReturnDto, user: JwtUser): Observable<FreeReturn> {
+    return this.freeReturnsService.createFreeReturn(createDto, user)
+  }
+
+  createFreeReturnFromOptions(
+    createFreeReturnsFromOptionsDto: CreateFreeReturnsFromOptionsDto,
+    user: JwtUser
+  ): Observable<any> {
+    return this.freeReturnsService.createFreeReturnFromOptions(
+      createFreeReturnsFromOptionsDto,
+      user
+    )
+  }
+
+  updateFreeReturn(id: number, updateDto: UpdateFreeReturnDto, user: JwtUser): Observable<any> {
+    return this.freeReturnsService.updateFreeReturn(id, updateDto, user)
+  }
+
+  getShippingMethod(queryFieldMapper: QueryFieldMapper): Promise<FieldMapper[]> {
+    return this.shopConnectorsService.getShippingMethod(queryFieldMapper)
+  }
+
+  filterOrderTags(
+    query: QueryOrderTagDto,
+    user: JwtUser
+  ): Observable<PaginatedResult<OrderTagEntity>> {
+    return this.ordersService.filterOrderTags(query, user)
+  }
+
+  getOrderTag(id: number, user: JwtUser): Observable<OrderTagEntity> {
+    return this.ordersService.getOrderTag(id, user)
+  }
+
+  createOrderTag(createOrderTagDto: CreateOrderTagDto, user: JwtUser): Observable<OrderTagEntity> {
+    return this.ordersService.createOrderTag(createOrderTagDto, user)
+  }
+
+  searchOrderTags(tagName: string, user: JwtUser): Observable<Array<OrderTagEntity>> {
+    return this.ordersService.searchOrderTags(tagName, user)
+  }
+
+  createConnectionAuth(
+    createConnectionAuthDto: CreateConnectionAuthDto,
+    user?: JwtUser
+  ): Promise<ConnectionAuth> {
+    return this.connectionAuthsService.create(createConnectionAuthDto, user)
+  }
+
+  createShopifyAppConnectionAuth(
+    createShopifyIntregrationDto: CreateShopifyIntregrationDto,
+    user?: JwtUser
+  ): Promise<ConnectionAuth> {
+    return this.shopifyService.createShopIntegration(createShopifyIntregrationDto, user)
+  }
+
+  async handleShopifyWebhook(data) {
+    return await this.shopifyService.handleShopifyWebhook(data)
+  }
+}
